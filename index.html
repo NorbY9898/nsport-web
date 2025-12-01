@@ -24,7 +24,7 @@ body{
   top:0;
   bottom:0;
   width:120px;
-  display:none;               /* alapból rejtve, csak desktopon mutatjuk */
+  display:none;
   align-items:center;
   justify-content:center;
   padding:10px 0;
@@ -52,13 +52,11 @@ body{
   object-fit:cover;
 }
 
-/* csak nagyobb képernyőn legyenek oldalsó bannerek */
 @media (min-width: 1100px){
   .side-banner{ display:flex; }
-  .page{ margin:0 140px; }   /* hogy ne lógjon a központi rész a bannerekre */
+  .page{ margin:0 140px; }
 }
 
-/* KÖZPONTI TARTALOM */
 .page{
   width:100%;
   max-width:900px;
@@ -149,7 +147,7 @@ body{
   font-weight:bold;
 }
 
-/* PDF LETÖLTÉS */
+/* PDF */
 .btn-download{
   display:inline-block;
   margin-top:10px;
@@ -208,14 +206,14 @@ body{
 
 <body>
 
-<!-- BAL OLDALI VÁLTAKOZÓ BANNER -->
+<!-- BAL OLDALI BANNER -->
 <div class="side-banner side-left">
   <div class="side-banner-inner">
     <img id="leftBannerImg" src="left1.jpg" alt="Promo stânga">
   </div>
 </div>
 
-<!-- JOBB OLDALI VÁLTAKOZÓ BANNER -->
+<!-- JOBB OLDALI BANNER -->
 <div class="side-banner side-right">
   <div class="side-banner-inner">
     <img id="rightBannerImg" src="right1.jpg" alt="Promo dreapta">
@@ -235,11 +233,11 @@ body{
     </p>
   </div>
 
-  <!-- PDF CATALOG -->
+  <!-- PDF -->
   <div class="catalog-card">
     <h3>Catalog cupe & trofee</h3>
     <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
-      Descarcă în format PDF catalogul complet cu modele de cupe personalizabile.
+      Descarcă catalogul complet în format PDF.
     </p>
     <a class="btn-download" href="catalog-cupe.pdf" download>
       📥 Descarcă catalogul (PDF)
@@ -262,7 +260,7 @@ body{
       <div class="price-row">
         <span class="price">129 RON</span>
         <a class="btn-whatsapp"
-           href="https://wa.me/40755800400?text=Salut,%20sunt%20interesat%20de%20Pachetul%20de%20regenerare."
+           href="https://wa.me/40740901573?text=Salut,%20sunt%20interesat%20de%20Pachetul%20de%20regenerare."
            target="_blank">WhatsApp</a>
       </div>
     </div>
@@ -279,7 +277,7 @@ body{
       <div class="price-row">
         <span class="price">99 RON</span>
         <a class="btn-whatsapp"
-           href="https://wa.me/40755800400?text=Salut,%20vreau%20tricouri%20personalizate."
+           href="https://wa.me/40740901573?text=Salut,%20vreau%20tricouri%20personalizate."
            target="_blank">WhatsApp</a>
       </div>
     </div>
@@ -296,7 +294,7 @@ body{
       <div class="price-row">
         <span class="price">89 RON</span>
         <a class="btn-whatsapp"
-           href="https://wa.me/40755800400?text=Salut,%20vreau%20Starter%20pack%20accesorii."
+           href="https://wa.me/40740901573?text=Salut,%20vreau%20Starter%20pack%20accesorii."
            target="_blank">WhatsApp</a>
       </div>
     </div>
@@ -310,28 +308,17 @@ body{
       <a class="contact-btn" href="tel:+40740901573">📞 Sună-ne</a>
       <a class="contact-btn" href="mailto:steliannagy@yahoo.com">✉️ Email</a>
       <a class="contact-btn"
-         href="https://wa.me/40755800400?text=Salut,%20vreau%20informații%20despre%20produsele%20Nsport."
+         href="https://wa.me/40740901573?text=Salut,%20vreau%20informații%20despre%20produsele%20Nsport."
          target="_blank">💬 WhatsApp direct</a>
     </div>
   </div>
 
 </div>
 
-<!-- KÉPEK VÁLTÁSA 5 MÁSODPERCENKÉNT -->
+<!-- 5 MP – KÉPVÁLTÁS -->
 <script>
-// BAL OLDAL – KÉPLISTA (IDE ÍRD A SAJÁT KÉPEIDET)
-const leftImages = [
-  'left1.jpg',
-  'left2.jpg',
-  'left3.jpg'
-];
-
-// JOBB OLDAL – KÉPLISTA
-const rightImages = [
-  'right1.jpg',
-  'right2.jpg',
-  'right3.jpg'
-];
+const leftImages = ['left1.jpg','left2.jpg','left3.jpg'];
+const rightImages = ['right1.jpg','right2.jpg','right3.jpg'];
 
 let leftIndex = 0;
 let rightIndex = 0;
@@ -339,16 +326,11 @@ let rightIndex = 0;
 const leftImgEl = document.getElementById('leftBannerImg');
 const rightImgEl = document.getElementById('rightBannerImg');
 
-// 5 másodpercenként vált
 setInterval(() => {
-  if(leftImages.length > 0){
-    leftIndex = (leftIndex + 1) % leftImages.length;
-    leftImgEl.src = leftImages[leftIndex];
-  }
-  if(rightImages.length > 0){
-    rightIndex = (rightIndex + 1) % rightImages.length;
-    rightImgEl.src = rightImages[rightIndex];
-  }
+  leftIndex = (leftIndex + 1) % leftImages.length;
+  rightIndex = (rightIndex + 1) % rightImages.length;
+  leftImgEl.src = leftImages[leftIndex];
+  rightImgEl.src = rightImages[rightIndex];
 }, 5000);
 </script>
 

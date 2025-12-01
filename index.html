@@ -6,29 +6,32 @@
 <title>Nsport - Accesorii sportive & Produse personalizate</title>
 
 <style>
-body{
+*{
+  box-sizing:border-box;
   margin:0;
-  background:#000;
-  color:#fff;
+  padding:0;
   font-family:Arial, sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  min-height:100vh;
-  position:relative;
-  overflow-x:hidden; /* hogy a széles bannerek ne okozzanak vízszintes scrollt */
 }
 
-/* OLDALSÓ BANNEREK – TELJES MAGASSÁG, SZÉLES SÁV – CSAK NAGYOBB KIJELZŐN */
+body{
+  background:#000;
+  color:#fff;
+  min-height:100vh;
+  position:relative;
+}
+
+/* ---------- OLDALSÓ BANNEREK ---------- */
+/* csak nagyobb kijelzőn, fixen a széleken */
+
 .side-banner{
   position:fixed;
   top:0;
   bottom:0;
-  width:280px;                 /* szélesebb sáv */
+  width:320px;                /* NAGYOBB SZÉLESSÉG */
   display:none;
-  align-items:stretch;         /* teljes magasság */
+  align-items:center;
   justify-content:center;
-  padding:0;
+  padding:20px 0;
   box-sizing:border-box;
   z-index:1;
 }
@@ -38,43 +41,37 @@ body{
 
 .side-banner-inner{
   width:100%;
-  height:100%;                 /* TELJES ÉRTÉKESÍTÉSI MAGASSÁG :) */
-  border-radius:0;             /* hosszú panel, ne legyen kapszula */
+  max-width:300px;            /* NAGYOBB KÉP MÉRET */
+  border-radius:18px;
   overflow:hidden;
   background:#111;
-  box-shadow:0 0 30px rgba(255,0,0,0.8);
-  border-left:3px solid red;
-  border-right:3px solid red;
-}
-
-.side-left .side-banner-inner{
-  border-right:none;
-}
-.side-right .side-banner-inner{
-  border-left:none;
+  border:2px solid red;
+  box-shadow:0 0 20px rgba(255,0,0,0.7);
 }
 
 .side-banner-inner img{
   width:100%;
   height:100%;
   display:block;
-  object-fit:cover;            /* végig kitölti a csíkot */
+  object-fit:cover;
 }
 
-/* csak nagyobb képernyőn legyenek oldalsó bannerek */
-@media (min-width: 1200px){
+/* csak NAGY monitoron mutassuk a bannereket */
+@media (min-width: 1300px){
   .side-banner{ display:flex; }
-  .page{ margin:0 300px; }     /* több hely a széleken a széles bannerekhez */
 }
 
-/* KÖZPONTI TARTALOM */
+/* ---------- KÖZPONTI TARTALOM ---------- */
+
 .page{
   width:100%;
   max-width:900px;
   padding:20px 15px 40px;
+  margin:0 auto;              /* középre igazítva */
 }
 
 /* HERO */
+
 .card-hero{
   width:100%;
   text-align:center;
@@ -83,6 +80,7 @@ body{
   border-radius:18px;
   border:3px solid red;
   animation: alarm 1.2s infinite;
+  box-shadow:0 0 18px rgba(255,0,0,0.6);
 }
 
 @keyframes alarm{
@@ -99,7 +97,11 @@ body{
   border-radius:10px;
   overflow:hidden;
 }
-.logo img{width:100%;height:100%;object-fit:contain;}
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
 
 .hero-text{
   font-size:0.9rem;
@@ -113,52 +115,20 @@ body{
   text-transform:uppercase;
 }
 
-/* PRODUSE */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
+/* ---------- PDF KATALÓGUS KÁRTYA ---------- */
 
-.product-card{
+.catalog-card{
+  margin-top:25px;
+  padding:18px;
   background:#111;
-  border-radius:14px;
-  padding:16px;
-  border:2px solid #550000;
-  box-shadow:0 0 10px rgba(255,0,0,0.25);
-  transition:.18s;
-}
-.product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 18px rgba(255,0,0,0.6);
+  border-radius:16px;
+  border:2px solid red;
+  box-shadow:0 0 15px rgba(255,0,0,0.5);
+  text-align:center;
 }
 
-.product-title{font-weight:bold;font-size:1.05rem;}
-.product-desc{font-size:.85rem;color:#ddd;}
+/* PDF LETÖLTŐ GOMB */
 
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.tag{font-size:.7rem;padding:3px 7px;border-radius:999px;border:1px solid red;color:#ffbbbb;}
-
-.price-row{
-  margin-top:10px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.price{font-weight:bold;color:#ff4d4d;}
-
-/* BUTOANE */
-.btn-whatsapp{
-  padding:7px 12px;
-  border-radius:999px;
-  background:#25D366;
-  color:#111;
-  text-decoration:none;
-  font-size:.85rem;
-  font-weight:bold;
-}
-
-/* PDF LETÖLTÉS */
 .btn-download{
   display:inline-block;
   margin-top:10px;
@@ -175,17 +145,76 @@ body{
   box-shadow:0 0 10px rgba(255,204,0,0.8);
 }
 
-.catalog-card{
-  margin-top:25px;
-  padding:18px;
-  background:#111;
-  border-radius:16px;
-  border:2px solid red;
-  box-shadow:0 0 15px rgba(255,0,0,0.5);
-  text-align:center;
+/* ---------- TERMÉK LISTA ---------- */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-top:10px;
 }
 
-/* CONTACT */
+.product-card{
+  background:#111;
+  border-radius:14px;
+  padding:16px;
+  border:2px solid #550000;
+  box-shadow:0 0 10px rgba(255,0,0,0.25);
+  transition:.18s;
+}
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 18px rgba(255,0,0,0.6);
+}
+
+.product-title{
+  font-weight:bold;
+  font-size:1.05rem;
+}
+.product-desc{
+  font-size:.85rem;
+  color:#ddd;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:6px;
+}
+.tag{
+  font-size:.7rem;
+  padding:3px 7px;
+  border-radius:999px;
+  border:1px solid red;
+  color:#ffbbbb;
+}
+
+.price-row{
+  margin-top:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.price{
+  font-weight:bold;
+  color:#ff4d4d;
+}
+
+/* WhatsApp gomb a termékkártyán */
+
+.btn-whatsapp{
+  padding:7px 12px;
+  border-radius:999px;
+  background:#25D366;
+  color:#111;
+  text-decoration:none;
+  font-size:.85rem;
+  font-weight:bold;
+}
+
+/* ---------- CONTACT ---------- */
+
 .contact-card{
   margin-top:25px;
   padding:18px;
@@ -217,23 +246,24 @@ body{
 
 <body>
 
-<!-- BAL OLDALI VÁLTAKOZÓ BANNER -->
+<!-- BAL OLDALI BANNER -->
 <div class="side-banner side-left">
   <div class="side-banner-inner">
     <img id="leftBannerImg" src="left1.jpg" alt="Promo stânga">
   </div>
 </div>
 
-<!-- JOBB OLDALI VÁLTAKOZÓ BANNER -->
+<!-- JOBB OLDALI BANNER -->
 <div class="side-banner side-right">
   <div class="side-banner-inner">
     <img id="rightBannerImg" src="right1.jpg" alt="Promo dreapta">
   </div>
 </div>
 
+<!-- KÖZÉPSŐ TARTALOM -->
 <div class="page">
 
-  <!-- HERO -->
+  <!-- HERO NSPORT -->
   <div class="card-hero">
     <div class="logo">
       <img src="logo.png" alt="Nsport logo">
@@ -250,6 +280,7 @@ body{
     <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
       Descarcă în format PDF catalogul complet cu modele de cupe personalizabile.
     </p>
+    <!-- IDE RAKD FEL GITHUBRA A PDF-ET: catalog-cupe.pdf -->
     <a class="btn-download" href="catalog-cupe.pdf" download>
       📥 Descarcă catalogul (PDF)
     </a>
@@ -259,6 +290,7 @@ body{
 
   <div class="products">
 
+    <!-- PRODUS 1 -->
     <div class="product-card">
       <div class="product-title">Pachet regenerare după antrenament</div>
       <div class="product-desc">
@@ -276,10 +308,11 @@ body{
       </div>
     </div>
 
+    <!-- PRODUS 2 -->
     <div class="product-card">
       <div class="product-title">Tricouri personalizate</div>
       <div class="product-desc">
-        Tricouri cu nume, număr și logo.
+        Tricouri cu nume, număr și logo pentru echipa ta.
       </div>
       <div class="tags">
         <span class="tag">Personalizat</span>
@@ -288,15 +321,16 @@ body{
       <div class="price-row">
         <span class="price">99 RON</span>
         <a class="btn-whatsapp"
-           href="https://wa.me/40740901573?text=Salut,%20vreau%20tricouri%20personalizate."
+           href="https://wa.me/40740901573?text=Salut,%20vreau%20tricouri%20personalizate%20pentru%20echipă."
            target="_blank">WhatsApp</a>
       </div>
     </div>
 
+    <!-- PRODUS 3 -->
     <div class="product-card">
       <div class="product-title">Starter pack accesorii sport</div>
       <div class="product-desc">
-        Shaker, bidon, bandaje și prosop.
+        Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.
       </div>
       <div class="tags">
         <span class="tag">Cadou</span>
@@ -305,7 +339,7 @@ body{
       <div class="price-row">
         <span class="price">89 RON</span>
         <a class="btn-whatsapp"
-           href="https://wa.me/40740901573?text=Salut,%20vreau%20Starter%20pack%20accesorii."
+           href="https://wa.me/40740901573?text=Salut,%20vreau%20Starter%20pack%20accesorii%20sport."
            target="_blank">WhatsApp</a>
       </div>
     </div>
@@ -326,7 +360,7 @@ body{
 
 </div>
 
-<!-- KÉPEK VÁLTÁSA 5 MÁSODPERCENKÉNT -->
+<!-- ---------- OLDALSÓ KÉPEK VÁLTÁSA 5 MP-KÉNT ---------- -->
 <script>
 const leftImages = ['left1.jpg','left2.jpg','left3.jpg'];
 const rightImages = ['right1.jpg','right2.jpg','right3.jpg'];
@@ -338,10 +372,14 @@ const leftImgEl = document.getElementById('leftBannerImg');
 const rightImgEl = document.getElementById('rightBannerImg');
 
 setInterval(() => {
-  leftIndex = (leftIndex + 1) % leftImages.length;
-  rightIndex = (rightIndex + 1) % rightImages.length;
-  leftImgEl.src = leftImages[leftIndex];
-  rightImgEl.src = rightImages[rightIndex];
+  if (leftImages.length > 0){
+    leftIndex = (leftIndex + 1) % leftImages.length;
+    leftImgEl.src = leftImages[leftIndex];
+  }
+  if (rightImages.length > 0){
+    rightIndex = (rightIndex + 1) % rightImages.length;
+    rightImgEl.src = rightImages[rightIndex];
+  }
 }, 5000);
 </script>
 

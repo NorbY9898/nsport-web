@@ -16,18 +16,19 @@ body{
   align-items:flex-start;
   min-height:100vh;
   position:relative;
+  overflow-x:hidden; /* hogy a széles bannerek ne okozzanak vízszintes scrollt */
 }
 
-/* OLDALSÓ BANNEREK – CSAK NAGYOBB KIJELZŐN */
+/* OLDALSÓ BANNEREK – TELJES MAGASSÁG, SZÉLES SÁV – CSAK NAGYOBB KIJELZŐN */
 .side-banner{
   position:fixed;
   top:0;
   bottom:0;
-  width:220px;                 /* NAGYOBB SZÉLESSÉG */
+  width:280px;                 /* szélesebb sáv */
   display:none;
-  align-items:center;
+  align-items:stretch;         /* teljes magasság */
   justify-content:center;
-  padding:20px 0;
+  padding:0;
   box-sizing:border-box;
   z-index:1;
 }
@@ -37,25 +38,33 @@ body{
 
 .side-banner-inner{
   width:100%;
-  max-width:210px;             /* nagyobb doboz */
-  border-radius:18px;
+  height:100%;                 /* TELJES ÉRTÉKESÍTÉSI MAGASSÁG :) */
+  border-radius:0;             /* hosszú panel, ne legyen kapszula */
   overflow:hidden;
   background:#111;
-  border:2px solid red;
-  box-shadow:0 0 20px rgba(255,0,0,0.7);
+  box-shadow:0 0 30px rgba(255,0,0,0.8);
+  border-left:3px solid red;
+  border-right:3px solid red;
+}
+
+.side-left .side-banner-inner{
+  border-right:none;
+}
+.side-right .side-banner-inner{
+  border-left:none;
 }
 
 .side-banner-inner img{
   width:100%;
   height:100%;
   display:block;
-  object-fit:cover;            /* kép kitölti a dobozt */
+  object-fit:cover;            /* végig kitölti a csíkot */
 }
 
 /* csak nagyobb képernyőn legyenek oldalsó bannerek */
 @media (min-width: 1200px){
   .side-banner{ display:flex; }
-  .page{ margin:0 240px; }     /* több hely a széleken a nagyobb bannereknek */
+  .page{ margin:0 300px; }     /* több hely a széleken a széles bannerekhez */
 }
 
 /* KÖZPONTI TARTALOM */

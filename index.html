@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nsport - Accesorii sportive & Produse personalizate</title>
 
 <style>
@@ -20,14 +20,13 @@ body{
   position:relative;
 }
 
-/* ---------- OLDALSÓ BANNEREK ---------- */
+/* ---------- OLDALSÓ BANNEREK (2 KÉP EGYMÁS ALATT / oldalanként) ---------- */
 /* csak nagyobb kijelzőn, fixen a széleken */
-
 .side-banner{
   position:fixed;
   top:0;
   bottom:0;
-  width:320px;                /* NAGYOBB SZÉLESSÉG */
+  width:320px;
   display:none;
   align-items:center;
   justify-content:center;
@@ -35,13 +34,24 @@ body{
   box-sizing:border-box;
   z-index:1;
 }
-
 .side-left{ left:0; }
 .side-right{ right:0; }
 
+/* 2 kártya egymás alatt */
 .side-banner-inner{
   width:100%;
-  max-width:300px;            /* NAGYOBB KÉP MÉRET */
+  max-width:300px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding-top:10px; /* picit feljebb tolja a stack-et */
+}
+
+/* 1-1 kártya (ugyanaz a stílus, mint korábban) */
+.side-banner-card{
+  width:100%;
+  height:calc((100vh - 80px) / 2); /* 2 kép férjen el */
+  min-height:280px;
   border-radius:18px;
   overflow:hidden;
   background:#111;
@@ -49,7 +59,7 @@ body{
   box-shadow:0 0 20px rgba(255,0,0,0.7);
 }
 
-.side-banner-inner img{
+.side-banner-card img{
   width:100%;
   height:100%;
   display:block;
@@ -62,16 +72,14 @@ body{
 }
 
 /* ---------- KÖZPONTI TARTALOM ---------- */
-
 .page{
   width:100%;
   max-width:900px;
   padding:20px 15px 40px;
-  margin:0 auto;              /* középre igazítva */
+  margin:0 auto;
 }
 
 /* HERO */
-
 .card-hero{
   width:100%;
   text-align:center;
@@ -82,7 +90,6 @@ body{
   animation: alarm 1.2s infinite;
   box-shadow:0 0 18px rgba(255,0,0,0.6);
 }
-
 @keyframes alarm{
   0%{box-shadow:0 0 5px red;}
   50%{box-shadow:0 0 30px red;}
@@ -115,19 +122,22 @@ body{
   text-transform:uppercase;
 }
 
-/* ---------- PDF KATALÓGUS KÁRTYA ---------- */
+/* ---------- CATALOGS (3 DB) ---------- */
+.catalogs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+  margin-top:12px;
+}
 
 .catalog-card{
-  margin-top:25px;
   padding:18px;
   background:#111;
   border-radius:16px;
   border:2px solid red;
   box-shadow:0 0 15px rgba(255,0,0,0.5);
-  text-align:center;
+  text-align:left;
 }
-
-/* PDF LETÖLTŐ GOMB */
 
 .btn-download{
   display:inline-block;
@@ -146,7 +156,6 @@ body{
 }
 
 /* ---------- TERMÉK LISTA ---------- */
-
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -190,31 +199,30 @@ body{
   color:#ffbbbb;
 }
 
-.price-row{
-  margin-top:10px;
+/* Ár sor helyett: ajánlatkérés sor */
+.action-row{
+  margin-top:12px;
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   align-items:center;
 }
-.price{
-  font-weight:bold;
-  color:#ff4d4d;
-}
 
-/* WhatsApp gomb a termékkártyán */
-
-.btn-whatsapp{
-  padding:7px 12px;
+.btn-offer{
+  padding:8px 12px;
   border-radius:999px;
-  background:#25D366;
+  background:#ffcc00;
   color:#111;
   text-decoration:none;
   font-size:.85rem;
   font-weight:bold;
+  display:inline-block;
+}
+.btn-offer:hover{
+  background:#ffe066;
+  box-shadow:0 0 10px rgba(255,204,0,0.8);
 }
 
 /* ---------- CONTACT ---------- */
-
 .contact-card{
   margin-top:25px;
   padding:18px;
@@ -246,17 +254,41 @@ body{
 
 <body>
 
-<!-- BAL OLDALI BANNER -->
+<!-- ===========================
+     BAL OLDALI BANNER (2 kép)
+     =========================== -->
 <div class="side-banner side-left">
   <div class="side-banner-inner">
-    <img id="leftBannerImg" src="left1.jpg" alt="Promo stânga">
+
+    <div class="side-banner-card">
+      <!-- TODO: BAL FELSŐ KÉP (fájlnév a repo-ban) -->
+      <img id="leftBannerImg1" src="left_top.jpg" alt="Promo stânga sus">
+    </div>
+
+    <div class="side-banner-card">
+      <!-- TODO: BAL ALSÓ KÉP (fájlnév a repo-ban) -->
+      <img id="leftBannerImg2" src="left_bottom.jpg" alt="Promo stânga jos">
+    </div>
+
   </div>
 </div>
 
-<!-- JOBB OLDALI BANNER -->
+<!-- ===========================
+     JOBB OLDALI BANNER (2 kép)
+     =========================== -->
 <div class="side-banner side-right">
   <div class="side-banner-inner">
-    <img id="rightBannerImg" src="right1.jpg" alt="Promo dreapta">
+
+    <div class="side-banner-card">
+      <!-- TODO: JOBB FELSŐ KÉP (fájlnév a repo-ban) -->
+      <img id="rightBannerImg1" src="right_top.jpg" alt="Promo dreapta sus">
+    </div>
+
+    <div class="side-banner-card">
+      <!-- TODO: JOBB ALSÓ KÉP (fájlnév a repo-ban) -->
+      <img id="rightBannerImg2" src="right_bottom.jpg" alt="Promo dreapta jos">
+    </div>
+
   </div>
 </div>
 
@@ -266,6 +298,7 @@ body{
   <!-- HERO NSPORT -->
   <div class="card-hero">
     <div class="logo">
+      <!-- TODO: LOGÓ FÁJLNÉV (repo-ban) -->
       <img src="logo.png" alt="Nsport logo">
     </div>
     <h1>NSPORT</h1>
@@ -274,17 +307,67 @@ body{
     </p>
   </div>
 
-  <!-- PDF CATALOG -->
-  <div class="catalog-card">
-    <h3>Catalog cupe & trofee</h3>
-    <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
-      Descarcă în format PDF catalogul complet cu modele de cupe personalizabile.
-    </p>
-    <!-- IDE RAKD FEL GITHUBRA A PDF-ET: catalog-cupe.pdf -->
-    <a class="btn-download" href="catalog-cupe.pdf" download>
-      📥 Descarcă catalogul (PDF)
-    </a>
+  <!-- ========== 3 CATALOGS SECTION ========== -->
+  <h2 class="section-title">Cataloage PDF</h2>
+
+  <div class="catalogs">
+
+    <!-- CATALOG 1 -->
+    <div class="catalog-card">
+      <h3><!-- TODO: CATALOG_1_NAME -->Catalog cupe & trofee</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
+        <!-- TODO: CATALOG_1_DESC -->
+        Descarcă în format PDF catalogul complet.
+      </p>
+
+      <!-- IMPORTANT:
+           Google Drive direct download:
+           https://drive.google.com/uc?export=download&id=FILE_ID
+           -> csak az ID kell a linkből (a /d/ID/ rész).
+      -->
+
+      <!-- TODO: CATALOG_1_DRIVE_FILE_ID -->
+      <a class="btn-download"
+         href="https://drive.google.com/uc?export=download&id=1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa"
+         target="_blank" rel="noopener">
+        📥 Descarcă catalogul 1 (PDF)
+      </a>
+    </div>
+
+    <!-- CATALOG 2 -->
+    <div class="catalog-card">
+      <h3><!-- TODO: CATALOG_2_NAME -->Catalog echipamente sportive Brandul Patrick</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
+        <!-- TODO: CATALOG_2_DESC -->
+        Modele și opțiuni disponibile în PDF.
+      </p>
+
+      <!-- TODO: CATALOG_2_DRIVE_FILE_ID -->
+      <a class="btn-download"
+         href="https://drive.google.com/uc?export=download&id=1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH"
+         target="_blank" rel="noopener">
+        📥 Descarcă catalogul 2 (PDF)
+      </a>
+    </div>
+
+    <!-- CATALOG 3 -->
+    <div class="catalog-card">
+      <h3><!-- TODO: CATALOG_3_NAME -->Catalog produse sportive Brandul Joma</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
+        <!-- TODO: CATALOG_3_DESC -->
+        Modele și opțiuni disponibile în PDF.
+      </p>
+
+      <!-- TODO: CATALOG_3_DRIVE_FILE_ID -->
+      <a class="btn-download"
+         href="https://drive.google.com/uc?export=download&id=1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9"
+         target="_blank" rel="noopener">
+        📥 Descarcă catalogul 3 (PDF)
+      </a>
+    </div>
+
   </div>
+  <!-- ========== /3 CATALOGS SECTION ========== -->
 
   <h2 class="section-title">Produse recomandate</h2>
 
@@ -300,11 +383,13 @@ body{
         <span class="tag">Fitness</span>
         <span class="tag">Recuperare</span>
       </div>
-      <div class="price-row">
-        <span class="price">129 RON</span>
-        <a class="btn-whatsapp"
-           href="https://wa.me/40740901573?text=Salut,%20sunt%20interesat%20de%20Pachetul%20de%20regenerare."
-           target="_blank">WhatsApp</a>
+
+      <div class="action-row">
+        <!-- TODO: E-MAIL CÍM (ha változik) -->
+        <a class="btn-offer"
+           href="mailto:steliannagy@yahoo.com?subject=Cerere%20oferta%20-%20Pachet%20regenerare&body=Salut,%0D%0A%0D%0ASunt%20interesat%20de%20Pachet%20regenerare%20dup%C4%83%20antrenament.%0D%0A%0D%0ATe%20rog%20trimite-mi%20o%20ofert%C4%83%20%C8%99i%20detalii.%0D%0A%0D%0ANume:%20%0D%0ATelefon:%20%0D%0ALoca%C8%9Bie:%20">
+          ✉️ Cere ofertă (Email)
+        </a>
       </div>
     </div>
 
@@ -318,11 +403,12 @@ body{
         <span class="tag">Personalizat</span>
         <span class="tag">Echipe</span>
       </div>
-      <div class="price-row">
-        <span class="price">99 RON</span>
-        <a class="btn-whatsapp"
-           href="https://wa.me/40740901573?text=Salut,%20vreau%20tricouri%20personalizate%20pentru%20echipă."
-           target="_blank">WhatsApp</a>
+
+      <div class="action-row">
+        <a class="btn-offer"
+           href="mailto:steliannagy@yahoo.com?subject=Cerere%20oferta%20-%20Tricouri%20personalizate&body=Salut,%0D%0A%0D%0ASunt%20interesat%20de%20tricouri%20personalizate%20(pentru%20echip%C4%83).%0D%0A%0D%0ATe%20rog%20trimite-mi%20o%20ofert%C4%83%20%C8%99i%20detalii.%0D%0A%0D%0ANume:%20%0D%0ATelefon:%20%0D%0ACantitate:%20%0D%0A">
+          ✉️ Cere ofertă (Email)
+        </a>
       </div>
     </div>
 
@@ -336,11 +422,12 @@ body{
         <span class="tag">Cadou</span>
         <span class="tag">Începători</span>
       </div>
-      <div class="price-row">
-        <span class="price">89 RON</span>
-        <a class="btn-whatsapp"
-           href="https://wa.me/40740901573?text=Salut,%20vreau%20Starter%20pack%20accesorii%20sport."
-           target="_blank">WhatsApp</a>
+
+      <div class="action-row">
+        <a class="btn-offer"
+           href="mailto:steliannagy@yahoo.com?subject=Cerere%20oferta%20-%20Starter%20pack%20accesorii&body=Salut,%0D%0A%0D%0ASunt%20interesat%20de%20Starter%20pack%20accesorii%20sport.%0D%0A%0D%0ATe%20rog%20trimite-mi%20o%20ofert%C4%83%20%C8%99i%20detalii.%0D%0A%0D%0ANume:%20%0D%0ATelefon:%20%0D%0A">
+          ✉️ Cere ofertă (Email)
+        </a>
       </div>
     </div>
 
@@ -354,31 +441,83 @@ body{
       <a class="contact-btn" href="mailto:steliannagy@yahoo.com">✉️ Email</a>
       <a class="contact-btn"
          href="https://wa.me/40740901573?text=Salut,%20vreau%20informații%20despre%20produsele%20Nsport."
-         target="_blank">💬 WhatsApp direct</a>
+         target="_blank" rel="noopener">💬 WhatsApp direct</a>
     </div>
   </div>
 
 </div>
 
-<!-- ---------- OLDALSÓ KÉPEK VÁLTÁSA 5 MP-KÉNT ---------- -->
+<!-- ---------- OLDALSÓ KÉPEK (4 külön lista) VÁLTÁSA 5 MP-KÉNT ---------- -->
 <script>
-const leftImages = ['left1.jpg','left2.jpg','left3.jpg'];
-const rightImages = ['right1.jpg','right2.jpg','right3.jpg'];
+/*
+  Itt tudod beállítani, hogy a 4 “rublikában” milyen képek váltakozzanak.
+  A képek legyenek feltöltve a GitHub repo-ba (ugyanoda, ahol az index.html van),
+  vagy adj meg teljes URL-t.
 
-let leftIndex = 0;
-let rightIndex = 0;
+  TODO LISTÁK:
+  - leftTopImages    (bal felső)
+  - leftBottomImages (bal alsó)
+  - rightTopImages   (jobb felső)
+  - rightBottomImages(jobb alsó)
+*/
 
-const leftImgEl = document.getElementById('leftBannerImg');
-const rightImgEl = document.getElementById('rightBannerImg');
+const leftTopImages = [
+  /* TODO: BAL FELSŐ képek */
+  "left_top_1.jpg",
+  "left_top_2.jpg",
+  "left_top_3.jpg"
+];
+
+const leftBottomImages = [
+  /* TODO: BAL ALSÓ képek */
+  "left_bottom_1.jpg",
+  "left_bottom_2.jpg",
+  "left_bottom_3.jpg"
+];
+
+const rightTopImages = [
+  /* TODO: JOBB FELSŐ képek */
+  "right_top_1.jpg",
+  "right_top_2.jpg",
+  "right_top_3.jpg"
+];
+
+const rightBottomImages = [
+  /* TODO: JOBB ALSÓ képek */
+  "right_bottom_1.jpg",
+  "right_bottom_2.jpg",
+  "right_bottom_3.jpg"
+];
+
+let iLT = 0, iLB = 0, iRT = 0, iRB = 0;
+
+const leftImg1 = document.getElementById("leftBannerImg1");
+const leftImg2 = document.getElementById("leftBannerImg2");
+const rightImg1 = document.getElementById("rightBannerImg1");
+const rightImg2 = document.getElementById("rightBannerImg2");
+
+// induló képek
+if (leftTopImages.length) leftImg1.src = leftTopImages[0];
+if (leftBottomImages.length) leftImg2.src = leftBottomImages[0];
+if (rightTopImages.length) rightImg1.src = rightTopImages[0];
+if (rightBottomImages.length) rightImg2.src = rightBottomImages[0];
 
 setInterval(() => {
-  if (leftImages.length > 0){
-    leftIndex = (leftIndex + 1) % leftImages.length;
-    leftImgEl.src = leftImages[leftIndex];
+  if (leftTopImages.length){
+    iLT = (iLT + 1) % leftTopImages.length;
+    leftImg1.src = leftTopImages[iLT];
   }
-  if (rightImages.length > 0){
-    rightIndex = (rightIndex + 1) % rightImages.length;
-    rightImgEl.src = rightImages[rightIndex];
+  if (leftBottomImages.length){
+    iLB = (iLB + 1) % leftBottomImages.length;
+    leftImg2.src = leftBottomImages[iLB];
+  }
+  if (rightTopImages.length){
+    iRT = (iRT + 1) % rightTopImages.length;
+    rightImg1.src = rightTopImages[iRT];
+  }
+  if (rightBottomImages.length){
+    iRB = (iRB + 1) % rightBottomImages.length;
+    rightImg2.src = rightBottomImages[iRB];
   }
 }, 5000);
 </script>

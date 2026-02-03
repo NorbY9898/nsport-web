@@ -20,8 +20,63 @@ body{
   position:relative;
 }
 
+/* ---------- TOP BAR / LANG SWITCH ---------- */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(0,0,0,0.92);
+  border-bottom:1px solid rgba(255,0,0,0.45);
+  backdrop-filter: blur(10px);
+}
+.topbar-inner{
+  max-width:900px;
+  margin:0 auto;
+  padding:10px 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.brand-mini{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand-dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:red;
+  box-shadow:0 0 12px rgba(255,0,0,0.9);
+}
+.brand-name{
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.lang-switch{
+  display:flex;
+  gap:8px;
+}
+.lang-btn{
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:0.78rem;
+  border:1px solid rgba(255,0,0,0.6);
+  background:#111;
+  color:#fff;
+  cursor:pointer;
+}
+.lang-btn.active{
+  background:#ffcc00;
+  border-color:#ffcc00;
+  color:#111;
+  font-weight:bold;
+  box-shadow:0 0 12px rgba(255,204,0,0.6);
+}
+
 /* ---------- OLDALSÓ BANNEREK (2 KÉP EGYMÁS ALATT / oldalanként) ---------- */
-/* csak nagyobb kijelzőn, fixen a széleken */
 .side-banner{
   position:fixed;
   top:0;
@@ -37,20 +92,18 @@ body{
 .side-left{ left:0; }
 .side-right{ right:0; }
 
-/* 2 kártya egymás alatt */
 .side-banner-inner{
   width:100%;
   max-width:300px;
   display:flex;
   flex-direction:column;
   gap:14px;
-  padding-top:10px; /* picit feljebb tolja a stack-et */
+  padding-top:10px;
 }
 
-/* 1-1 kártya (ugyanaz a stílus, mint korábban) */
 .side-banner-card{
   width:100%;
-  height:calc((100vh - 80px) / 2); /* 2 kép férjen el */
+  height:calc((100vh - 80px) / 2);
   min-height:280px;
   border-radius:18px;
   overflow:hidden;
@@ -66,7 +119,6 @@ body{
   object-fit:cover;
 }
 
-/* csak NAGY monitoron mutassuk a bannereket */
 @media (min-width: 1300px){
   .side-banner{ display:flex; }
 }
@@ -199,7 +251,6 @@ body{
   color:#ffbbbb;
 }
 
-/* Ár sor helyett: ajánlatkérés sor */
 .action-row{
   margin-top:12px;
   display:flex;
@@ -254,180 +305,140 @@ body{
 
 <body>
 
-<!-- ===========================
-     BAL OLDALI BANNER (2 kép)
-     =========================== -->
-<div class="side-banner side-left">
-  <div class="side-banner-inner">
-
-    <div class="side-banner-card">
-      <!-- TODO: BAL FELSŐ KÉP (fájlnév a repo-ban) -->
-      <img id="leftBannerImg1" src="left_top.jpg" alt="Promo stânga sus">
+<!-- TOPBAR + NYELVVÁLTÓ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-mini">
+      <div class="brand-dot"></div>
+      <div class="brand-name" data-i18n="top_brand">NSPORT</div>
     </div>
 
-    <div class="side-banner-card">
-      <!-- TODO: BAL ALSÓ KÉP (fájlnév a repo-ban) -->
-      <img id="leftBannerImg2" src="left_bottom.jpg" alt="Promo stânga jos">
+    <div class="lang-switch">
+      <button class="lang-btn" id="btn-hu">HU</button>
+      <button class="lang-btn active" id="btn-ro">RO</button>
     </div>
-
   </div>
 </div>
 
-<!-- ===========================
-     JOBB OLDALI BANNER (2 kép)
-     =========================== -->
+<!-- BAL OLDALI BANNER (2 kép) -->
+<div class="side-banner side-left">
+  <div class="side-banner-inner">
+    <div class="side-banner-card">
+      <img id="leftBannerImg1" src="left_top.jpg" alt="Promo stânga sus">
+    </div>
+    <div class="side-banner-card">
+      <img id="leftBannerImg2" src="left_bottom.jpg" alt="Promo stânga jos">
+    </div>
+  </div>
+</div>
+
+<!-- JOBB OLDALI BANNER (2 kép) -->
 <div class="side-banner side-right">
   <div class="side-banner-inner">
-
     <div class="side-banner-card">
-      <!-- TODO: JOBB FELSŐ KÉP (fájlnév a repo-ban) -->
       <img id="rightBannerImg1" src="right_top.jpg" alt="Promo dreapta sus">
     </div>
-
     <div class="side-banner-card">
-      <!-- TODO: JOBB ALSÓ KÉP (fájlnév a repo-ban) -->
       <img id="rightBannerImg2" src="right_bottom.jpg" alt="Promo dreapta jos">
     </div>
-
   </div>
 </div>
 
 <!-- KÖZÉPSŐ TARTALOM -->
 <div class="page">
 
-  <!-- HERO NSPORT -->
+  <!-- HERO -->
   <div class="card-hero">
     <div class="logo">
-      <!-- TODO: LOGÓ FÁJLNÉV (repo-ban) -->
       <img src="logo.png" alt="Nsport logo">
     </div>
-    <h1>NSPORT</h1>
-    <p class="hero-text">
+    <h1 data-i18n="hero_title">NSPORT</h1>
+    <p class="hero-text" data-i18n="hero_sub">
       Accesorii sportive, tricouri personalizate și produse unicat.
     </p>
   </div>
 
-  <!-- ========== 3 CATALOGS SECTION ========== -->
-  <h2 class="section-title">Cataloage PDF</h2>
+  <!-- 3 CATALOGS -->
+  <h2 class="section-title" data-i18n="catalogs_title">Cataloage PDF</h2>
 
   <div class="catalogs">
 
-    <!-- CATALOG 1 -->
     <div class="catalog-card">
-      <h3><!-- TODO: CATALOG_1_NAME -->Catalog cupe & trofee</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
-        <!-- TODO: CATALOG_1_DESC -->
+      <h3 data-i18n="cat1_name">Catalog cupe & trofee</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat1_desc">
         Descarcă în format PDF catalogul complet.
       </p>
-
-      <!-- IMPORTANT:
-           Google Drive direct download:
-           https://drive.google.com/uc?export=download&id=FILE_ID
-           -> csak az ID kell a linkből (a /d/ID/ rész).
-      -->
-
-      <!-- TODO: CATALOG_1_DRIVE_FILE_ID -->
       <a class="btn-download"
          href="https://drive.google.com/uc?export=download&id=1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa"
-         target="_blank" rel="noopener">
+         target="_blank" rel="noopener" data-i18n="cat_btn_1">
         📥 Descarcă catalogul 1 (PDF)
       </a>
     </div>
 
-    <!-- CATALOG 2 -->
     <div class="catalog-card">
-      <h3><!-- TODO: CATALOG_2_NAME -->Catalog echipamente sportive Brandul Patrick</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
-        <!-- TODO: CATALOG_2_DESC -->
+      <h3 data-i18n="cat2_name">Catalog echipamente sportive Brandul Patrick</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat2_desc">
         Modele și opțiuni disponibile în PDF.
       </p>
-
-      <!-- TODO: CATALOG_2_DRIVE_FILE_ID -->
       <a class="btn-download"
          href="https://drive.google.com/uc?export=download&id=1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH"
-         target="_blank" rel="noopener">
+         target="_blank" rel="noopener" data-i18n="cat_btn_2">
         📥 Descarcă catalogul 2 (PDF)
       </a>
     </div>
 
-    <!-- CATALOG 3 -->
     <div class="catalog-card">
-      <h3><!-- TODO: CATALOG_3_NAME -->Catalog produse sportive Brandul Joma</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;">
-        <!-- TODO: CATALOG_3_DESC -->
+      <h3 data-i18n="cat3_name">Catalog produse sportive Brandul Joma</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat3_desc">
         Modele și opțiuni disponibile în PDF.
       </p>
-
-      <!-- TODO: CATALOG_3_DRIVE_FILE_ID -->
       <a class="btn-download"
          href="https://drive.google.com/uc?export=download&id=1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9"
-         target="_blank" rel="noopener">
+         target="_blank" rel="noopener" data-i18n="cat_btn_3">
         📥 Descarcă catalogul 3 (PDF)
       </a>
     </div>
 
   </div>
-  <!-- ========== /3 CATALOGS SECTION ========== -->
 
-  <h2 class="section-title">Produse recomandate</h2>
+  <!-- PRODUSE -->
+  <h2 class="section-title" data-i18n="products_title">Produse recomandate</h2>
 
   <div class="products">
 
-    <!-- PRODUS 1 -->
     <div class="product-card">
-      <div class="product-title">Pachet regenerare după antrenament</div>
-      <div class="product-desc">
-        Proteină, carbohidrați și BCAA pentru refacere rapidă.
-      </div>
+      <div class="product-title" data-i18n="p1_title">Pachet regenerare după antrenament</div>
+      <div class="product-desc" data-i18n="p1_desc">Proteină, carbohidrați și BCAA pentru refacere rapidă.</div>
       <div class="tags">
-        <span class="tag">Fitness</span>
-        <span class="tag">Recuperare</span>
+        <span class="tag" data-i18n="p1_tag1">Fitness</span>
+        <span class="tag" data-i18n="p1_tag2">Recuperare</span>
       </div>
-
       <div class="action-row">
-        <!-- TODO: E-MAIL CÍM (ha változik) -->
-        <a class="btn-offer"
-           href="mailto:steliannagy@yahoo.com?subject=Cerere%20oferta%20-%20Pachet%20regenerare&body=Salut,%0D%0A%0D%0ASunt%20interesat%20de%20Pachet%20regenerare%20dup%C4%83%20antrenament.%0D%0A%0D%0ATe%20rog%20trimite-mi%20o%20ofert%C4%83%20%C8%99i%20detalii.%0D%0A%0D%0ANume:%20%0D%0ATelefon:%20%0D%0ALoca%C8%9Bie:%20">
-          ✉️ Cere ofertă (Email)
-        </a>
+        <a class="btn-offer" id="offer1" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
       </div>
     </div>
 
-    <!-- PRODUS 2 -->
     <div class="product-card">
-      <div class="product-title">Tricouri personalizate</div>
-      <div class="product-desc">
-        Tricouri cu nume, număr și logo pentru echipa ta.
-      </div>
+      <div class="product-title" data-i18n="p2_title">Tricouri personalizate</div>
+      <div class="product-desc" data-i18n="p2_desc">Tricouri cu nume, număr și logo pentru echipa ta.</div>
       <div class="tags">
-        <span class="tag">Personalizat</span>
-        <span class="tag">Echipe</span>
+        <span class="tag" data-i18n="p2_tag1">Personalizat</span>
+        <span class="tag" data-i18n="p2_tag2">Echipe</span>
       </div>
-
       <div class="action-row">
-        <a class="btn-offer"
-           href="mailto:steliannagy@yahoo.com?subject=Cerere%20oferta%20-%20Tricouri%20personalizate&body=Salut,%0D%0A%0D%0ASunt%20interesat%20de%20tricouri%20personalizate%20(pentru%20echip%C4%83).%0D%0A%0D%0ATe%20rog%20trimite-mi%20o%20ofert%C4%83%20%C8%99i%20detalii.%0D%0A%0D%0ANume:%20%0D%0ATelefon:%20%0D%0ACantitate:%20%0D%0A">
-          ✉️ Cere ofertă (Email)
-        </a>
+        <a class="btn-offer" id="offer2" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
       </div>
     </div>
 
-    <!-- PRODUS 3 -->
     <div class="product-card">
-      <div class="product-title">Starter pack accesorii sport</div>
-      <div class="product-desc">
-        Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.
-      </div>
+      <div class="product-title" data-i18n="p3_title">Starter pack accesorii sport</div>
+      <div class="product-desc" data-i18n="p3_desc">Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.</div>
       <div class="tags">
-        <span class="tag">Cadou</span>
-        <span class="tag">Începători</span>
+        <span class="tag" data-i18n="p3_tag1">Cadou</span>
+        <span class="tag" data-i18n="p3_tag2">Începători</span>
       </div>
-
       <div class="action-row">
-        <a class="btn-offer"
-           href="mailto:steliannagy@yahoo.com?subject=Cerere%20oferta%20-%20Starter%20pack%20accesorii&body=Salut,%0D%0A%0D%0ASunt%20interesat%20de%20Starter%20pack%20accesorii%20sport.%0D%0A%0D%0ATe%20rog%20trimite-mi%20o%20ofert%C4%83%20%C8%99i%20detalii.%0D%0A%0D%0ANume:%20%0D%0ATelefon:%20%0D%0A">
-          ✉️ Cere ofertă (Email)
-        </a>
+        <a class="btn-offer" id="offer3" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
       </div>
     </div>
 
@@ -435,58 +446,186 @@ body{
 
   <!-- CONTACT -->
   <div class="contact-card">
-    <h3>Contact – Nsport</h3>
+    <h3 data-i18n="contact_title">Contact – Nsport</h3>
     <div class="contact-row">
-      <a class="contact-btn" href="tel:+40740901573">📞 Sună-ne</a>
-      <a class="contact-btn" href="mailto:steliannagy@yahoo.com">✉️ Email</a>
+      <a class="contact-btn" href="tel:+40740901573" data-i18n="contact_call">📞 Sună-ne</a>
+      <a class="contact-btn" href="mailto:steliannagy@yahoo.com" data-i18n="contact_email">✉️ Email</a>
       <a class="contact-btn"
          href="https://wa.me/40740901573?text=Salut,%20vreau%20informații%20despre%20produsele%20Nsport."
-         target="_blank" rel="noopener">💬 WhatsApp direct</a>
+         target="_blank" rel="noopener" data-i18n="contact_wa">💬 WhatsApp direct</a>
     </div>
   </div>
 
 </div>
 
-<!-- ---------- OLDALSÓ KÉPEK (4 külön lista) VÁLTÁSA 5 MP-KÉNT ---------- -->
 <script>
-/*
-  Itt tudod beállítani, hogy a 4 “rublikában” milyen képek váltakozzanak.
-  A képek legyenek feltöltve a GitHub repo-ba (ugyanoda, ahol az index.html van),
-  vagy adj meg teljes URL-t.
+/* =========================
+   1) NYELVI SZÖVEGEK (HU/RO)
+   ========================= */
+let currentLang = 'ro';
 
-  TODO LISTÁK:
-  - leftTopImages    (bal felső)
-  - leftBottomImages (bal alsó)
-  - rightTopImages   (jobb felső)
-  - rightBottomImages(jobb alsó)
-*/
+const texts = {
+  ro: {
+    top_brand: "NSPORT",
+    hero_title: "NSPORT",
+    hero_sub: "Accesorii sportive, tricouri personalizate și produse unicat.",
 
+    catalogs_title: "Cataloage PDF",
+    cat1_name: "Catalog cupe & trofee",
+    cat1_desc: "Descarcă în format PDF catalogul complet.",
+    cat_btn_1: "📥 Descarcă catalogul 1 (PDF)",
+
+    cat2_name: "Catalog echipamente sportive Brandul Patrick",
+    cat2_desc: "Modele și opțiuni disponibile în PDF.",
+    cat_btn_2: "📥 Descarcă catalogul 2 (PDF)",
+
+    cat3_name: "Catalog produse sportive Brandul Joma",
+    cat3_desc: "Modele și opțiuni disponibile în PDF.",
+    cat_btn_3: "📥 Descarcă catalogul 3 (PDF)",
+
+    products_title: "Produse recomandate",
+    p1_title: "Pachet regenerare după antrenament",
+    p1_desc: "Proteină, carbohidrați și BCAA pentru refacere rapidă.",
+    p1_tag1: "Fitness",
+    p1_tag2: "Recuperare",
+
+    p2_title: "Tricouri personalizate",
+    p2_desc: "Tricouri cu nume, număr și logo pentru echipa ta.",
+    p2_tag1: "Personalizat",
+    p2_tag2: "Echipe",
+
+    p3_title: "Starter pack accesorii sport",
+    p3_desc: "Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.",
+    p3_tag1: "Cadou",
+    p3_tag2: "Începători",
+
+    offer_btn: "✉️ Cere ofertă (Email)",
+
+    contact_title: "Contact – Nsport",
+    contact_call: "📞 Sună-ne",
+    contact_email: "✉️ Email",
+    contact_wa: "💬 WhatsApp direct"
+  },
+
+  hu: {
+    top_brand: "NSPORT",
+    hero_title: "NSPORT",
+    hero_sub: "Sport kiegészítők, egyedi pólók és különleges termékek.",
+
+    catalogs_title: "PDF katalógusok",
+    cat1_name: "Kupa & trófea katalógus",
+    cat1_desc: "Töltsd le PDF-ben a teljes katalógust.",
+    cat_btn_1: "📥 1. katalógus letöltése (PDF)",
+
+    cat2_name: "Patrick márkás sportfelszerelés katalógus",
+    cat2_desc: "Elérhető modellek és opciók PDF-ben.",
+    cat_btn_2: "📥 2. katalógus letöltése (PDF)",
+
+    cat3_name: "Joma márkás sporttermék katalógus",
+    cat3_desc: "Elérhető modellek és opciók PDF-ben.",
+    cat_btn_3: "📥 3. katalógus letöltése (PDF)",
+
+    products_title: "Ajánlott termékek",
+    p1_title: "Edzés utáni regeneráló csomag",
+    p1_desc: "Fehérje, szénhidrát és BCAA a gyors regenerációhoz.",
+    p1_tag1: "Fitness",
+    p1_tag2: "Regeneráció",
+
+    p2_title: "Egyedi pólók",
+    p2_desc: "Pólók névvel, számmal és logóval a csapatodnak.",
+    p2_tag1: "Egyedi",
+    p2_tag2: "Csapatok",
+
+    p3_title: "Sport kiegészítő starter pack",
+    p3_desc: "Shaker, kulacs, bandázs és törölköző – ideális kezdőknek.",
+    p3_tag1: "Ajándék",
+    p3_tag2: "Kezdők",
+
+    offer_btn: "✉️ Árajánlatkérés (Email)",
+
+    contact_title: "Kapcsolat – Nsport",
+    contact_call: "📞 Hívás",
+    contact_email: "✉️ Email",
+    contact_wa: "💬 WhatsApp"
+  }
+};
+
+function setLanguage(lang){
+  const map = texts[lang];
+  if(!map) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if(map[key] !== undefined){
+      el.textContent = map[key];
+    }
+  });
+
+  // gomb state
+  document.getElementById("btn-hu").classList.toggle("active", lang === "hu");
+  document.getElementById("btn-ro").classList.toggle("active", lang === "ro");
+
+  // ajánlatkérős mailto-k nyelv szerint
+  applyOfferLinks(lang);
+}
+
+/* =========================
+   2) MAILTO ajánlatkérés (nyelvfüggő szöveg)
+   ========================= */
+const OFFER_EMAIL = "steliannagy@yahoo.com"; // TODO: ha más e-mail kell, írd át itt!
+
+function buildMailto(subject, body){
+  return "mailto:" + encodeURIComponent(OFFER_EMAIL)
+    + "?subject=" + encodeURIComponent(subject)
+    + "&body=" + encodeURIComponent(body);
+}
+
+function applyOfferLinks(lang){
+  if(lang === "hu"){
+    document.getElementById("offer1").href = buildMailto(
+      "Árajánlatkérés - Edzés utáni regeneráló csomag",
+      "Szia!\n\nÉrdekel az Edzés utáni regeneráló csomag.\nKérlek küldj árajánlatot és részleteket.\n\nNév:\nTelefonszám:\nMennyiség:\n"
+    );
+    document.getElementById("offer2").href = buildMailto(
+      "Árajánlatkérés - Egyedi pólók",
+      "Szia!\n\nÉrdekelnek az egyedi pólók (csapat részére).\nKérlek küldj árajánlatot és részleteket.\n\nNév:\nTelefonszám:\nDarabszám:\nMéret(ek):\n"
+    );
+    document.getElementById("offer3").href = buildMailto(
+      "Árajánlatkérés - Sport kiegészítő starter pack",
+      "Szia!\n\nÉrdekel a Sport kiegészítő starter pack.\nKérlek küldj árajánlatot és részleteket.\n\nNév:\nTelefonszám:\nMennyiség:\n"
+    );
+  } else {
+    document.getElementById("offer1").href = buildMailto(
+      "Cerere oferta - Pachet regenerare dupa antrenament",
+      "Salut!\n\nSunt interesat de Pachet regenerare dupa antrenament.\nTe rog trimite-mi o oferta si detalii.\n\nNume:\nTelefon:\nCantitate:\n"
+    );
+    document.getElementById("offer2").href = buildMailto(
+      "Cerere oferta - Tricouri personalizate",
+      "Salut!\n\nSunt interesat de tricouri personalizate (pentru echipa).\nTe rog trimite-mi o oferta si detalii.\n\nNume:\nTelefon:\nCantitate:\nMarimi:\n"
+    );
+    document.getElementById("offer3").href = buildMailto(
+      "Cerere oferta - Starter pack accesorii sport",
+      "Salut!\n\nSunt interesat de Starter pack accesorii sport.\nTe rog trimite-mi o oferta si detalii.\n\nNume:\nTelefon:\nCantitate:\n"
+    );
+  }
+}
+
+/* =========================
+   3) OLDALSÓ KÉPEK (4 külön lista) VÁLTÁSA 5 MP-KÉNT
+   ========================= */
 const leftTopImages = [
-  /* TODO: BAL FELSŐ képek */
-  "left_top_1.jpg",
-  "left_top_2.jpg",
-  "left_top_3.jpg"
+  "left_top_1.jpg","left_top_2.jpg","left_top_3.jpg"
 ];
-
 const leftBottomImages = [
-  /* TODO: BAL ALSÓ képek */
-  "left_bottom_1.jpg",
-  "left_bottom_2.jpg",
-  "left_bottom_3.jpg"
+  "left_bottom_1.jpg","left_bottom_2.jpg","left_bottom_3.jpg"
 ];
-
 const rightTopImages = [
-  /* TODO: JOBB FELSŐ képek */
-  "right_top_1.jpg",
-  "right_top_2.jpg",
-  "right_top_3.jpg"
+  "right_top_1.jpg","right_top_2.jpg","right_top_3.jpg"
 ];
-
 const rightBottomImages = [
-  /* TODO: JOBB ALSÓ képek */
-  "right_bottom_1.jpg",
-  "right_bottom_2.jpg",
-  "right_bottom_3.jpg"
+  "right_bottom_1.jpg","right_bottom_2.jpg","right_bottom_3.jpg"
 ];
 
 let iLT = 0, iLB = 0, iRT = 0, iRB = 0;
@@ -520,6 +659,15 @@ setInterval(() => {
     rightImg2.src = rightBottomImages[iRB];
   }
 }, 5000);
+
+/* =========================
+   4) NYELVVÁLTÓ gombok
+   ========================= */
+document.getElementById("btn-hu").addEventListener("click", () => setLanguage("hu"));
+document.getElementById("btn-ro").addEventListener("click", () => setLanguage("ro"));
+
+/* DEFAULT indulás: román */
+setLanguage("ro");
 </script>
 
 </body>

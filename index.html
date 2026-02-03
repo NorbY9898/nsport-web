@@ -324,10 +324,10 @@ body{
 <div class="side-banner side-left">
   <div class="side-banner-inner">
     <div class="side-banner-card">
-      <img id="leftBannerImg1" src="left_top.jpg" alt="Promo stânga sus">
+      <img id="leftBannerImg1" src="left_top_1.jpg" alt="Promo stânga sus">
     </div>
     <div class="side-banner-card">
-      <img id="leftBannerImg2" src="left_bottom.jpg" alt="Promo stânga jos">
+      <img id="leftBannerImg2" src="left_bottom_1.jpg" alt="Promo stânga jos">
     </div>
   </div>
 </div>
@@ -336,10 +336,10 @@ body{
 <div class="side-banner side-right">
   <div class="side-banner-inner">
     <div class="side-banner-card">
-      <img id="rightBannerImg1" src="right_top.jpg" alt="Promo dreapta sus">
+      <img id="rightBannerImg1" src="right_top_1.jpg" alt="Promo dreapta sus">
     </div>
     <div class="side-banner-card">
-      <img id="rightBannerImg2" src="right_bottom.jpg" alt="Promo dreapta jos">
+      <img id="rightBannerImg2" src="right_bottom_1.jpg" alt="Promo dreapta jos">
     </div>
   </div>
 </div>
@@ -559,55 +559,106 @@ function setLanguage(lang){
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if(map[key] !== undefined){
+      // stabil: ha később HTML-t is használnál, nem törik meg
       el.textContent = map[key];
     }
   });
 
-  // gomb state
   document.getElementById("btn-hu").classList.toggle("active", lang === "hu");
   document.getElementById("btn-ro").classList.toggle("active", lang === "ro");
 
-  // ajánlatkérős mailto-k nyelv szerint
   applyOfferLinks(lang);
 }
 
 /* =========================
-   2) MAILTO ajánlatkérés (nyelvfüggő szöveg)
+   2) MAILTO ajánlatkérés (FIX: nincs duplakódolás, email nincs kódolva)
    ========================= */
-const OFFER_EMAIL = "steliannagy@yahoo.com"; // TODO: ha más e-mail kell, írd át itt!
+const OFFER_EMAIL = "steliannagy@yahoo.com"; // ha más e-mail kell, itt!
 
 function buildMailto(subject, body){
-  return "mailto:" + encodeURIComponent(OFFER_EMAIL)
-    + "?subject=" + encodeURIComponent(subject)
-    + "&body=" + encodeURIComponent(body);
+  return `mailto:${OFFER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function applyOfferLinks(lang){
   if(lang === "hu"){
     document.getElementById("offer1").href = buildMailto(
       "Árajánlatkérés - Edzés utáni regeneráló csomag",
-      "Szia!\n\nÉrdekel az Edzés utáni regeneráló csomag.\nKérlek küldj árajánlatot és részleteket.\n\nNév:\nTelefonszám:\nMennyiség:\n"
+      `Szia!
+
+Érdekel az Edzés utáni regeneráló csomag.
+Kérlek küldj árajánlatot és részleteket.
+
+Név:
+Telefonszám:
+Mennyiség:
+`
     );
+
     document.getElementById("offer2").href = buildMailto(
       "Árajánlatkérés - Egyedi pólók",
-      "Szia!\n\nÉrdekelnek az egyedi pólók (csapat részére).\nKérlek küldj árajánlatot és részleteket.\n\nNév:\nTelefonszám:\nDarabszám:\nMéret(ek):\n"
+      `Szia!
+
+Érdekelnek az egyedi pólók (csapat részére).
+Kérlek küldj árajánlatot és részleteket.
+
+Név:
+Telefonszám:
+Darabszám:
+Méret(ek):
+`
     );
+
     document.getElementById("offer3").href = buildMailto(
       "Árajánlatkérés - Sport kiegészítő starter pack",
-      "Szia!\n\nÉrdekel a Sport kiegészítő starter pack.\nKérlek küldj árajánlatot és részleteket.\n\nNév:\nTelefonszám:\nMennyiség:\n"
+      `Szia!
+
+Érdekel a Sport kiegészítő starter pack.
+Kérlek küldj árajánlatot és részleteket.
+
+Név:
+Telefonszám:
+Mennyiség:
+`
     );
   } else {
     document.getElementById("offer1").href = buildMailto(
-      "Cerere oferta - Pachet regenerare dupa antrenament",
-      "Salut!\n\nSunt interesat de Pachet regenerare dupa antrenament.\nTe rog trimite-mi o oferta si detalii.\n\nNume:\nTelefon:\nCantitate:\n"
+      "Cerere ofertă - Pachet regenerare după antrenament",
+      `Salut!
+
+Sunt interesat de Pachet regenerare după antrenament.
+Te rog trimite-mi o ofertă și detalii.
+
+Nume:
+Telefon:
+Cantitate:
+`
     );
+
     document.getElementById("offer2").href = buildMailto(
-      "Cerere oferta - Tricouri personalizate",
-      "Salut!\n\nSunt interesat de tricouri personalizate (pentru echipa).\nTe rog trimite-mi o oferta si detalii.\n\nNume:\nTelefon:\nCantitate:\nMarimi:\n"
+      "Cerere ofertă - Tricouri personalizate",
+      `Salut!
+
+Sunt interesat de tricouri personalizate (pentru echipă).
+Te rog trimite-mi o ofertă și detalii.
+
+Nume:
+Telefon:
+Cantitate:
+Mărimi:
+`
     );
+
     document.getElementById("offer3").href = buildMailto(
-      "Cerere oferta - Starter pack accesorii sport",
-      "Salut!\n\nSunt interesat de Starter pack accesorii sport.\nTe rog trimite-mi o oferta si detalii.\n\nNume:\nTelefon:\nCantitate:\n"
+      "Cerere ofertă - Starter pack accesorii sport",
+      `Salut!
+
+Sunt interesat de Starter pack accesorii sport.
+Te rog trimite-mi o ofertă și detalii.
+
+Nume:
+Telefon:
+Cantitate:
+`
     );
   }
 }
@@ -615,18 +666,10 @@ function applyOfferLinks(lang){
 /* =========================
    3) OLDALSÓ KÉPEK (4 külön lista) VÁLTÁSA 5 MP-KÉNT
    ========================= */
-const leftTopImages = [
-  "left_top_1.jpg","left_top_2.jpg","left_top_3.jpg"
-];
-const leftBottomImages = [
-  "left_bottom_1.jpg","left_bottom_2.jpg","left_bottom_3.jpg"
-];
-const rightTopImages = [
-  "right_top_1.jpg","right_top_2.jpg","right_top_3.jpg"
-];
-const rightBottomImages = [
-  "right_bottom_1.jpg","right_bottom_2.jpg","right_bottom_3.jpg"
-];
+const leftTopImages = ["left_top_1.jpg","left_top_2.jpg","left_top_3.jpg"];
+const leftBottomImages = ["left_bottom_1.jpg","left_bottom_2.jpg","left_bottom_3.jpg"];
+const rightTopImages = ["right_top_1.jpg","right_top_2.jpg","right_top_3.jpg"];
+const rightBottomImages = ["right_bottom_1.jpg","right_bottom_2.jpg","right_bottom_3.jpg"];
 
 let iLT = 0, iLB = 0, iRT = 0, iRB = 0;
 
@@ -635,7 +678,6 @@ const leftImg2 = document.getElementById("leftBannerImg2");
 const rightImg1 = document.getElementById("rightBannerImg1");
 const rightImg2 = document.getElementById("rightBannerImg2");
 
-// induló képek
 if (leftTopImages.length) leftImg1.src = leftTopImages[0];
 if (leftBottomImages.length) leftImg2.src = leftBottomImages[0];
 if (rightTopImages.length) rightImg1.src = rightTopImages[0];

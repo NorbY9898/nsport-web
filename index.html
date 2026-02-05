@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7EDEEEFBP31"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7EDEEEFBP31');
-</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nsport - Accesorii sportive & Produse personalizate</title>
+
+<!-- Poppins betűtípus (biztosan működjön) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial, sans-serif;
+  font-family:Poppins, sans-serif;
 }
 
 body{
@@ -210,10 +206,92 @@ body{
   text-decoration:none;
   font-weight:bold;
   font-size:0.9rem;
+  text-align:center;
 }
 .btn-download:hover{
   background:#ffe066;
   box-shadow:0 0 10px rgba(255,204,0,0.8);
+}
+
+/* 2 gomb egymás alatt, ugyanazzal a stílussal */
+.catalog-actions{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:10px;
+}
+
+.catalog-note{
+  font-size:0.75rem;
+  color:#aaa;
+  margin-top:8px;
+  line-height:1.35;
+}
+
+/* ---------- EMBED VIEWER (FlipHTML5 beágyazás - piros/fekete stílus) ---------- */
+.embed-viewer{
+  margin-top:12px;
+  background:#0f0f0f;
+  border-radius:16px;
+  border:2px solid red;
+  box-shadow:0 0 15px rgba(255,0,0,0.5);
+  overflow:hidden;
+  display:none; /* alapból rejtve */
+}
+.embed-viewer.active{
+  display:block;
+}
+.embed-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,0,0,0.55);
+  background:rgba(0,0,0,0.35);
+}
+.embed-title{
+  font-weight:bold;
+  font-size:0.95rem;
+  color:#fff;
+}
+.embed-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.embed-btn{
+  padding:7px 12px;
+  border-radius:999px;
+  background:#ffcc00;
+  color:#111;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:0.85rem;
+  border:none;
+  cursor:pointer;
+}
+.embed-btn:hover{
+  background:#ffe066;
+  box-shadow:0 0 10px rgba(255,204,0,0.8);
+}
+.embed-frame-wrap{
+  width:100%;
+  background:#000;
+}
+.embed-frame{
+  width:100%;
+  height:62vh;
+  min-height:420px;
+  border:0;
+  display:block;
+}
+@media (max-width: 600px){
+  .embed-frame{
+    height:58vh;
+    min-height:360px;
+  }
 }
 
 /* ---------- TERMÉK LISTA ---------- */
@@ -320,7 +398,7 @@ body{
 }
 .mobile-banners-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;  /* 2 oszlop */
+  grid-template-columns:1fr 1fr;
   gap:12px;
   margin-top:10px;
 }
@@ -367,7 +445,7 @@ body{
 .credit-logo img{
   width:100%;
   height:100%;
-  object-fit:cover; /* ha átlátszó PNG, akkor is ok */
+  object-fit:cover;
   display:block;
 }
 </style>
@@ -380,7 +458,7 @@ body{
   <div class="topbar-inner">
     <div class="brand-mini">
       <div class="brand-dot"></div>
-      <div class="brand-name" data-i18n="top_brand">NSPORT</div>
+      <div class="brand-name" data-i18n="top_brand">Nsport</div>
     </div>
 
     <div class="lang-switch">
@@ -422,7 +500,7 @@ body{
     <div class="logo">
       <img src="logo.png" alt="Nsport logo">
     </div>
-    <h1 data-i18n="hero_title">NSPORT</h1>
+    <h1 data-i18n="hero_title">Nagy Stelian</h1>
     <p class="hero-text" data-i18n="hero_sub">
       Accesorii sportive, tricouri personalizate și produse unicat.
     </p>
@@ -433,40 +511,114 @@ body{
 
   <div class="catalogs">
 
+    <!-- CATALOG 1 -->
     <div class="catalog-card">
       <h3 data-i18n="cat1_name">Catalog cupe & trofee</h3>
       <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat1_desc">
         Descarcă în format PDF catalogul complet.
       </p>
-      <a class="btn-download"
-         href="https://drive.google.com/uc?export=download&id=1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa"
-         target="_blank" rel="noopener" data-i18n="cat_btn_1">
-        📥 Descarcă catalogul 1 (PDF)
-      </a>
+
+      <div class="catalog-actions">
+        <a class="btn-download"
+           href="https://drive.google.com/uc?export=download&id=1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa"
+           target="_blank" rel="noopener" data-i18n="cat1_btn_download">
+          ⬇️ Descărcare (PDF)
+        </a>
+
+        <a class="btn-download"
+           href="https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/view"
+           target="_blank" rel="noopener" data-i18n="cat1_btn_view">
+          👁️ Vizualizare în browser
+        </a>
+      </div>
+
+      <div class="catalog-note" data-i18n="cat_note">
+        Dacă descărcarea nu pornește, alege opțiunea de vizualizare.
+      </div>
     </div>
 
+    <!-- CATALOG 2 (FlipHTML5 beágyazott néző) -->
     <div class="catalog-card">
       <h3 data-i18n="cat2_name">Catalog echipamente sportive Brandul Patrick</h3>
       <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat2_desc">
         Modele și opțiuni disponibile în PDF.
       </p>
-      <a class="btn-download"
-         href="https://drive.google.com/uc?export=download&id=1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH"
-         target="_blank" rel="noopener" data-i18n="cat_btn_2">
-        📥 Descarcă catalogul 2 (PDF)
-      </a>
+
+      <div class="catalog-actions">
+        <a class="btn-download"
+           href="https://drive.google.com/uc?export=download&id=1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH"
+           target="_blank" rel="noopener" data-i18n="cat2_btn_download">
+          ⬇️ Descărcare (PDF)
+        </a>
+
+        <!-- NEM új fül: oldalon belüli beágyazás -->
+        <a class="btn-download"
+           href="#"
+           id="cat2_view_embed"
+           data-i18n="cat2_btn_view_embed">
+          👁️ Vizualizare pe pagină (FlipHTML5)
+        </a>
+      </div>
+
+      <div class="catalog-note" data-i18n="cat2_note">
+        Vizualizarea se deschide direct pe această pagină. Dacă nu pornește, folosește „Deschide nou tab”.
+      </div>
+
+      <!-- Beágyazott néző -->
+      <div class="embed-viewer" id="cat2_embed">
+        <div class="embed-head">
+          <div class="embed-title" data-i18n="cat2_embed_title">Catalog Patrick – Vizualizare</div>
+          <div class="embed-actions">
+            <a class="embed-btn"
+               id="cat2_open_new"
+               href="https://online.fliphtml5.com/leke/dgah/#p=5"
+               target="_blank" rel="noopener"
+               data-i18n="embed_open_new">
+              ↗️ Deschide nou tab
+            </a>
+            <button class="embed-btn" id="cat2_close" type="button" data-i18n="embed_close">✖ Închide</button>
+          </div>
+        </div>
+
+        <div class="embed-frame-wrap">
+          <iframe
+            id="cat2_iframe"
+            class="embed-frame"
+            src=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allow="fullscreen; clipboard-read; clipboard-write"
+            allowfullscreen
+            title="FlipHTML5 Viewer">
+          </iframe>
+        </div>
+      </div>
     </div>
 
+    <!-- CATALOG 3 -->
     <div class="catalog-card">
       <h3 data-i18n="cat3_name">Catalog produse sportive Brandul Joma</h3>
       <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat3_desc">
         Modele și opțiuni disponibile în PDF.
       </p>
-      <a class="btn-download"
-         href="https://drive.google.com/uc?export=download&id=1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9"
-         target="_blank" rel="noopener" data-i18n="cat_btn_3">
-        📥 Descarcă catalogul 3 (PDF)
-      </a>
+
+      <div class="catalog-actions">
+        <a class="btn-download"
+           href="https://drive.google.com/uc?export=download&id=1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9"
+           target="_blank" rel="noopener" data-i18n="cat3_btn_download">
+          ⬇️ Descărcare (PDF)
+        </a>
+
+        <a class="btn-download"
+           href="https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/view"
+           target="_blank" rel="noopener" data-i18n="cat3_btn_view">
+          👁️ Vizualizare în browser
+        </a>
+      </div>
+
+      <div class="catalog-note" data-i18n="cat_note">
+        Dacă descărcarea nu pornește, alege opțiunea de vizualizare.
+      </div>
     </div>
 
   </div>
@@ -516,7 +668,7 @@ body{
 
   <!-- CONTACT -->
   <div class="contact-card">
-    <h3 data-i18n="contact_title">Contact – Nsport</h3>
+    <h3 data-i18n="contact_title">Contact – Nagy Stelian</h3>
     <div class="contact-row">
       <a class="contact-btn" href="tel:+40740901573" data-i18n="contact_call">📞 Sună-ne</a>
       <a class="contact-btn" href="mailto:steliannagy@yahoo.com" data-i18n="contact_email">✉️ Email</a>
@@ -549,7 +701,6 @@ body{
   <!-- ===== FOOTER CREDIT + KIS LOGÓ ===== -->
   <div class="site-credit">
     <div class="credit-logo">
-      <!-- TODO: ide a TE LOGÓD fájlneve (pl: nextn_logo.png) -->
       <img src="nextn_logo.png" alt="NextN-Digital logo">
     </div>
     <div data-i18n="credit_text">Mini webshop design: NextN-Digital</div>
@@ -566,21 +717,32 @@ let currentLang = 'ro';
 const texts = {
   ro: {
     top_brand: "NSPORT",
-    hero_title: "NSPORT",
+    hero_title: "Nagy Stelian",
     hero_sub: "Accesorii sportive, tricouri personalizate și produse unicat.",
 
     catalogs_title: "Cataloage PDF",
+
     cat1_name: "Catalog cupe & trofee",
     cat1_desc: "Descarcă în format PDF catalogul complet.",
-    cat_btn_1: "📥 Descarcă catalogul 1 (PDF)",
+    cat1_btn_download: "⬇️ Descărcare (PDF)",
+    cat1_btn_view: "👁️ Vizualizare în browser",
 
     cat2_name: "Catalog echipamente sportive Brandul Patrick",
     cat2_desc: "Modele și opțiuni disponibile în PDF.",
-    cat_btn_2: "📥 Descarcă catalogul 2 (PDF)",
+    cat2_btn_download: "⬇️ Descărcare (PDF)",
+    cat2_btn_view_embed: "👁️ Vizualizare pe pagină (FlipHTML5)",
+    cat2_embed_title: "Catalog Patrick – Vizualizare",
+    cat2_note: "Vizualizarea se deschide direct pe această pagină. Dacă nu pornește, folosește „Deschide nou tab”.",
 
     cat3_name: "Catalog produse sportive Brandul Joma",
     cat3_desc: "Modele și opțiuni disponibile în PDF.",
-    cat_btn_3: "📥 Descarcă catalogul 3 (PDF)",
+    cat3_btn_download: "⬇️ Descărcare (PDF)",
+    cat3_btn_view: "👁️ Vizualizare în browser",
+
+    cat_note: "Dacă descărcarea nu pornește, alege opțiunea de vizualizare.",
+
+    embed_open_new: "↗️ Deschide nou tab",
+    embed_close: "✖ Închide",
 
     products_title: "Produse recomandate",
     p1_title: "Pachet regenerare după antrenament",
@@ -600,7 +762,7 @@ const texts = {
 
     offer_btn: "✉️ Cere ofertă (Email)",
 
-    contact_title: "Contact – Nsport",
+    contact_title: "Contact – Nagy Stelian",
     contact_call: "📞 Sună-ne",
     contact_email: "✉️ Email",
     contact_wa: "💬 WhatsApp direct",
@@ -611,21 +773,32 @@ const texts = {
 
   hu: {
     top_brand: "NSPORT",
-    hero_title: "NSPORT",
+    hero_title: "Nagy Stelian",
     hero_sub: "Sport kiegészítők, egyedi pólók és különleges termékek.",
 
     catalogs_title: "PDF katalógusok",
+
     cat1_name: "Kupa & trófea katalógus",
     cat1_desc: "Töltsd le PDF-ben a teljes katalógust.",
-    cat_btn_1: "📥 1. katalógus letöltése (PDF)",
+    cat1_btn_download: "⬇️ Letöltés (PDF)",
+    cat1_btn_view: "👁️ Megtekintés böngészőben",
 
     cat2_name: "Patrick márkás sportfelszerelés katalógus",
     cat2_desc: "Elérhető modellek és opciók PDF-ben.",
-    cat_btn_2: "📥 2. katalógus letöltése (PDF)",
+    cat2_btn_download: "⬇️ Letöltés (PDF)",
+    cat2_btn_view_embed: "👁️ Megtekintés az oldalon (FlipHTML5)",
+    cat2_embed_title: "Patrick katalógus – Megtekintés",
+    cat2_note: "A megtekintés ezen az oldalon nyílik meg. Ha nem indul el, használd az „Új fülön megnyitás” opciót.",
 
     cat3_name: "Joma márkás sporttermék katalógus",
     cat3_desc: "Elérhető modellek és opciók PDF-ben.",
-    cat_btn_3: "📥 3. katalógus letöltése (PDF)",
+    cat3_btn_download: "⬇️ Letöltés (PDF)",
+    cat3_btn_view: "👁️ Megtekintés böngészőben",
+
+    cat_note: "Ha a letöltés nem indul el, válaszd a megtekintést.",
+
+    embed_open_new: "↗️ Megnyitás új fülön",
+    embed_close: "✖ Bezárás",
 
     products_title: "Ajánlott termékek",
     p1_title: "Edzés utáni regeneráló csomag",
@@ -645,7 +818,7 @@ const texts = {
 
     offer_btn: "✉️ Árajánlatkérés (Email)",
 
-    contact_title: "Kapcsolat – Nsport",
+    contact_title: "Kapcsolat – Nagy Stelian",
     contact_call: "📞 Hívás",
     contact_email: "✉️ Email",
     contact_wa: "💬 WhatsApp",
@@ -658,6 +831,7 @@ const texts = {
 function setLanguage(lang){
   const map = texts[lang];
   if(!map) return;
+
   currentLang = lang;
   document.documentElement.lang = lang;
 
@@ -677,7 +851,7 @@ function setLanguage(lang){
 /* =========================
    2) MAILTO ajánlatkérés (stabil)
    ========================= */
-const OFFER_EMAIL = "steliannagy@yahoo.com"; // TODO: ha más e-mail kell, itt!
+const OFFER_EMAIL = "steliannagy@yahoo.com"; // ha más e-mail kell, itt
 
 function buildMailto(subject, body){
   return `mailto:${OFFER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -768,7 +942,44 @@ Cantitate:
 }
 
 /* =========================
-   3) OLDALSÓ KÉPEK (PC) VÁLTÁSA 5 MP-KÉNT
+   3) FlipHTML5 beágyazás (Catalog 2 - Patrick)
+   ========================= */
+const FLIP_CAT2_URL = "https://online.fliphtml5.com/leke/dgah/#p=5";
+
+const cat2ViewBtn = document.getElementById("cat2_view_embed");
+const cat2Embed = document.getElementById("cat2_embed");
+const cat2Iframe = document.getElementById("cat2_iframe");
+const cat2Close = document.getElementById("cat2_close");
+
+function openCat2Embed(){
+  cat2Iframe.src = FLIP_CAT2_URL;
+  cat2Embed.classList.add("active");
+  cat2Embed.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function closeCat2Embed(){
+  cat2Embed.classList.remove("active");
+  cat2Iframe.src = "";
+}
+
+if(cat2ViewBtn){
+  cat2ViewBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    // toggle: ha nyitva van, zárjuk; ha zárva, nyissuk
+    if(cat2Embed.classList.contains("active")){
+      closeCat2Embed();
+    } else {
+      openCat2Embed();
+    }
+  });
+}
+
+if(cat2Close){
+  cat2Close.addEventListener("click", () => closeCat2Embed());
+}
+
+/* =========================
+   4) OLDALSÓ KÉPEK (PC) VÁLTÁSA 5 MP-KÉNT
    ========================= */
 const leftTopImages = ["left_top_1.jpg","left_top_2.jpg","left_top_3.jpg"];
 const leftBottomImages = ["left_bottom_1.jpg","left_bottom_2.jpg","left_bottom_3.jpg"];
@@ -807,10 +1018,8 @@ setInterval(() => {
 }, 5000);
 
 /* =========================
-   4) MOBIL ALSÓ GALÉRIA (2x2) VÁLTÁSA 5 MP-KÉNT
-   =========================
-   TODO: cseréld a saját képeidre (repo-ban vagy URL).
-*/
+   5) MOBIL ALSÓ GALÉRIA (2x2) VÁLTÁSA 5 MP-KÉNT
+   ========================= */
 const m1Images = ["m1_1.jpg","m1_2.jpg","m1_3.jpg"];
 const m2Images = ["m2_1.jpg","m2_2.jpg","m2_3.jpg"];
 const m3Images = ["m3_1.jpg","m3_2.jpg","m3_3.jpg"];
@@ -836,7 +1045,7 @@ setInterval(() => {
 }, 5000);
 
 /* =========================
-   5) NYELVVÁLTÓ gombok
+   6) NYELVVÁLTÓ gombok
    ========================= */
 document.getElementById("btn-hu").addEventListener("click", () => setLanguage("hu"));
 document.getElementById("btn-ro").addEventListener("click", () => setLanguage("ro"));

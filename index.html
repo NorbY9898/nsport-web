@@ -3,20 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nsport - Accesorii sportive & Produse personalizate</title>
+<title>Nsport`s - Accesorii sportive & Produse personalizate</title>
 
-<!-- Poppins betűtípus (biztosan működjön) -->
+<!-- Poppins (biztosan működjön) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Poppins, sans-serif;
-}
+*{ box-sizing:border-box; margin:0; padding:0; font-family:Poppins, sans-serif; }
 
 body{
   background:#000;
@@ -43,27 +38,14 @@ body{
   justify-content:space-between;
   gap:12px;
 }
-.brand-mini{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.brand-mini{ display:flex; align-items:center; gap:10px; }
 .brand-dot{
-  width:10px;
-  height:10px;
-  border-radius:999px;
-  background:red;
+  width:10px;height:10px;border-radius:999px;background:red;
   box-shadow:0 0 12px rgba(255,0,0,0.9);
 }
-.brand-name{
-  font-weight:bold;
-  letter-spacing:1px;
-}
+.brand-name{ font-weight:bold; letter-spacing:1px; }
 
-.lang-switch{
-  display:flex;
-  gap:8px;
-}
+.lang-switch{ display:flex; gap:8px; }
 .lang-btn{
   border-radius:999px;
   padding:6px 10px;
@@ -81,7 +63,7 @@ body{
   box-shadow:0 0 12px rgba(255,204,0,0.6);
 }
 
-/* ---------- OLDALSÓ BANNEREK (2 KÉP EGYMÁS ALATT / oldalanként) ---------- */
+/* ---------- OLDALSÓ BANNEREK ---------- */
 .side-banner{
   position:fixed;
   top:0;
@@ -105,7 +87,6 @@ body{
   gap:14px;
   padding-top:10px;
 }
-
 .side-banner-card{
   width:100%;
   height:calc((100vh - 80px) / 2);
@@ -116,14 +97,12 @@ body{
   border:2px solid red;
   box-shadow:0 0 20px rgba(255,0,0,0.7);
 }
-
 .side-banner-card img{
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
 }
-
 @media (min-width: 1300px){
   .side-banner{ display:flex; }
 }
@@ -152,26 +131,12 @@ body{
   50%{box-shadow:0 0 30px red;}
   100%{box-shadow:0 0 5px red;}
 }
-
 .logo{
-  width:140px;
-  height:140px;
-  margin:0 auto 15px;
-  border:2px solid red;
-  border-radius:10px;
-  overflow:hidden;
+  width:140px;height:140px;margin:0 auto 15px;
+  border:2px solid red;border-radius:10px;overflow:hidden;
 }
-.logo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.hero-text{
-  font-size:0.9rem;
-  color:#ccc;
-  margin-top:8px;
-}
+.logo img{ width:100%; height:100%; object-fit:contain; }
+.hero-text{ font-size:0.9rem; color:#ccc; margin-top:8px; }
 
 .section-title{
   margin:25px 0 10px;
@@ -186,7 +151,6 @@ body{
   gap:15px;
   margin-top:12px;
 }
-
 .catalog-card{
   padding:18px;
   background:#111;
@@ -212,15 +176,12 @@ body{
   background:#ffe066;
   box-shadow:0 0 10px rgba(255,204,0,0.8);
 }
-
-/* 2 gomb egymás alatt, ugyanazzal a stílussal */
 .catalog-actions{
   display:flex;
   flex-direction:column;
   gap:8px;
   margin-top:10px;
 }
-
 .catalog-note{
   font-size:0.75rem;
   color:#aaa;
@@ -228,7 +189,7 @@ body{
   line-height:1.35;
 }
 
-/* ---------- EMBED VIEWER (FlipHTML5 beágyazás - piros/fekete stílus) ---------- */
+/* ---------- EMBED VIEWER ---------- */
 .embed-viewer{
   margin-top:12px;
   background:#0f0f0f;
@@ -236,11 +197,9 @@ body{
   border:2px solid red;
   box-shadow:0 0 15px rgba(255,0,0,0.5);
   overflow:hidden;
-  display:none; /* alapból rejtve */
+  display:none;
 }
-.embed-viewer.active{
-  display:block;
-}
+.embed-viewer.active{ display:block; }
 .embed-head{
   display:flex;
   justify-content:space-between;
@@ -276,10 +235,7 @@ body{
   background:#ffe066;
   box-shadow:0 0 10px rgba(255,204,0,0.8);
 }
-.embed-frame-wrap{
-  width:100%;
-  background:#000;
-}
+.embed-frame-wrap{ width:100%; background:#000; }
 .embed-frame{
   width:100%;
   height:62vh;
@@ -288,10 +244,7 @@ body{
   display:block;
 }
 @media (max-width: 600px){
-  .embed-frame{
-    height:58vh;
-    min-height:360px;
-  }
+  .embed-frame{ height:58vh; min-height:360px; }
 }
 
 /* ---------- TERMÉK LISTA ---------- */
@@ -301,7 +254,6 @@ body{
   gap:15px;
   margin-top:10px;
 }
-
 .product-card{
   background:#111;
   border-radius:14px;
@@ -314,22 +266,9 @@ body{
   transform:translateY(-4px);
   box-shadow:0 0 18px rgba(255,0,0,0.6);
 }
-
-.product-title{
-  font-weight:bold;
-  font-size:1.05rem;
-}
-.product-desc{
-  font-size:.85rem;
-  color:#ddd;
-}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:6px;
-}
+.product-title{ font-weight:bold; font-size:1.05rem; }
+.product-desc{ font-size:.85rem; color:#ddd; }
+.tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
 .tag{
   font-size:.7rem;
   padding:3px 7px;
@@ -337,14 +276,7 @@ body{
   border:1px solid red;
   color:#ffbbbb;
 }
-
-.action-row{
-  margin-top:12px;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-}
-
+.action-row{ margin-top:12px; display:flex; justify-content:flex-end; align-items:center; }
 .btn-offer{
   padding:8px 12px;
   border-radius:999px;
@@ -369,14 +301,12 @@ body{
   border:2px solid red;
   box-shadow:0 0 15px rgba(255,0,0,0.5);
 }
-
 .contact-row{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   margin-top:10px;
 }
-
 .contact-btn{
   flex:1 1 160px;
   padding:8px 10px;
@@ -388,14 +318,9 @@ body{
   text-align:center;
 }
 
-/* ---------- MOBIL ALSÓ GALÉRIA (2x2 rács, auto váltás) ---------- */
-.mobile-banners{
-  display:none;
-  margin-top:18px;
-}
-@media (max-width: 1299px){
-  .mobile-banners{ display:block; }
-}
+/* ---------- MOBIL ALSÓ GALÉRIA ---------- */
+.mobile-banners{ display:none; margin-top:18px; }
+@media (max-width: 1299px){ .mobile-banners{ display:block; } }
 .mobile-banners-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -410,9 +335,7 @@ body{
   box-shadow:0 0 16px rgba(255,0,0,0.55);
   height:170px;
 }
-@media (max-width: 420px){
-  .mobile-banner-card{ height:150px; }
-}
+@media (max-width: 420px){ .mobile-banner-card{ height:150px; } }
 .mobile-banner-card img{
   width:100%;
   height:100%;
@@ -420,7 +343,7 @@ body{
   object-fit:cover;
 }
 
-/* ---------- FOOTER CREDIT + KIS LOGÓ ---------- */
+/* ---------- FOOTER CREDIT ---------- */
 .site-credit{
   margin-top:18px;
   display:flex;
@@ -458,37 +381,30 @@ body{
   <div class="topbar-inner">
     <div class="brand-mini">
       <div class="brand-dot"></div>
-      <div class="brand-name" data-i18n="top_brand">Nsport</div>
+      <div class="brand-name" data-i18n="top_brand">Nsport`s</div>
     </div>
 
     <div class="lang-switch">
       <button class="lang-btn" id="btn-hu">HU</button>
       <button class="lang-btn active" id="btn-ro">RO</button>
+      <button class="lang-btn" id="btn-en">EN</button>
     </div>
   </div>
 </div>
 
-<!-- BAL OLDALI BANNER (2 kép) -->
+<!-- BAL OLDALI BANNER -->
 <div class="side-banner side-left">
   <div class="side-banner-inner">
-    <div class="side-banner-card">
-      <img id="leftBannerImg1" src="left_top_1.jpg" alt="Promo stânga sus">
-    </div>
-    <div class="side-banner-card">
-      <img id="leftBannerImg2" src="left_bottom_1.jpg" alt="Promo stânga jos">
-    </div>
+    <div class="side-banner-card"><img id="leftBannerImg1" src="left_top_1.jpg" alt="Promo stânga sus"></div>
+    <div class="side-banner-card"><img id="leftBannerImg2" src="left_bottom_1.jpg" alt="Promo stânga jos"></div>
   </div>
 </div>
 
-<!-- JOBB OLDALI BANNER (2 kép) -->
+<!-- JOBB OLDALI BANNER -->
 <div class="side-banner side-right">
   <div class="side-banner-inner">
-    <div class="side-banner-card">
-      <img id="rightBannerImg1" src="right_top_1.jpg" alt="Promo dreapta sus">
-    </div>
-    <div class="side-banner-card">
-      <img id="rightBannerImg2" src="right_bottom_1.jpg" alt="Promo dreapta jos">
-    </div>
+    <div class="side-banner-card"><img id="rightBannerImg1" src="right_top_1.jpg" alt="Promo dreapta sus"></div>
+    <div class="side-banner-card"><img id="rightBannerImg2" src="right_bottom_1.jpg" alt="Promo dreapta jos"></div>
   </div>
 </div>
 
@@ -497,127 +413,146 @@ body{
 
   <!-- HERO -->
   <div class="card-hero">
-    <div class="logo">
-      <img src="logo.png" alt="Nsport logo">
-    </div>
+    <div class="logo"><img src="logo.png" alt="Nsport logo"></div>
     <h1 data-i18n="hero_title">Nagy Stelian</h1>
-    <p class="hero-text" data-i18n="hero_sub">
-      Accesorii sportive, tricouri personalizate și produse unicat.
-    </p>
+    <p class="hero-text" data-i18n="hero_sub">Accesorii sportive, tricouri personalizate și produse unicat.</p>
   </div>
 
-  <!-- 3 CATALOGS -->
+  <!-- EVENT / JUDO CUP 2026 (ÚJ RÉSZ) -->
+  <h2 class="section-title" data-i18n="event_title">Nemzetközi Judo Arany Kupa 2026</h2>
+
+  <div class="catalog-card">
+    <h3 data-i18n="event_name">Nemzetközi Judo Arany Kupa 2026</h3>
+    <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="event_desc">Minden információ a weboldalon.</p>
+
+    <div class="catalog-actions">
+      <a class="btn-download"
+         href="https://norby9898.github.io/Judo-international-Golden-Cup-2026/"
+         target="_blank" rel="noopener"
+         data-i18n="event_btn">🏆 Megnyitás</a>
+    </div>
+  </div>
+
+  <!-- ÚJ: KLUB KEDVEZMÉNYEK (RUBRIKA) -->
+  <h2 class="section-title" data-i18n="club_title">Sport kluboknak – kedvezmények</h2>
+
+  <div class="catalog-card">
+    <h3 data-i18n="club_name">Bármilyen sportfelszerelés kluboknak</h3>
+    <p style="font-size:0.9rem;color:#ddd;margin-top:5px;line-height:1.45;" data-i18n="club_desc">
+      Sport kluboknak nagyobb mennyiségnél kedvezmények járnak. Írj nekünk, és küldünk személyre szabott ajánlatot.
+    </p>
+
+    <div class="catalog-actions">
+      <a class="btn-download" href="#" id="club_offer_btn" data-i18n="club_btn">✉️ Kedvezményes ajánlat kérése</a>
+    </div>
+
+    <div class="catalog-note" data-i18n="club_note">Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.</div>
+  </div>
+
+  <!-- CATALOGS -->
   <h2 class="section-title" data-i18n="catalogs_title">Cataloage PDF</h2>
 
   <div class="catalogs">
 
-    <!-- CATALOG 1 -->
+    <!-- CATALOG 1 (Drive preview) -->
     <div class="catalog-card">
       <h3 data-i18n="cat1_name">Catalog cupe & trofee</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat1_desc">
-        Descarcă în format PDF catalogul complet.
-      </p>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat1_desc">Descarcă în format PDF catalogul complet.</p>
 
       <div class="catalog-actions">
         <a class="btn-download"
            href="https://drive.google.com/uc?export=download&id=1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa"
-           target="_blank" rel="noopener" data-i18n="cat1_btn_download">
-          ⬇️ Descărcare (PDF)
-        </a>
+           target="_blank" rel="noopener" data-i18n="cat1_btn_download">⬇️ Descărcare (PDF)</a>
 
-        <a class="btn-download"
-           href="https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/view"
-           target="_blank" rel="noopener" data-i18n="cat1_btn_view">
-          👁️ Vizualizare în browser
-        </a>
+        <a class="btn-download" href="#" id="cat1_view_embed" data-i18n="cat1_btn_view_embed">👁️ Vizualizare pe pagină</a>
       </div>
 
-      <div class="catalog-note" data-i18n="cat_note">
-        Dacă descărcarea nu pornește, alege opțiunea de vizualizare.
+      <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
+
+      <div class="embed-viewer" id="cat1_embed">
+        <div class="embed-head">
+          <div class="embed-title" data-i18n="cat1_embed_title">Catalog 1 – Vizualizare</div>
+          <div class="embed-actions">
+            <a class="embed-btn"
+               id="cat1_open_new"
+               href="https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/view"
+               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Deschide nou tab</a>
+            <button class="embed-btn" id="cat1_close" type="button" data-i18n="embed_close">✖ Închide</button>
+          </div>
+        </div>
+        <div class="embed-frame-wrap">
+          <iframe id="cat1_iframe" class="embed-frame" src="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allow="fullscreen" allowfullscreen title="Catalog 1 Viewer"></iframe>
+        </div>
       </div>
     </div>
 
-    <!-- CATALOG 2 (FlipHTML5 beágyazott néző) -->
+    <!-- CATALOG 2 (Drive preview - ugyanúgy mint az 1.) -->
     <div class="catalog-card">
       <h3 data-i18n="cat2_name">Catalog echipamente sportive Brandul Patrick</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat2_desc">
-        Modele și opțiuni disponibile în PDF.
-      </p>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat2_desc">Modele și opțiuni disponibile în PDF.</p>
 
       <div class="catalog-actions">
         <a class="btn-download"
            href="https://drive.google.com/uc?export=download&id=1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH"
-           target="_blank" rel="noopener" data-i18n="cat2_btn_download">
-          ⬇️ Descărcare (PDF)
-        </a>
+           target="_blank" rel="noopener" data-i18n="cat2_btn_download">⬇️ Descărcare (PDF)</a>
 
-        <!-- NEM új fül: oldalon belüli beágyazás -->
-        <a class="btn-download"
-           href="#"
-           id="cat2_view_embed"
-           data-i18n="cat2_btn_view_embed">
-          👁️ Vizualizare pe pagină (FlipHTML5)
-        </a>
+        <a class="btn-download" href="#" id="cat2_view_embed" data-i18n="cat2_btn_view_embed">👁️ Vizualizare pe pagină</a>
       </div>
 
-      <div class="catalog-note" data-i18n="cat2_note">
-        Vizualizarea se deschide direct pe această pagină. Dacă nu pornește, folosește „Deschide nou tab”.
-      </div>
+      <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
 
-      <!-- Beágyazott néző -->
       <div class="embed-viewer" id="cat2_embed">
         <div class="embed-head">
-          <div class="embed-title" data-i18n="cat2_embed_title">Catalog Patrick – Vizualizare</div>
+          <div class="embed-title" data-i18n="cat2_embed_title">Catalog 2 – Vizualizare</div>
           <div class="embed-actions">
             <a class="embed-btn"
                id="cat2_open_new"
-               href="https://online.fliphtml5.com/leke/dgah/#p=5"
-               target="_blank" rel="noopener"
-               data-i18n="embed_open_new">
-              ↗️ Deschide nou tab
-            </a>
+               href="https://drive.google.com/file/d/1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH/view"
+               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Deschide nou tab</a>
             <button class="embed-btn" id="cat2_close" type="button" data-i18n="embed_close">✖ Închide</button>
           </div>
         </div>
-
         <div class="embed-frame-wrap">
-          <iframe
-            id="cat2_iframe"
-            class="embed-frame"
-            src=""
-            loading="lazy"
+          <iframe id="cat2_iframe" class="embed-frame" src="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            allow="fullscreen; clipboard-read; clipboard-write"
-            allowfullscreen
-            title="FlipHTML5 Viewer">
-          </iframe>
+            allow="fullscreen" allowfullscreen title="Catalog 2 Viewer"></iframe>
         </div>
       </div>
     </div>
 
-    <!-- CATALOG 3 -->
+    <!-- CATALOG 3 (Drive preview - ugyanúgy mint az 1.) -->
     <div class="catalog-card">
       <h3 data-i18n="cat3_name">Catalog produse sportive Brandul Joma</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat3_desc">
-        Modele și opțiuni disponibile în PDF.
-      </p>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat3_desc">Modele și opțiuni disponibile în PDF.</p>
 
       <div class="catalog-actions">
         <a class="btn-download"
            href="https://drive.google.com/uc?export=download&id=1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9"
-           target="_blank" rel="noopener" data-i18n="cat3_btn_download">
-          ⬇️ Descărcare (PDF)
-        </a>
+           target="_blank" rel="noopener" data-i18n="cat3_btn_download">⬇️ Descărcare (PDF)</a>
 
-        <a class="btn-download"
-           href="https://online.fliphtml5.com/Nextn-Digital/Catalog-Joma-2026/"
-           target="_blank" rel="noopener" data-i18n="cat3_btn_view">
-          👁️ Vizualizare în browser
-        </a>
+        <a class="btn-download" href="#" id="cat3_view_embed" data-i18n="cat3_btn_view_embed">👁️ Vizualizare pe pagină</a>
       </div>
 
-      <div class="catalog-note" data-i18n="cat_note">
-        Dacă descărcarea nu pornește, alege opțiunea de vizualizare.
+      <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
+
+      <div class="embed-viewer" id="cat3_embed">
+        <div class="embed-head">
+          <div class="embed-title" data-i18n="cat3_embed_title">Catalog 3 – Vizualizare</div>
+          <div class="embed-actions">
+            <a class="embed-btn"
+               id="cat3_open_new"
+               href="https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/view"
+               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Deschide nou tab</a>
+            <button class="embed-btn" id="cat3_close" type="button" data-i18n="embed_close">✖ Închide</button>
+          </div>
+        </div>
+        <div class="embed-frame-wrap">
+          <iframe id="cat3_iframe" class="embed-frame" src="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allow="fullscreen" allowfullscreen title="Catalog 3 Viewer"></iframe>
+        </div>
       </div>
     </div>
 
@@ -627,7 +562,6 @@ body{
   <h2 class="section-title" data-i18n="products_title">Produse recomandate</h2>
 
   <div class="products">
-
     <div class="product-card">
       <div class="product-title" data-i18n="p1_title">Pachet regenerare după antrenament</div>
       <div class="product-desc" data-i18n="p1_desc">Proteină, carbohidrați și BCAA pentru refacere rapidă.</div>
@@ -663,7 +597,6 @@ body{
         <a class="btn-offer" id="offer3" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
       </div>
     </div>
-
   </div>
 
   <!-- CONTACT -->
@@ -678,31 +611,20 @@ body{
     </div>
   </div>
 
-  <!-- ===== MOBIL ALSÓ GALÉRIA (2x2) ===== -->
+  <!-- MOBIL ALSÓ GALÉRIA -->
   <div class="mobile-banners">
     <h2 class="section-title" data-i18n="mobile_gallery_title">Galerie</h2>
-
     <div class="mobile-banners-grid">
-      <div class="mobile-banner-card">
-        <img id="mImg1" src="m1_1.jpg" alt="Galerie 1">
-      </div>
-      <div class="mobile-banner-card">
-        <img id="mImg2" src="m2_1.jpg" alt="Galerie 2">
-      </div>
-      <div class="mobile-banner-card">
-        <img id="mImg3" src="m3_1.jpg" alt="Galerie 3">
-      </div>
-      <div class="mobile-banner-card">
-        <img id="mImg4" src="m4_1.jpg" alt="Galerie 4">
-      </div>
+      <div class="mobile-banner-card"><img id="mImg1" src="m1_1.jpg" alt="Galerie 1"></div>
+      <div class="mobile-banner-card"><img id="mImg2" src="m2_1.jpg" alt="Galerie 2"></div>
+      <div class="mobile-banner-card"><img id="mImg3" src="m3_1.jpg" alt="Galerie 3"></div>
+      <div class="mobile-banner-card"><img id="mImg4" src="m4_1.jpg" alt="Galerie 4"></div>
     </div>
   </div>
 
-  <!-- ===== FOOTER CREDIT + KIS LOGÓ ===== -->
+  <!-- FOOTER -->
   <div class="site-credit">
-    <div class="credit-logo">
-      <img src="nextn_logo.png" alt="NextN-Digital logo">
-    </div>
+    <div class="credit-logo"><img src="nextn_logo.png" alt="NextN-Digital logo"></div>
     <div data-i18n="credit_text">Mini webshop design: NextN-Digital</div>
   </div>
 
@@ -710,34 +632,48 @@ body{
 
 <script>
 /* =========================
-   1) NYELVI SZÖVEGEK (HU/RO)
+   1) NYELVI SZÖVEGEK (HU/RO/EN)
    ========================= */
 let currentLang = 'ro';
 
 const texts = {
   ro: {
-    top_brand: "NSPORT",
+    top_brand: "Nsport`s",
     hero_title: "Nagy Stelian",
     hero_sub: "Accesorii sportive, tricouri personalizate și produse unicat.",
+
+    /* JUDO EVENT */
+    event_title: "Cupa Internațională de Aur Judo 2026",
+    event_name: "Cupa Internațională de Aur Judo 2026",
+    event_desc: "Toate informațiile sunt pe website.",
+    event_btn: "🏆 Deschide pagina",
+
+    /* ÚJ: KLUB KEDVEZMÉNY */
+    club_title: "Pentru cluburi sportive – reduceri",
+    club_name: "Echipamente sportive pentru cluburi",
+    club_desc: "Pentru cluburile sportive oferim reduceri la cantități mai mari. Scrie-ne și îți trimitem o ofertă personalizată.",
+    club_btn: "✉️ Cere ofertă cu reducere",
+    club_note: "Menționează produsele, cantitatea și numele clubului – răspundem rapid.",
 
     catalogs_title: "Cataloage PDF",
 
     cat1_name: "Catalog cupe & trofee",
     cat1_desc: "Descarcă în format PDF catalogul complet.",
     cat1_btn_download: "⬇️ Descărcare (PDF)",
-    cat1_btn_view: "👁️ Vizualizare în browser",
+    cat1_btn_view_embed: "👁️ Vizualizare pe pagină",
+    cat1_embed_title: "Catalog 1 – Vizualizare",
 
-    cat2_name: "Catalog echipamente sportive Brandul Patrick",
+    cat2_name: "Catalog echipamente sportive – Brandul Patrick",
     cat2_desc: "Modele și opțiuni disponibile în PDF.",
     cat2_btn_download: "⬇️ Descărcare (PDF)",
-    cat2_btn_view_embed: "👁️ Vizualizare pe pagină (FlipHTML5)",
-    cat2_embed_title: "Catalog Patrick – Vizualizare",
-    cat2_note: "Vizualizarea se deschide direct pe această pagină. Dacă nu pornește, folosește „Deschide nou tab”.",
+    cat2_btn_view_embed: "👁️ Vizualizare pe pagină",
+    cat2_embed_title: "Catalog 2 – Vizualizare",
 
-    cat3_name: "Catalog produse sportive Brandul Joma",
+    cat3_name: "Catalog produse sportive – Brandul Joma",
     cat3_desc: "Modele și opțiuni disponibile în PDF.",
     cat3_btn_download: "⬇️ Descărcare (PDF)",
-    cat3_btn_view: "👁️ Vizualizare în browser",
+    cat3_btn_view_embed: "👁️ Vizualizare pe pagină",
+    cat3_embed_title: "Catalog 3 – Vizualizare",
 
     cat_note: "Dacă descărcarea nu pornește, alege opțiunea de vizualizare.",
 
@@ -772,28 +708,42 @@ const texts = {
   },
 
   hu: {
-    top_brand: "NSPORT",
+    top_brand: "Nsport`s",
     hero_title: "Nagy Stelian",
     hero_sub: "Sport kiegészítők, egyedi pólók és különleges termékek.",
+
+    /* JUDO EVENT */
+    event_title: "Nemzetközi Judo Arany Kupa 2026",
+    event_name: "Nemzetközi Judo Arany Kupa 2026",
+    event_desc: "Minden információ a weboldalon.",
+    event_btn: "🏆 Megnyitás",
+
+    /* ÚJ: KLUB KEDVEZMÉNY */
+    club_title: "Sport kluboknak – kedvezmények",
+    club_name: "Bármilyen sportfelszerelés kluboknak",
+    club_desc: "Sport kluboknak nagyobb mennyiségnél kedvezmények járnak. Írj nekünk, és küldünk személyre szabott ajánlatot.",
+    club_btn: "✉️ Kedvezményes ajánlat kérése",
+    club_note: "Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.",
 
     catalogs_title: "PDF katalógusok",
 
     cat1_name: "Kupa & trófea katalógus",
     cat1_desc: "Töltsd le PDF-ben a teljes katalógust.",
     cat1_btn_download: "⬇️ Letöltés (PDF)",
-    cat1_btn_view: "👁️ Megtekintés böngészőben",
+    cat1_btn_view_embed: "👁️ Megtekintés az oldalon",
+    cat1_embed_title: "1. katalógus – Megtekintés",
 
     cat2_name: "Patrick márkás sportfelszerelés katalógus",
     cat2_desc: "Elérhető modellek és opciók PDF-ben.",
     cat2_btn_download: "⬇️ Letöltés (PDF)",
-    cat2_btn_view_embed: "👁️ Megtekintés az oldalon (FlipHTML5)",
-    cat2_embed_title: "Patrick katalógus – Megtekintés",
-    cat2_note: "A megtekintés ezen az oldalon nyílik meg. Ha nem indul el, használd az „Új fülön megnyitás” opciót.",
+    cat2_btn_view_embed: "👁️ Megtekintés az oldalon",
+    cat2_embed_title: "2. katalógus – Megtekintés",
 
     cat3_name: "Joma márkás sporttermék katalógus",
     cat3_desc: "Elérhető modellek és opciók PDF-ben.",
     cat3_btn_download: "⬇️ Letöltés (PDF)",
-    cat3_btn_view: "👁️ Megtekintés böngészőben",
+    cat3_btn_view_embed: "👁️ Megtekintés az oldalon",
+    cat3_embed_title: "3. katalógus – Megtekintés",
 
     cat_note: "Ha a letöltés nem indul el, válaszd a megtekintést.",
 
@@ -825,6 +775,76 @@ const texts = {
 
     mobile_gallery_title: "Galéria",
     credit_text: "Mini webshop design: NextN-Digital"
+  },
+
+  en: {
+    top_brand: "Nsport`s",
+    hero_title: "Nagy Stelian",
+    hero_sub: "Sports accessories, custom T-shirts and unique products.",
+
+    /* JUDO EVENT */
+    event_title: "International Judo Golden Cup 2026",
+    event_name: "International Judo Golden Cup 2026",
+    event_desc: "All information is available on the website.",
+    event_btn: "🏆 Open page",
+
+    /* ÚJ: KLUB KEDVEZMÉNY */
+    club_title: "For sports clubs – discounts",
+    club_name: "Sports equipment for clubs",
+    club_desc: "Sports clubs get discounts for larger quantities. Message us and we’ll send a tailored offer.",
+    club_btn: "✉️ Request discounted offer",
+    club_note: "Include products, quantity and your club name – we reply fast.",
+
+    catalogs_title: "PDF Catalogs",
+
+    cat1_name: "Cups & Trophies Catalog",
+    cat1_desc: "Download the full catalog in PDF format.",
+    cat1_btn_download: "⬇️ Download (PDF)",
+    cat1_btn_view_embed: "👁️ View on this page",
+    cat1_embed_title: "Catalog 1 – Viewer",
+
+    cat2_name: "Patrick Sports Equipment Catalog",
+    cat2_desc: "Models and options available in PDF.",
+    cat2_btn_download: "⬇️ Download (PDF)",
+    cat2_btn_view_embed: "👁️ View on this page",
+    cat2_embed_title: "Catalog 2 – Viewer",
+
+    cat3_name: "Joma Sports Products Catalog",
+    cat3_desc: "Models and options available in PDF.",
+    cat3_btn_download: "⬇️ Download (PDF)",
+    cat3_btn_view_embed: "👁️ View on this page",
+    cat3_embed_title: "Catalog 3 – Viewer",
+
+    cat_note: "If the download doesn't start, choose the view option.",
+
+    embed_open_new: "↗️ Open in new tab",
+    embed_close: "✖ Close",
+
+    products_title: "Featured products",
+    p1_title: "Post-workout recovery pack",
+    p1_desc: "Protein, carbs and BCAA for faster recovery.",
+    p1_tag1: "Fitness",
+    p1_tag2: "Recovery",
+
+    p2_title: "Custom T-shirts",
+    p2_desc: "T-shirts with name, number and logo for your team.",
+    p2_tag1: "Custom",
+    p2_tag2: "Teams",
+
+    p3_title: "Sports accessories starter pack",
+    p3_desc: "Shaker, bottle, wraps and towel – ideal for beginners.",
+    p3_tag1: "Gift",
+    p3_tag2: "Beginners",
+
+    offer_btn: "✉️ Request offer (Email)",
+
+    contact_title: "Contact – Nagy Stelian",
+    contact_call: "📞 Call us",
+    contact_email: "✉️ Email",
+    contact_wa: "💬 WhatsApp",
+
+    mobile_gallery_title: "Gallery",
+    credit_text: "Mini webshop design: NextN-Digital"
   }
 };
 
@@ -844,20 +864,79 @@ function setLanguage(lang){
 
   document.getElementById("btn-hu").classList.toggle("active", lang === "hu");
   document.getElementById("btn-ro").classList.toggle("active", lang === "ro");
+  document.getElementById("btn-en").classList.toggle("active", lang === "en");
 
   applyOfferLinks(lang);
 }
 
 /* =========================
-   2) MAILTO ajánlatkérés (stabil)
+   2) MAILTO ajánlatkérés (HU/RO/EN)
    ========================= */
-const OFFER_EMAIL = "steliannagy@yahoo.com"; // ha más e-mail kell, itt
+const OFFER_EMAIL = "steliannagy@yahoo.com";
 
 function buildMailto(subject, body){
   return `mailto:${OFFER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function applyOfferLinks(lang){
+  // Klub kedvezmény gomb mailto (mindhárom nyelven)
+  const clubBtn = document.getElementById("club_offer_btn");
+  if (clubBtn){
+    if (lang === "hu"){
+      clubBtn.href = buildMailto(
+        "Kedvezményes ajánlatkérés - Sport klub (nagyobb mennyiség)",
+`Szia!
+
+Sport klub részére szeretnénk nagyobb mennyiségben sportfelszerelést rendelni.
+Kérlek küldj kedvezményes ajánlatot.
+
+Klub neve:
+Kapcsolattartó:
+Telefonszám:
+Termék(ek):
+Mennyiség:
+Méret(ek) (ha kell):
+Szállítási város:
+`
+      );
+    } else if (lang === "en"){
+      clubBtn.href = buildMailto(
+        "Discounted offer request - Sports club (bulk order)",
+`Hello!
+
+We are a sports club and we would like to place a bulk order for sports equipment.
+Please send us a discounted offer.
+
+Club name:
+Contact person:
+Phone:
+Product(s):
+Quantity:
+Size(s) (if needed):
+Delivery city:
+`
+      );
+    } else {
+      clubBtn.href = buildMailto(
+        "Cerere ofertă cu reducere - Club sportiv (cantitate mare)",
+`Salut!
+
+Suntem un club sportiv și dorim să comandăm echipamente sportive în cantitate mai mare.
+Te rog să ne trimiți o ofertă cu reducere.
+
+Nume club:
+Persoană de contact:
+Telefon:
+Produs(e):
+Cantitate:
+Mărimi (dacă este cazul):
+Oraș livrare:
+`
+      );
+    }
+  }
+
+  // Eddigi offer gombok
   if(lang === "hu"){
     document.getElementById("offer1").href = buildMailto(
       "Árajánlatkérés - Edzés utáni regeneráló csomag",
@@ -896,6 +975,46 @@ Kérlek küldj árajánlatot és részleteket.
 Név:
 Telefonszám:
 Mennyiség:
+`
+    );
+  } else if (lang === "en") {
+    document.getElementById("offer1").href = buildMailto(
+      "Request for offer - Post-workout recovery pack",
+`Hello!
+
+I'm interested in the post-workout recovery pack.
+Please send me an offer and details.
+
+Name:
+Phone:
+Quantity:
+`
+    );
+
+    document.getElementById("offer2").href = buildMailto(
+      "Request for offer - Custom T-shirts",
+`Hello!
+
+I'm interested in custom T-shirts (for a team).
+Please send me an offer and details.
+
+Name:
+Phone:
+Quantity:
+Size(s):
+`
+    );
+
+    document.getElementById("offer3").href = buildMailto(
+      "Request for offer - Sports accessories starter pack",
+`Hello!
+
+I'm interested in the sports accessories starter pack.
+Please send me an offer and details.
+
+Name:
+Phone:
+Quantity:
 `
     );
   } else {
@@ -942,41 +1061,52 @@ Cantitate:
 }
 
 /* =========================
-   3) FlipHTML5 beágyazás (Catalog 2 - Patrick)
+   3) Beágyazott nézők (mindhárom Drive preview)
    ========================= */
-const FLIP_CAT2_URL = "https://online.fliphtml5.com/leke/dgah/#p=5";
+const CAT1_DRIVE_PREVIEW = "https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/preview";
+const CAT2_DRIVE_PREVIEW = "https://drive.google.com/file/d/1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH/preview";
+const CAT3_DRIVE_PREVIEW = "https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/preview";
 
-const cat2ViewBtn = document.getElementById("cat2_view_embed");
-const cat2Embed = document.getElementById("cat2_embed");
-const cat2Iframe = document.getElementById("cat2_iframe");
-const cat2Close = document.getElementById("cat2_close");
+function setupEmbed(viewBtnId, embedId, iframeId, closeBtnId, srcUrl){
+  const viewBtn = document.getElementById(viewBtnId);
+  const embed = document.getElementById(embedId);
+  const iframe = document.getElementById(iframeId);
+  const closeBtn = document.getElementById(closeBtnId);
 
-function openCat2Embed(){
-  cat2Iframe.src = FLIP_CAT2_URL;
-  cat2Embed.classList.add("active");
-  cat2Embed.scrollIntoView({ behavior: "smooth", block: "start" });
+  function open(){
+    // zárjuk be a többit, hogy ne legyen 3 viewer egyszerre
+    ["cat1_embed","cat2_embed","cat3_embed"].forEach(id => {
+      if(id !== embedId){
+        const e = document.getElementById(id);
+        const f = document.querySelector(`#${id} iframe`);
+        if(e) e.classList.remove("active");
+        if(f) f.src = "";
+      }
+    });
+
+    iframe.src = srcUrl;
+    embed.classList.add("active");
+    embed.scrollIntoView({ behavior:"smooth", block:"start" });
+  }
+
+  function close(){
+    embed.classList.remove("active");
+    iframe.src = "";
+  }
+
+  if(viewBtn){
+    viewBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if(embed.classList.contains("active")) close();
+      else open();
+    });
+  }
+  if(closeBtn) closeBtn.addEventListener("click", close);
 }
 
-function closeCat2Embed(){
-  cat2Embed.classList.remove("active");
-  cat2Iframe.src = "";
-}
-
-if(cat2ViewBtn){
-  cat2ViewBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    // toggle: ha nyitva van, zárjuk; ha zárva, nyissuk
-    if(cat2Embed.classList.contains("active")){
-      closeCat2Embed();
-    } else {
-      openCat2Embed();
-    }
-  });
-}
-
-if(cat2Close){
-  cat2Close.addEventListener("click", () => closeCat2Embed());
-}
+setupEmbed("cat1_view_embed","cat1_embed","cat1_iframe","cat1_close", CAT1_DRIVE_PREVIEW);
+setupEmbed("cat2_view_embed","cat2_embed","cat2_iframe","cat2_close", CAT2_DRIVE_PREVIEW);
+setupEmbed("cat3_view_embed","cat3_embed","cat3_iframe","cat3_close", CAT3_DRIVE_PREVIEW);
 
 /* =========================
    4) OLDALSÓ KÉPEK (PC) VÁLTÁSA 5 MP-KÉNT
@@ -999,22 +1129,10 @@ if (rightTopImages.length) rightImg1.src = rightTopImages[0];
 if (rightBottomImages.length) rightImg2.src = rightBottomImages[0];
 
 setInterval(() => {
-  if (leftTopImages.length){
-    iLT = (iLT + 1) % leftTopImages.length;
-    leftImg1.src = leftTopImages[iLT];
-  }
-  if (leftBottomImages.length){
-    iLB = (iLB + 1) % leftBottomImages.length;
-    leftImg2.src = leftBottomImages[iLB];
-  }
-  if (rightTopImages.length){
-    iRT = (iRT + 1) % rightTopImages.length;
-    rightImg1.src = rightTopImages[iRT];
-  }
-  if (rightBottomImages.length){
-    iRB = (iRB + 1) % rightBottomImages.length;
-    rightImg2.src = rightBottomImages[iRB];
-  }
+  if (leftTopImages.length){ iLT = (iLT + 1) % leftTopImages.length; leftImg1.src = leftTopImages[iLT]; }
+  if (leftBottomImages.length){ iLB = (iLB + 1) % leftBottomImages.length; leftImg2.src = leftBottomImages[iLB]; }
+  if (rightTopImages.length){ iRT = (iRT + 1) % rightTopImages.length; rightImg1.src = rightTopImages[iRT]; }
+  if (rightBottomImages.length){ iRB = (iRB + 1) % rightBottomImages.length; rightImg2.src = rightBottomImages[iRB]; }
 }, 5000);
 
 /* =========================
@@ -1045,12 +1163,13 @@ setInterval(() => {
 }, 5000);
 
 /* =========================
-   6) NYELVVÁLTÓ gombok
+   6) NYELVVÁLTÓ gombok (HU/RO/EN)
    ========================= */
 document.getElementById("btn-hu").addEventListener("click", () => setLanguage("hu"));
 document.getElementById("btn-ro").addEventListener("click", () => setLanguage("ro"));
+document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
 
-/* DEFAULT indulás: román */
+/* DEFAULT: román */
 setLanguage("ro");
 </script>
 

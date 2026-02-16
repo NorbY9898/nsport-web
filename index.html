@@ -449,6 +449,82 @@ body{
     <div class="catalog-note" data-i18n="club_note">Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.</div>
   </div>
 
+  <!-- ÚJ: JUDO FELSZERELÉSEK / JUDO EQUIPMENT (Mizuno + DAX) -->
+  <h2 class="section-title" data-i18n="judo_title">Judo felszerelések</h2>
+
+  <div class="catalogs">
+
+    <!-- JUDO CATALOG 1: MIZUNO -->
+    <div class="catalog-card">
+      <h3 data-i18n="judo_mizuno_name">Mizuno – Judo katalógus</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="judo_mizuno_desc">Modellek és opciók PDF-ben.</p>
+
+      <div class="catalog-actions">
+        <a class="btn-download"
+           href="https://drive.google.com/uc?export=download&id=1OFNFWxsXJha76izK14XxAJYnH-gOdB2c"
+           target="_blank" rel="noopener" data-i18n="judo_mizuno_btn_download">⬇️ Letöltés (PDF)</a>
+
+        <a class="btn-download" href="#" id="judo_mizuno_view_embed" data-i18n="judo_mizuno_btn_view_embed">👁️ Megtekintés az oldalon</a>
+      </div>
+
+      <div class="catalog-note" data-i18n="cat_note">Ha a letöltés nem indul el, válaszd a megtekintést.</div>
+
+      <div class="embed-viewer" id="judo_mizuno_embed">
+        <div class="embed-head">
+          <div class="embed-title" data-i18n="judo_mizuno_embed_title">Mizuno – Megtekintés</div>
+          <div class="embed-actions">
+            <a class="embed-btn"
+               id="judo_mizuno_open_new"
+               href="https://drive.google.com/file/d/1OFNFWxsXJha76izK14XxAJYnH-gOdB2c/view"
+"
+               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Megnyitás új fülön</a>
+            <button class="embed-btn" id="judo_mizuno_close" type="button" data-i18n="embed_close">✖ Bezárás</button>
+          </div>
+        </div>
+        <div class="embed-frame-wrap">
+          <iframe id="judo_mizuno_iframe" class="embed-frame" src="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allow="fullscreen" allowfullscreen title="Mizuno Judo Catalog Viewer"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUDO CATALOG 2: DAX -->
+    <div class="catalog-card">
+      <h3 data-i18n="judo_dax_name">DAX – Judo katalógus</h3>
+      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="judo_dax_desc">Modellek és opciók PDF-ben.</p>
+
+      <div class="catalog-actions">
+        <a class="btn-download"
+           href="https://drive.google.com/uc?export=download&id=1Gqaai-W81M586lnGL69OmXENUYMi517c"
+           target="_blank" rel="noopener" data-i18n="judo_dax_btn_download">⬇️ Letöltés (PDF)</a>
+
+        <a class="btn-download" href="#" id="judo_dax_view_embed" data-i18n="judo_dax_btn_view_embed">👁️ Megtekintés az oldalon</a>
+      </div>
+
+      <div class="catalog-note" data-i18n="cat_note">Ha a letöltés nem indul el, válaszd a megtekintést.</div>
+
+      <div class="embed-viewer" id="judo_dax_embed">
+        <div class="embed-head">
+          <div class="embed-title" data-i18n="judo_dax_embed_title">DAX – Megtekintés</div>
+          <div class="embed-actions">
+            <a class="embed-btn"
+               id="judo_dax_open_new"
+               href="https://drive.google.com/file/d/1Gqaai-W81M586lnGL69OmXENUYMi517c/preview"
+               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Megnyitás új fülön</a>
+            <button class="embed-btn" id="judo_dax_close" type="button" data-i18n="embed_close">✖ Bezárás</button>
+          </div>
+        </div>
+        <div class="embed-frame-wrap">
+          <iframe id="judo_dax_iframe" class="embed-frame" src="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allow="fullscreen" allowfullscreen title="DAX Judo Catalog Viewer"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- CATALOGS -->
   <h2 class="section-title" data-i18n="catalogs_title">Cataloage PDF</h2>
 
@@ -509,7 +585,7 @@ body{
           <div class="embed-actions">
             <a class="embed-btn"
                id="cat2_open_new"
-               href="https://drive.google.com/file/d/1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH/view"
+               href="https://online.fliphtml5.com/leke/dgah/index.html"
                target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Deschide nou tab</a>
             <button class="embed-btn" id="cat2_close" type="button" data-i18n="embed_close">✖ Închide</button>
           </div>
@@ -655,6 +731,21 @@ const texts = {
     club_btn: "✉️ Cere ofertă cu reducere",
     club_note: "Menționează produsele, cantitatea și numele clubului – răspundem rapid.",
 
+    /* ÚJ: JUDO FELSZERELÉSEK */
+    judo_title: "Echipamente Judo",
+
+    judo_mizuno_name: "Mizuno – Catalog Judo",
+    judo_mizuno_desc: "Modele și opțiuni disponibile în PDF.",
+    judo_mizuno_btn_download: "⬇️ Descărcare (PDF)",
+    judo_mizuno_btn_view_embed: "👁️ Vizualizare pe pagină",
+    judo_mizuno_embed_title: "Mizuno – Vizualizare",
+
+    judo_dax_name: "DAX – Catalog Judo",
+    judo_dax_desc: "Modele și opțiuni disponibile în PDF.",
+    judo_dax_btn_download: "⬇️ Descărcare (PDF)",
+    judo_dax_btn_view_embed: "👁️ Vizualizare pe pagină",
+    judo_dax_embed_title: "DAX – Vizualizare",
+
     catalogs_title: "Cataloage PDF",
 
     cat1_name: "Catalog cupe & trofee",
@@ -725,6 +816,21 @@ const texts = {
     club_btn: "✉️ Kedvezményes ajánlat kérése",
     club_note: "Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.",
 
+    /* ÚJ: JUDO FELSZERELÉSEK */
+    judo_title: "Judo felszerelések",
+
+    judo_mizuno_name: "Mizuno – Judo katalógus",
+    judo_mizuno_desc: "Elérhető modellek és opciók PDF-ben.",
+    judo_mizuno_btn_download: "⬇️ Letöltés (PDF)",
+    judo_mizuno_btn_view_embed: "👁️ Megtekintés az oldalon",
+    judo_mizuno_embed_title: "Mizuno – Megtekintés",
+
+    judo_dax_name: "DAX – Judo katalógus",
+    judo_dax_desc: "Elérhető modellek és opciók PDF-ben.",
+    judo_dax_btn_download: "⬇️ Letöltés (PDF)",
+    judo_dax_btn_view_embed: "👁️ Megtekintés az oldalon",
+    judo_dax_embed_title: "DAX – Megtekintés",
+
     catalogs_title: "PDF katalógusok",
 
     cat1_name: "Kupa & trófea katalógus",
@@ -794,6 +900,21 @@ const texts = {
     club_desc: "Sports clubs get discounts for larger quantities. Message us and we’ll send a tailored offer.",
     club_btn: "✉️ Request discounted offer",
     club_note: "Include products, quantity and your club name – we reply fast.",
+
+    /* ÚJ: JUDO FELSZERELÉSEK */
+    judo_title: "Judo equipment",
+
+    judo_mizuno_name: "Mizuno – Judo catalog",
+    judo_mizuno_desc: "Models and options available in PDF.",
+    judo_mizuno_btn_download: "⬇️ Download (PDF)",
+    judo_mizuno_btn_view_embed: "👁️ View on this page",
+    judo_mizuno_embed_title: "Mizuno – Viewer",
+
+    judo_dax_name: "DAX – Judo catalog",
+    judo_dax_desc: "Models and options available in PDF.",
+    judo_dax_btn_download: "⬇️ Download (PDF)",
+    judo_dax_btn_view_embed: "👁️ View on this page",
+    judo_dax_embed_title: "DAX – Viewer",
 
     catalogs_title: "PDF Catalogs",
 
@@ -1061,11 +1182,18 @@ Cantitate:
 }
 
 /* =========================
-   3) Beágyazott nézők (mindhárom Drive preview)
+   3) Beágyazott nézők (Drive preview) + ÚJ JUDO (Mizuno/DAX)
    ========================= */
 const CAT1_DRIVE_PREVIEW = "https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/preview";
-const CAT2_DRIVE_PREVIEW = "https://drive.google.com/file/d/1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH/preview";
+const CAT2_DRIVE_PREVIEW = "https://online.fliphtml5.com/leke/dgah/index.html";
 const CAT3_DRIVE_PREVIEW = "https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/preview";
+
+/* ÚJ: ide írod majd a Mizuno/DAX Drive /preview linkeket */
+const JUDO_MIZUNO_DRIVE_PREVIEW = "https://drive.google.com/file/d/1OFNFWxsXJha76izK14XxAJYnH-gOdB2c/preview";
+const JUDO_DAX_DRIVE_PREVIEW = "https://drive.google.com/file/d/1Gqaai-W81M586lnGL69OmXENUYMi517c/preview";
+
+/* FONTOS: bővített lista, hogy minden viewer bezárja a többit */
+const ALL_EMBEDS = ["cat1_embed","cat2_embed","cat3_embed","judo_mizuno_embed","judo_dax_embed"];
 
 function setupEmbed(viewBtnId, embedId, iframeId, closeBtnId, srcUrl){
   const viewBtn = document.getElementById(viewBtnId);
@@ -1074,8 +1202,8 @@ function setupEmbed(viewBtnId, embedId, iframeId, closeBtnId, srcUrl){
   const closeBtn = document.getElementById(closeBtnId);
 
   function open(){
-    // zárjuk be a többit, hogy ne legyen 3 viewer egyszerre
-    ["cat1_embed","cat2_embed","cat3_embed"].forEach(id => {
+    // zárjuk be a többit, hogy ne legyen több viewer egyszerre
+    ALL_EMBEDS.forEach(id => {
       if(id !== embedId){
         const e = document.getElementById(id);
         const f = document.querySelector(`#${id} iframe`);
@@ -1107,6 +1235,10 @@ function setupEmbed(viewBtnId, embedId, iframeId, closeBtnId, srcUrl){
 setupEmbed("cat1_view_embed","cat1_embed","cat1_iframe","cat1_close", CAT1_DRIVE_PREVIEW);
 setupEmbed("cat2_view_embed","cat2_embed","cat2_iframe","cat2_close", CAT2_DRIVE_PREVIEW);
 setupEmbed("cat3_view_embed","cat3_embed","cat3_iframe","cat3_close", CAT3_DRIVE_PREVIEW);
+
+/* ÚJ: JUDO embedek */
+setupEmbed("judo_mizuno_view_embed","judo_mizuno_embed","judo_mizuno_iframe","judo_mizuno_close", JUDO_MIZUNO_DRIVE_PREVIEW);
+setupEmbed("judo_dax_view_embed","judo_dax_embed","judo_dax_iframe","judo_dax_close", JUDO_DAX_DRIVE_PREVIEW);
 
 /* =========================
    4) OLDALSÓ KÉPEK (PC) VÁLTÁSA 5 MP-KÉNT
@@ -1175,4 +1307,3 @@ setLanguage("ro");
 
 </body>
 </html>
-

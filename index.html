@@ -1,1020 +1,1770 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7EDEEFBP31"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EDEEFBP31"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7EDEEFBP31');
+  </script>
 
-  gtag('config', 'G-7EDEEFBP31');
-</script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nsport`s - Accesorii sportive & Produse personalizate</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nsport`s - Accesorii sportive & Produse personalizate</title>
 
-<!-- Poppins (biztosan működjön) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Premium fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-*{ box-sizing:border-box; margin:0; padding:0; font-family:Poppins, sans-serif; }
+  <style>
+    :root{
+      --bg:#050505;
+      --bg2:#0b0b0b;
+      --panel:rgba(14,14,14,.86);
+      --panel-2:rgba(22,22,22,.92);
+      --soft:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.10);
+      --line-red:rgba(255,0,0,.35);
+      --line-red-2:rgba(255,0,0,.55);
+      --text:#f5f5f5;
+      --muted:rgba(255,255,255,.72);
+      --muted-2:rgba(255,255,255,.55);
+      --red:#ff1f1f;
+      --red-deep:#8d0000;
+      --gold:#ffcc00;
+      --shadow:0 25px 80px rgba(0,0,0,.38);
+      --glow:0 0 26px rgba(255,0,0,.18);
+      --radius:22px;
+      --max:1180px;
+    }
 
-body{
-  background:#000;
-  color:#fff;
-  min-height:100vh;
-  position:relative;
-}
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      min-height:100vh;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      letter-spacing:.1px;
+      background:
+        radial-gradient(1000px 520px at 50% -10%, rgba(255,0,0,.14), transparent 55%),
+        radial-gradient(800px 500px at 0% 100%, rgba(255,0,0,.05), transparent 55%),
+        linear-gradient(180deg, #050505 0%, #090909 35%, #050505 100%);
+    }
 
-/* ---------- TOP BAR / LANG SWITCH ---------- */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(0,0,0,0.92);
-  border-bottom:1px solid rgba(255,0,0,0.45);
-  backdrop-filter: blur(10px);
-}
-.topbar-inner{
-  max-width:900px;
-  margin:0 auto;
-  padding:10px 15px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.brand-mini{ display:flex; align-items:center; gap:10px; }
-.brand-dot{
-  width:10px;height:10px;border-radius:999px;background:red;
-  box-shadow:0 0 12px rgba(255,0,0,0.9);
-}
-.brand-name{ font-weight:bold; letter-spacing:1px; }
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; }
+    img{ display:block; max-width:100%; }
 
-.lang-switch{ display:flex; gap:8px; }
-.lang-btn{
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:0.78rem;
-  border:1px solid rgba(255,0,0,0.6);
-  background:#111;
-  color:#fff;
-  cursor:pointer;
-}
-.lang-btn.active{
-  background:#ffcc00;
-  border-color:#ffcc00;
-  color:#111;
-  font-weight:bold;
-  box-shadow:0 0 12px rgba(255,204,0,0.6);
-}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-/* ---------- OLDALSÓ BANNEREK ---------- */
-.side-banner{
-  position:fixed;
-  top:0;
-  bottom:0;
-  width:320px;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px 0;
-  box-sizing:border-box;
-  z-index:1;
-}
-.side-left{ left:0; }
-.side-right{ right:0; }
+    /* =========================
+       TOPBAR
+       ========================= */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(14px);
+      background:rgba(5,5,5,.76);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:-1px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,0,0,.72), transparent);
+      opacity:.9;
+    }
 
-.side-banner-inner{
-  width:100%;
-  max-width:300px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  padding-top:10px;
-}
-.side-banner-card{
-  width:100%;
-  height:calc((100vh - 80px) / 2);
-  min-height:280px;
-  border-radius:18px;
-  overflow:hidden;
-  background:#111;
-  border:2px solid red;
-  box-shadow:0 0 20px rgba(255,0,0,0.7);
-}
-.side-banner-card img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-@media (min-width: 1300px){
-  .side-banner{ display:flex; }
-}
+    .topbar-inner{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 0;
+    }
 
-/* ---------- KÖZPONTI TARTALOM ---------- */
-.page{
-  width:100%;
-  max-width:900px;
-  padding:20px 15px 40px;
-  margin:0 auto;
-}
+    .brand-mini{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:180px;
+    }
+    .brand-dot{
+      width:12px;
+      height:12px;
+      border-radius:999px;
+      background:var(--red);
+      box-shadow:0 0 18px rgba(255,0,0,.95);
+      flex:0 0 auto;
+    }
+    .brand-name{
+      font-family:"Cormorant Garamond", serif;
+      font-size:30px;
+      line-height:1;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#fff;
+    }
 
-/* HERO */
-.card-hero{
-  width:100%;
-  text-align:center;
-  padding:25px;
-  background:#111;
-  border-radius:18px;
-  border:3px solid red;
-  animation: alarm 1.2s infinite;
-  box-shadow:0 0 18px rgba(255,0,0,0.6);
-}
-@keyframes alarm{
-  0%{box-shadow:0 0 5px red;}
-  50%{box-shadow:0 0 30px red;}
-  100%{box-shadow:0 0 5px red;}
-}
-.logo{
-  width:140px;height:140px;margin:0 auto 15px;
-  border:2px solid red;border-radius:10px;overflow:hidden;
-}
-.logo img{ width:100%; height:100%; object-fit:contain; }
-.hero-text{ font-size:0.9rem; color:#ccc; margin-top:8px; }
+    .top-nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:20px;
+      flex:1 1 auto;
+    }
+    .top-nav a{
+      position:relative;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      color:rgba(255,255,255,.76);
+      padding:10px 8px;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .top-nav a::after{
+      content:"";
+      position:absolute;
+      left:8px; right:8px; bottom:4px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,0,0,.95), transparent);
+      opacity:0;
+      transform:translateY(4px);
+      transition:.25s ease;
+    }
+    .top-nav a:hover{ color:#fff; }
+    .top-nav a:hover::after{ opacity:1; transform:translateY(0); }
 
-.section-title{
-  margin:25px 0 10px;
-  font-size:1.4rem;
-  text-transform:uppercase;
-}
+    .lang-switch{
+      display:flex;
+      gap:8px;
+      min-width:180px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+    .lang-btn{
+      height:40px;
+      min-width:48px;
+      padding:0 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,0,0,.45);
+      background:rgba(255,255,255,.03);
+      color:#fff;
+      cursor:pointer;
+      transition:.2s ease;
+      font-size:.82rem;
+      font-weight:600;
+      letter-spacing:.06em;
+    }
+    .lang-btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(255,0,0,.75);
+      box-shadow:0 10px 24px rgba(0,0,0,.18), 0 0 20px rgba(255,0,0,.18);
+    }
+    .lang-btn.active{
+      background:var(--gold);
+      border-color:var(--gold);
+      color:#111;
+      box-shadow:0 0 18px rgba(255,204,0,.38);
+    }
 
-/* ---------- CATALOGS (3 DB) ---------- */
-.catalogs{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:15px;
-  margin-top:12px;
-}
-.catalog-card{
-  padding:18px;
-  background:#111;
-  border-radius:16px;
-  border:2px solid red;
-  box-shadow:0 0 15px rgba(255,0,0,0.5);
-  text-align:left;
-}
+    /* =========================
+       SIDE BANNERS
+       ========================= */
+    .side-banner{
+      position:fixed;
+      top:0;
+      bottom:0;
+      width:290px;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:100px 0 24px;
+      z-index:5;
+      pointer-events:none;
+    }
+    .side-left{ left:0; }
+    .side-right{ right:0; }
 
-.btn-download{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 14px;
-  border-radius:999px;
-  background:#ffcc00;
-  color:#111;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:0.9rem;
-  text-align:center;
-}
-.btn-download:hover{
-  background:#ffe066;
-  box-shadow:0 0 10px rgba(255,204,0,0.8);
-}
-.catalog-actions{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  margin-top:10px;
-}
-.catalog-note{
-  font-size:0.75rem;
-  color:#aaa;
-  margin-top:8px;
-  line-height:1.35;
-}
+    .side-banner-inner{
+      width:100%;
+      max-width:260px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .side-banner-card{
+      height:calc((100vh - 170px) / 2);
+      min-height:260px;
+      border-radius:22px;
+      overflow:hidden;
+      background:#111;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow), 0 0 28px rgba(255,0,0,.16);
+      position:relative;
+      pointer-events:auto;
+    }
+    .side-banner-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,0,0,.06));
+      z-index:1;
+      pointer-events:none;
+    }
+    .side-banner-card::after{
+      content:"";
+      position:absolute;
+      left:14px; right:14px; bottom:0;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,0,0,.9), transparent);
+      z-index:2;
+      pointer-events:none;
+    }
+    .side-banner-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.02);
+    }
 
-/* ---------- EMBED VIEWER ---------- */
-.embed-viewer{
-  margin-top:12px;
-  background:#0f0f0f;
-  border-radius:16px;
-  border:2px solid red;
-  box-shadow:0 0 15px rgba(255,0,0,0.5);
-  overflow:hidden;
-  display:none;
-}
-.embed-viewer.active{ display:block; }
-.embed-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-bottom:1px solid rgba(255,0,0,0.55);
-  background:rgba(0,0,0,0.35);
-}
-.embed-title{
-  font-weight:bold;
-  font-size:0.95rem;
-  color:#fff;
-}
-.embed-actions{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-.embed-btn{
-  padding:7px 12px;
-  border-radius:999px;
-  background:#ffcc00;
-  color:#111;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:0.85rem;
-  border:none;
-  cursor:pointer;
-}
-.embed-btn:hover{
-  background:#ffe066;
-  box-shadow:0 0 10px rgba(255,204,0,0.8);
-}
-.embed-frame-wrap{ width:100%; background:#000; }
-.embed-frame{
-  width:100%;
-  height:62vh;
-  min-height:420px;
-  border:0;
-  display:block;
-}
-@media (max-width: 600px){
-  .embed-frame{ height:58vh; min-height:360px; }
-}
+    @media (min-width: 1450px){
+      .side-banner{ display:flex; }
+      .page{ max-width:920px; }
+    }
 
-/* ---------- TERMÉK LISTA ---------- */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-  margin-top:10px;
-}
-.product-card{
-  background:#111;
-  border-radius:14px;
-  padding:16px;
-  border:2px solid #550000;
-  box-shadow:0 0 10px rgba(255,0,0,0.25);
-  transition:.18s;
-}
-.product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 18px rgba(255,0,0,0.6);
-}
-.product-title{ font-weight:bold; font-size:1.05rem; }
-.product-desc{ font-size:.85rem; color:#ddd; }
-.tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
-.tag{
-  font-size:.7rem;
-  padding:3px 7px;
-  border-radius:999px;
-  border:1px solid red;
-  color:#ffbbbb;
-}
-.action-row{ margin-top:12px; display:flex; justify-content:flex-end; align-items:center; }
-.btn-offer{
-  padding:8px 12px;
-  border-radius:999px;
-  background:#ffcc00;
-  color:#111;
-  text-decoration:none;
-  font-size:.85rem;
-  font-weight:bold;
-  display:inline-block;
-}
-.btn-offer:hover{
-  background:#ffe066;
-  box-shadow:0 0 10px rgba(255,204,0,0.8);
-}
+    /* =========================
+       PAGE WRAP
+       ========================= */
+    .page{
+      width:min(1180px, calc(100% - 32px));
+      margin:0 auto;
+      padding:24px 0 46px;
+      position:relative;
+      z-index:2;
+    }
 
-/* ---------- CONTACT ---------- */
-.contact-card{
-  margin-top:25px;
-  padding:18px;
-  background:#111;
-  border-radius:16px;
-  border:2px solid red;
-  box-shadow:0 0 15px rgba(255,0,0,0.5);
-}
-.contact-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:10px;
-}
-.contact-btn{
-  flex:1 1 160px;
-  padding:8px 10px;
-  border-radius:10px;
-  background:#220000;
-  border:1px solid red;
-  color:#fff;
-  text-decoration:none;
-  text-align:center;
-}
+    /* =========================
+       HERO
+       ========================= */
+    .hero{
+      position:relative;
+      min-height:460px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      overflow:hidden;
+      background:#0a0a0a;
+      box-shadow:var(--shadow), var(--glow);
+    }
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+    }
+    .hero-left,
+    .hero-right{
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.03);
+      filter:saturate(.95) contrast(1.02);
+    }
+    .hero-left{ background-image:url("m1_1.jpg"); }
+    .hero-right{ background-image:url("m2_1.jpg"); }
 
-/* ---------- MOBIL ALSÓ GALÉRIA ---------- */
-.mobile-banners{ display:none; margin-top:18px; }
-@media (max-width: 1299px){ .mobile-banners{ display:block; } }
-.mobile-banners-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:10px;
-}
-.mobile-banner-card{
-  border-radius:16px;
-  overflow:hidden;
-  background:#111;
-  border:2px solid red;
-  box-shadow:0 0 16px rgba(255,0,0,0.55);
-  height:170px;
-}
-@media (max-width: 420px){ .mobile-banner-card{ height:150px; } }
-.mobile-banner-card img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-30px;
+      background:
+        radial-gradient(900px 420px at 50% 38%, rgba(0,0,0,.08), rgba(0,0,0,.54) 55%, rgba(0,0,0,.76) 85%),
+        linear-gradient(180deg, rgba(0,0,0,.38), rgba(0,0,0,.18) 45%, rgba(0,0,0,.52));
+      z-index:1;
+      pointer-events:none;
+    }
 
-/* ---------- FOOTER CREDIT ---------- */
-.site-credit{
-  margin-top:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  text-align:center;
-  font-size:0.8rem;
-  color:#bdbdbd;
-  opacity:0.95;
-}
-.credit-logo{
-  width:22px;
-  height:22px;
-  border-radius:6px;
-  border:1px solid rgba(255,204,0,0.55);
-  overflow:hidden;
-  background:#111;
-  box-shadow:0 0 10px rgba(255,204,0,0.25);
-  flex:0 0 auto;
-}
-.credit-logo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-</style>
+    .hero-center{
+      position:absolute;
+      left:50%;
+      top:52%;
+      transform:translate(-50%, -50%);
+      z-index:2;
+      width:min(820px, calc(100% - 28px));
+      text-align:center;
+      padding:28px 24px 24px;
+      border-radius:24px;
+      background:rgba(10,10,10,.64);
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:0 30px 70px rgba(0,0,0,.32), 0 0 24px rgba(255,0,0,.16);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      color:rgba(255,255,255,.70);
+      margin-bottom:10px;
+    }
+
+    .hero-logo{
+      width:108px;
+      height:108px;
+      margin:0 auto 16px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      box-shadow:0 16px 34px rgba(0,0,0,.24), 0 0 22px rgba(255,0,0,.16);
+    }
+    .hero-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:10px;
+    }
+
+    .hero-title{
+      font-family:"Cormorant Garamond", serif;
+      font-size:62px;
+      line-height:.95;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin:0;
+      color:#fff;
+      text-shadow:0 0 30px rgba(255,0,0,.10);
+    }
+    .hero-sub{
+      margin:12px auto 0;
+      max-width:700px;
+      font-size:14px;
+      line-height:1.75;
+      color:rgba(255,255,255,.78);
+    }
+
+    .hero-actions{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .ghost-btn,
+    .gold-btn{
+      height:42px;
+      padding:0 16px;
+      border-radius:12px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.22s ease;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .ghost-btn{
+      border-color:rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+    }
+    .ghost-btn:hover{
+      background:rgba(255,0,0,.10);
+      border-color:rgba(255,0,0,.35);
+      transform:translateY(-1px);
+    }
+
+    .gold-btn{
+      background:var(--gold);
+      color:#111;
+      font-weight:700;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
+    }
+    .gold-btn:hover{
+      background:#ffe066;
+      transform:translateY(-1px);
+      box-shadow:0 14px 34px rgba(0,0,0,.22), 0 0 16px rgba(255,204,0,.28);
+    }
+
+    /* =========================
+       SECTION HEAD
+       ========================= */
+    .section-head{
+      padding:34px 0 18px;
+      text-align:center;
+    }
+    .section-small{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      color:rgba(255,255,255,.56);
+    }
+    .section-title{
+      margin:8px 0 0;
+      font-family:"Cormorant Garamond", serif;
+      font-size:38px;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#fff;
+    }
+
+    .section-linkrow{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .section-link{
+      background:transparent;
+      border:0;
+      color:rgba(255,255,255,.75);
+      cursor:pointer;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      position:relative;
+      padding:8px 10px;
+    }
+    .section-link::after{
+      content:"";
+      position:absolute;
+      left:10px; right:10px; bottom:2px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,0,0,.95), transparent);
+      opacity:0;
+      transform:translateY(4px);
+      transition:.25s ease;
+    }
+    .section-link:hover{
+      color:#fff;
+    }
+    .section-link:hover::after{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* =========================
+       SPLIT INTRO
+       ========================= */
+    .split{
+      margin-top:8px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(14,14,14,.96), rgba(9,9,9,.98));
+      box-shadow:var(--shadow);
+    }
+
+    .split-wrap{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      min-height:430px;
+    }
+
+    .split-img{
+      position:relative;
+      overflow:hidden;
+      border-right:1px solid rgba(255,255,255,.07);
+      min-height:320px;
+    }
+    .split-img::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("m3_1.jpg") center/cover no-repeat;
+      transform:scale(1.04);
+      filter:saturate(.98) contrast(1.03);
+    }
+    .split-img::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 420px at 30% 50%, rgba(0,0,0,.06), rgba(0,0,0,.42)),
+        linear-gradient(180deg, rgba(255,0,0,.03), rgba(0,0,0,.22));
+    }
+
+    .split-content{
+      display:flex;
+      align-items:center;
+      padding:50px 34px;
+    }
+
+    .intro-card{
+      width:100%;
+      max-width:470px;
+      margin-left:auto;
+    }
+
+    .intro-kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      color:rgba(255,255,255,.52);
+      margin-bottom:10px;
+    }
+    .intro-title{
+      font-family:"Cormorant Garamond", serif;
+      font-size:34px;
+      font-weight:700;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:#fff;
+      margin:0 0 12px;
+    }
+    .intro-text{
+      font-size:14px;
+      line-height:1.8;
+      color:rgba(255,255,255,.74);
+      margin:0 0 18px;
+    }
+
+    .outline-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .outline-btn{
+      height:42px;
+      padding:0 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,0,0,.32);
+      background:rgba(255,255,255,.03);
+      color:#fff;
+      cursor:pointer;
+      transition:.2s ease;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .outline-btn:hover{
+      background:rgba(255,0,0,.10);
+      border-color:rgba(255,0,0,.55);
+      transform:translateY(-1px);
+    }
+
+    /* =========================
+       GRID CARDS
+       ========================= */
+    .catalogs,
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:18px;
+      margin-top:14px;
+    }
+
+    .catalog-card,
+    .product-card,
+    .contact-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)),
+        rgba(13,13,13,.95);
+      box-shadow:var(--shadow), 0 0 18px rgba(255,0,0,.09);
+    }
+    .catalog-card::before,
+    .product-card::before,
+    .contact-card::before{
+      content:"";
+      position:absolute;
+      left:18px; right:18px; top:0;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,0,0,.85), transparent);
+      opacity:.95;
+    }
+
+    .catalog-card{
+      padding:22px 20px;
+    }
+
+    .catalog-card h3,
+    .product-title,
+    .contact-card h3{
+      font-family:"Cormorant Garamond", serif;
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:.06em;
+      color:#fff;
+      line-height:1.05;
+    }
+
+    .card-text{
+      font-size:14px;
+      color:rgba(255,255,255,.72);
+      line-height:1.7;
+      margin-top:10px;
+    }
+
+    .catalog-actions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .btn-download,
+    .embed-btn,
+    .btn-offer,
+    .contact-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:700;
+      transition:.22s ease;
+      text-align:center;
+    }
+
+    .btn-download,
+    .embed-btn,
+    .btn-offer{
+      background:var(--gold);
+      color:#111;
+      box-shadow:0 12px 24px rgba(0,0,0,.16);
+    }
+    .btn-download:hover,
+    .embed-btn:hover,
+    .btn-offer:hover{
+      background:#ffe066;
+      transform:translateY(-1px);
+      box-shadow:0 16px 30px rgba(0,0,0,.20), 0 0 14px rgba(255,204,0,.22);
+    }
+
+    .catalog-note{
+      margin-top:12px;
+      font-size:12px;
+      line-height:1.55;
+      color:rgba(255,255,255,.52);
+    }
+
+    /* =========================
+       EMBED VIEWER
+       ========================= */
+    .embed-viewer{
+      margin-top:16px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(8,8,8,.96);
+      display:none;
+      box-shadow:0 16px 40px rgba(0,0,0,.24), 0 0 16px rgba(255,0,0,.10);
+    }
+    .embed-viewer.active{ display:block; }
+
+    .embed-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:12px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+    .embed-title{
+      font-size:14px;
+      font-weight:700;
+      color:#fff;
+      letter-spacing:.04em;
+    }
+    .embed-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .embed-frame-wrap{ width:100%; background:#000; }
+    .embed-frame{
+      width:100%;
+      height:62vh;
+      min-height:420px;
+      border:0;
+      display:block;
+      background:#000;
+    }
+
+    /* =========================
+       PRODUCTS
+       ========================= */
+    .product-card{
+      padding:20px 18px;
+      transition:.2s ease;
+    }
+    .product-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 24px 50px rgba(0,0,0,.26), 0 0 20px rgba(255,0,0,.12);
+    }
+
+    .product-desc{
+      font-size:14px;
+      color:rgba(255,255,255,.72);
+      line-height:1.7;
+      margin-top:10px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:0 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,0,0,.34);
+      background:rgba(255,0,0,.06);
+      color:#ffd0d0;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .action-row{
+      margin-top:16px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    /* =========================
+       CONTACT
+       ========================= */
+    .contact-card{
+      margin-top:18px;
+      padding:22px 20px;
+    }
+    .contact-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .contact-btn{
+      flex:1 1 180px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,0,0,.32);
+      color:#fff;
+    }
+    .contact-btn:hover{
+      background:rgba(255,0,0,.10);
+      border-color:rgba(255,0,0,.55);
+      transform:translateY(-1px);
+    }
+
+    /* =========================
+       MOBILE BANNERS
+       ========================= */
+    .mobile-banners{
+      display:none;
+      margin-top:10px;
+    }
+    @media (max-width: 1449px){
+      .mobile-banners{ display:block; }
+    }
+    .mobile-banners-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .mobile-banner-card{
+      height:180px;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background:#111;
+      box-shadow:0 16px 34px rgba(0,0,0,.22), 0 0 18px rgba(255,0,0,.12);
+      position:relative;
+    }
+    .mobile-banner-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,0,0,.06));
+      pointer-events:none;
+    }
+    .mobile-banner-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+    .site-credit{
+      margin-top:26px;
+      padding:20px 0 6px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      text-align:center;
+      color:rgba(255,255,255,.60);
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+    .credit-logo{
+      width:24px;
+      height:24px;
+      border-radius:7px;
+      overflow:hidden;
+      border:1px solid rgba(255,204,0,.28);
+      background:#111;
+      box-shadow:0 0 10px rgba(255,204,0,.12);
+      flex:0 0 auto;
+    }
+    .credit-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+    @media (max-width: 980px){
+      .top-nav{ display:none; }
+      .topbar-inner{ min-height:72px; }
+      .brand-name{ font-size:26px; }
+
+      .hero{
+        min-height:500px;
+      }
+      .hero-title{
+        font-size:48px;
+      }
+
+      .split-wrap{
+        grid-template-columns:1fr;
+      }
+      .split-img{
+        min-height:280px;
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,.07);
+      }
+      .split-content{
+        padding:32px 20px;
+      }
+      .intro-card{
+        max-width:none;
+        margin:0;
+      }
+    }
+
+    @media (max-width: 700px){
+      .topbar-inner{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+      .brand-mini,
+      .lang-switch{
+        min-width:auto;
+        justify-content:center;
+      }
+
+      .hero-center{
+        padding:24px 16px 20px;
+      }
+      .hero-logo{
+        width:90px;
+        height:90px;
+      }
+      .hero-title{
+        font-size:38px;
+      }
+      .hero-sub{
+        font-size:13px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+
+      .catalog-card h3,
+      .product-title,
+      .contact-card h3{
+        font-size:24px;
+      }
+
+      .embed-frame{
+        height:56vh;
+        min-height:360px;
+      }
+    }
+
+    @media (max-width: 520px){
+      .page{
+        width:min(100%, calc(100% - 22px));
+      }
+
+      .hero{
+        min-height:470px;
+        border-radius:24px;
+      }
+
+      .hero-title{
+        font-size:34px;
+      }
+
+      .section-title{
+        font-size:26px;
+      }
+
+      .mobile-banners-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+      }
+      .mobile-banner-card{
+        height:145px;
+      }
+
+      .catalog-card,
+      .product-card,
+      .contact-card{
+        border-radius:18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- TOPBAR + NYELVVÁLTÓ -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand-mini">
-      <div class="brand-dot"></div>
-      <div class="brand-name" data-i18n="top_brand">Nsport`s</div>
-    </div>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="brand-mini">
+          <div class="brand-dot"></div>
+          <div class="brand-name" data-i18n="top_brand">Nsport`s</div>
+        </div>
 
-    <div class="lang-switch">
-      <button class="lang-btn" id="btn-hu">HU</button>
-      <button class="lang-btn active" id="btn-ro">RO</button>
-      <button class="lang-btn" id="btn-en">EN</button>
-    </div>
-  </div>
-</div>
+        <nav class="top-nav" aria-label="Main navigation">
+          <a href="#hero" data-i18n="nav_home">Acasă</a>
+          <a href="#event" data-i18n="nav_event">Eveniment</a>
+          <a href="#judo" data-i18n="nav_judo">Judo</a>
+          <a href="#catalogs" data-i18n="nav_catalogs">Cataloage</a>
+          <a href="#products" data-i18n="nav_products">Produse</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </nav>
 
-<!-- BAL OLDALI BANNER -->
-<div class="side-banner side-left">
-  <div class="side-banner-inner">
-    <div class="side-banner-card"><img id="leftBannerImg1" src="left_top_1.jpg" alt="Promo stânga sus"></div>
-    <div class="side-banner-card"><img id="leftBannerImg2" src="left_bottom_1.jpg" alt="Promo stânga jos"></div>
-  </div>
-</div>
-
-<!-- JOBB OLDALI BANNER -->
-<div class="side-banner side-right">
-  <div class="side-banner-inner">
-    <div class="side-banner-card"><img id="rightBannerImg1" src="right_top_1.jpg" alt="Promo dreapta sus"></div>
-    <div class="side-banner-card"><img id="rightBannerImg2" src="right_bottom_1.jpg" alt="Promo dreapta jos"></div>
-  </div>
-</div>
-
-<!-- KÖZÉPSŐ TARTALOM -->
-<div class="page">
-
-  <!-- HERO -->
-  <div class="card-hero">
-    <div class="logo"><img src="logo.png" alt="Nsport logo"></div>
-    <h1 data-i18n="hero_title">Nagy Stelian</h1>
-    <p class="hero-text" data-i18n="hero_sub">Accesorii sportive, tricouri personalizate și produse unicat.</p>
-  </div>
-
-  <!-- EVENT / JUDO CUP 2026 (ÚJ RÉSZ) -->
-  <h2 class="section-title" data-i18n="event_title">Nemzetközi Judo Arany Kupa 2026</h2>
-
-  <div class="catalog-card">
-    <h3 data-i18n="event_name">Nemzetközi Judo Arany Kupa 2026</h3>
-    <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="event_desc">Minden információ a weboldalon.</p>
-
-    <div class="catalog-actions">
-      <a class="btn-download"
-         href="https://norby9898.github.io/Judo-international-Gold-Cup-2026/"
-         target="_blank" rel="noopener"
-         data-i18n="event_btn">🏆 Megnyitás</a>
+        <div class="lang-switch">
+          <button class="lang-btn" id="btn-hu">HU</button>
+          <button class="lang-btn active" id="btn-ro">RO</button>
+          <button class="lang-btn" id="btn-en">EN</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- ÚJ: KLUB KEDVEZMÉNYEK (RUBRIKA) -->
-  <h2 class="section-title" data-i18n="club_title">Sport kluboknak – kedvezmények</h2>
-
-  <div class="catalog-card">
-    <h3 data-i18n="club_name">Bármilyen sportfelszerelés kluboknak</h3>
-    <p style="font-size:0.9rem;color:#ddd;margin-top:5px;line-height:1.45;" data-i18n="club_desc">
-      Sport kluboknak nagyobb mennyiségnél kedvezmények járnak. Írj nekünk, és küldünk személyre szabott ajánlatot.
-    </p>
-
-    <div class="catalog-actions">
-      <a class="btn-download" href="#" id="club_offer_btn" data-i18n="club_btn">✉️ Kedvezményes ajánlat kérése</a>
+  <!-- BAL OLDALI BANNER -->
+  <div class="side-banner side-left">
+    <div class="side-banner-inner">
+      <div class="side-banner-card"><img id="leftBannerImg1" src="left_top_1.jpg" alt="Promo stânga sus"></div>
+      <div class="side-banner-card"><img id="leftBannerImg2" src="left_bottom_1.jpg" alt="Promo stânga jos"></div>
     </div>
-
-    <div class="catalog-note" data-i18n="club_note">Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.</div>
   </div>
 
-  <!-- ÚJ: JUDO FELSZERELÉSEK / JUDO EQUIPMENT (Mizuno + DAX) -->
-  <h2 class="section-title" data-i18n="judo_title">Judo felszerelések</h2>
+  <!-- JOBB OLDALI BANNER -->
+  <div class="side-banner side-right">
+    <div class="side-banner-inner">
+      <div class="side-banner-card"><img id="rightBannerImg1" src="right_top_1.jpg" alt="Promo dreapta sus"></div>
+      <div class="side-banner-card"><img id="rightBannerImg2" src="right_bottom_1.jpg" alt="Promo dreapta jos"></div>
+    </div>
+  </div>
 
-  <div class="catalogs">
+  <!-- KÖZÉPSŐ TARTALOM -->
+  <main class="page">
 
-    <!-- JUDO CATALOG 1: MIZUNO -->
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-left"></div>
+        <div class="hero-right"></div>
+      </div>
+
+      <div class="hero-center">
+        <div class="hero-kicker" data-i18n="hero_kicker">Calitate, personalizare și produse sportive premium</div>
+
+        <div class="hero-logo">
+          <img src="logo.png" alt="Nsport logo">
+        </div>
+
+        <h1 class="hero-title" data-i18n="hero_title">Nagy Stelian</h1>
+        <p class="hero-sub" data-i18n="hero_sub">Accesorii sportive, tricouri personalizate și produse unicat.</p>
+
+        <div class="hero-actions">
+          <a class="gold-btn" href="#catalogs" data-i18n="hero_btn_catalogs">Vezi cataloagele</a>
+          <a class="ghost-btn" href="#contact" data-i18n="hero_btn_contact">Contact rapid</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION HEAD -->
+    <section class="section-head">
+      <div class="section-linkrow">
+        <button class="section-link" onclick="document.getElementById('event').scrollIntoView({behavior:'smooth'})" data-i18n="quick_event">Eveniment</button>
+        <button class="section-link" onclick="document.getElementById('judo').scrollIntoView({behavior:'smooth'})" data-i18n="quick_judo">Judo</button>
+        <button class="section-link" onclick="document.getElementById('catalogs').scrollIntoView({behavior:'smooth'})" data-i18n="quick_catalogs">Cataloage</button>
+        <button class="section-link" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" data-i18n="quick_products">Produse</button>
+      </div>
+      <div class="section-small" data-i18n="section_small">Design modern, structură clară, experiență premium</div>
+      <h2 class="section-title" data-i18n="section_main_title">Oferta Nsport</h2>
+    </section>
+
+    <!-- INTRO SPLIT -->
+    <section class="split">
+      <div class="split-wrap">
+        <div class="split-img" aria-label="Nsport promo image"></div>
+
+        <div class="split-content">
+          <div class="intro-card">
+            <div class="intro-kicker" data-i18n="intro_kicker">Nsport`s</div>
+            <h3 class="intro-title" data-i18n="intro_title">Produse sportive cu stil</h3>
+            <p class="intro-text" data-i18n="intro_text">
+              Cataloage, echipamente sportive, produse personalizate și oferte pentru cluburi – toate într-un format modern, clar și ușor de navigat.
+            </p>
+
+            <div class="outline-row">
+              <button class="outline-btn" onclick="document.getElementById('catalogs').scrollIntoView({behavior:'smooth'})" data-i18n="intro_btn_catalogs">Cataloage</button>
+              <button class="outline-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" data-i18n="intro_btn_products">Produse</button>
+              <button class="outline-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="intro_btn_contact">Contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT -->
+    <section id="event" class="section-head">
+      <div class="section-small" data-i18n="event_small">Eveniment special</div>
+      <h2 class="section-title" data-i18n="event_title">Nemzetközi Judo Arany Kupa 2026</h2>
+    </section>
+
     <div class="catalog-card">
-      <h3 data-i18n="judo_mizuno_name">Mizuno – Judo katalógus</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="judo_mizuno_desc">Modellek és opciók PDF-ben.</p>
+      <h3 data-i18n="event_name">Nemzetközi Judo Arany Kupa 2026</h3>
+      <p class="card-text" data-i18n="event_desc">Minden információ a weboldalon.</p>
 
       <div class="catalog-actions">
         <a class="btn-download"
-           href="https://drive.google.com/uc?export=download&id=1OFNFWxsXJha76izK14XxAJYnH-gOdB2c"
-           target="_blank" rel="noopener" data-i18n="judo_mizuno_btn_download">⬇️ Letöltés (PDF)</a>
-
-        <a class="btn-download" href="#" id="judo_mizuno_view_embed" data-i18n="judo_mizuno_btn_view_embed">👁️ Megtekintés az oldalon</a>
-      </div>
-
-      <div class="catalog-note" data-i18n="cat_note">Ha a letöltés nem indul el, válaszd a megtekintést.</div>
-
-      <div class="embed-viewer" id="judo_mizuno_embed">
-        <div class="embed-head">
-          <div class="embed-title" data-i18n="judo_mizuno_embed_title">Mizuno – Megtekintés</div>
-          <div class="embed-actions">
-            <a class="embed-btn"
-               id="judo_mizuno_open_new"
-               href="https://drive.google.com/file/d/1OFNFWxsXJha76izK14XxAJYnH-gOdB2c/view"
-"
-               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Megnyitás új fülön</a>
-            <button class="embed-btn" id="judo_mizuno_close" type="button" data-i18n="embed_close">✖ Bezárás</button>
-          </div>
-        </div>
-        <div class="embed-frame-wrap">
-          <iframe id="judo_mizuno_iframe" class="embed-frame" src="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allow="fullscreen" allowfullscreen title="Mizuno Judo Catalog Viewer"></iframe>
-        </div>
+           href="https://norby9898.github.io/Judo-international-Gold-Cup-2026/"
+           target="_blank" rel="noopener"
+           data-i18n="event_btn">🏆 Megnyitás</a>
       </div>
     </div>
 
-    <!-- JUDO CATALOG 2: DAX -->
+    <!-- CLUB -->
+    <section class="section-head">
+      <div class="section-small" data-i18n="club_small">Parteneriate și comenzi mari</div>
+      <h2 class="section-title" data-i18n="club_title">Sport kluboknak – kedvezmények</h2>
+    </section>
+
     <div class="catalog-card">
-      <h3 data-i18n="judo_dax_name">DAX – Judo katalógus</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="judo_dax_desc">Modellek és opciók PDF-ben.</p>
+      <h3 data-i18n="club_name">Bármilyen sportfelszerelés kluboknak</h3>
+      <p class="card-text" data-i18n="club_desc">
+        Sport kluboknak nagyobb mennyiségnél kedvezmények járnak. Írj nekünk, és küldünk személyre szabott ajánlatot.
+      </p>
 
       <div class="catalog-actions">
-        <a class="btn-download"
-           href="https://drive.google.com/uc?export=download&id=1Gqaai-W81M586lnGL69OmXENUYMi517c"
-           target="_blank" rel="noopener" data-i18n="judo_dax_btn_download">⬇️ Letöltés (PDF)</a>
-
-        <a class="btn-download" href="#" id="judo_dax_view_embed" data-i18n="judo_dax_btn_view_embed">👁️ Megtekintés az oldalon</a>
+        <a class="btn-download" href="#" id="club_offer_btn" data-i18n="club_btn">✉️ Kedvezményes ajánlat kérése</a>
       </div>
 
-      <div class="catalog-note" data-i18n="cat_note">Ha a letöltés nem indul el, válaszd a megtekintést.</div>
+      <div class="catalog-note" data-i18n="club_note">
+        Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.
+      </div>
+    </div>
 
-      <div class="embed-viewer" id="judo_dax_embed">
-        <div class="embed-head">
-          <div class="embed-title" data-i18n="judo_dax_embed_title">DAX – Megtekintés</div>
-          <div class="embed-actions">
-            <a class="embed-btn"
-               id="judo_dax_open_new"
-               href="https://drive.google.com/file/d/1Gqaai-W81M586lnGL69OmXENUYMi517c/preview"
-               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Megnyitás új fülön</a>
-            <button class="embed-btn" id="judo_dax_close" type="button" data-i18n="embed_close">✖ Bezárás</button>
+    <!-- JUDO -->
+    <section id="judo" class="section-head">
+      <div class="section-small" data-i18n="judo_small">Kiemelt katalógusok</div>
+      <h2 class="section-title" data-i18n="judo_title">Judo felszerelések</h2>
+    </section>
+
+    <div class="catalogs">
+
+      <!-- JUDO CATALOG 1: MIZUNO -->
+      <div class="catalog-card">
+        <h3 data-i18n="judo_mizuno_name">Mizuno – Judo katalógus</h3>
+        <p class="card-text" data-i18n="judo_mizuno_desc">Modellek és opciók PDF-ben.</p>
+
+        <div class="catalog-actions">
+          <a class="btn-download"
+             href="https://drive.google.com/uc?export=download&id=1OFNFWxsXJha76izK14XxAJYnH-gOdB2c"
+             target="_blank" rel="noopener"
+             data-i18n="judo_mizuno_btn_download">⬇️ Letöltés (PDF)</a>
+
+          <a class="btn-download" href="#" id="judo_mizuno_view_embed" data-i18n="judo_mizuno_btn_view_embed">👁️ Megtekintés az oldalon</a>
+        </div>
+
+        <div class="catalog-note" data-i18n="cat_note">Ha a letöltés nem indul el, válaszd a megtekintést.</div>
+
+        <div class="embed-viewer" id="judo_mizuno_embed">
+          <div class="embed-head">
+            <div class="embed-title" data-i18n="judo_mizuno_embed_title">Mizuno – Megtekintés</div>
+            <div class="embed-actions">
+              <a class="embed-btn"
+                 id="judo_mizuno_open_new"
+                 href="https://drive.google.com/file/d/1OFNFWxsXJha76izK14XxAJYnH-gOdB2c/view"
+                 target="_blank" rel="noopener"
+                 data-i18n="embed_open_new">↗️ Megnyitás új fülön</a>
+              <button class="embed-btn" id="judo_mizuno_close" type="button" data-i18n="embed_close">✖ Bezárás</button>
+            </div>
+          </div>
+          <div class="embed-frame-wrap">
+            <iframe id="judo_mizuno_iframe" class="embed-frame" src="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen" allowfullscreen title="Mizuno Judo Catalog Viewer"></iframe>
           </div>
         </div>
-        <div class="embed-frame-wrap">
-          <iframe id="judo_dax_iframe" class="embed-frame" src="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allow="fullscreen" allowfullscreen title="DAX Judo Catalog Viewer"></iframe>
+      </div>
+
+      <!-- JUDO CATALOG 2: DAX -->
+      <div class="catalog-card">
+        <h3 data-i18n="judo_dax_name">DAX – Judo katalógus</h3>
+        <p class="card-text" data-i18n="judo_dax_desc">Modellek és opciók PDF-ben.</p>
+
+        <div class="catalog-actions">
+          <a class="btn-download"
+             href="https://drive.google.com/uc?export=download&id=1Gqaai-W81M586lnGL69OmXENUYMi517c"
+             target="_blank" rel="noopener"
+             data-i18n="judo_dax_btn_download">⬇️ Letöltés (PDF)</a>
+
+          <a class="btn-download" href="#" id="judo_dax_view_embed" data-i18n="judo_dax_btn_view_embed">👁️ Megtekintés az oldalon</a>
         </div>
-      </div>
-    </div>
 
-  </div>
+        <div class="catalog-note" data-i18n="cat_note">Ha a letöltés nem indul el, válaszd a megtekintést.</div>
 
-  <!-- CATALOGS -->
-  <h2 class="section-title" data-i18n="catalogs_title">Cataloage PDF</h2>
-
-  <div class="catalogs">
-
-    <!-- CATALOG 1 (Drive preview) -->
-    <div class="catalog-card">
-      <h3 data-i18n="cat1_name">Catalog cupe & trofee</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat1_desc">Descarcă în format PDF catalogul complet.</p>
-
-      <div class="catalog-actions">
-        <a class="btn-download"
-           href="https://drive.google.com/uc?export=download&id=1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa"
-           target="_blank" rel="noopener" data-i18n="cat1_btn_download">⬇️ Descărcare (PDF)</a>
-
-        <a class="btn-download" href="#" id="cat1_view_embed" data-i18n="cat1_btn_view_embed">👁️ Vizualizare pe pagină</a>
-      </div>
-
-      <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
-
-      <div class="embed-viewer" id="cat1_embed">
-        <div class="embed-head">
-          <div class="embed-title" data-i18n="cat1_embed_title">Catalog 1 – Vizualizare</div>
-          <div class="embed-actions">
-            <a class="embed-btn"
-               id="cat1_open_new"
-               href="https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/view"
-               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Deschide nou tab</a>
-            <button class="embed-btn" id="cat1_close" type="button" data-i18n="embed_close">✖ Închide</button>
+        <div class="embed-viewer" id="judo_dax_embed">
+          <div class="embed-head">
+            <div class="embed-title" data-i18n="judo_dax_embed_title">DAX – Megtekintés</div>
+            <div class="embed-actions">
+              <a class="embed-btn"
+                 id="judo_dax_open_new"
+                 href="https://drive.google.com/file/d/1Gqaai-W81M586lnGL69OmXENUYMi517c/preview"
+                 target="_blank" rel="noopener"
+                 data-i18n="embed_open_new">↗️ Megnyitás új fülön</a>
+              <button class="embed-btn" id="judo_dax_close" type="button" data-i18n="embed_close">✖ Bezárás</button>
+            </div>
+          </div>
+          <div class="embed-frame-wrap">
+            <iframe id="judo_dax_iframe" class="embed-frame" src="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen" allowfullscreen title="DAX Judo Catalog Viewer"></iframe>
           </div>
         </div>
-        <div class="embed-frame-wrap">
-          <iframe id="cat1_iframe" class="embed-frame" src="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allow="fullscreen" allowfullscreen title="Catalog 1 Viewer"></iframe>
-        </div>
       </div>
+
     </div>
 
-    <!-- CATALOG 2 (Drive preview - ugyanúgy mint az 1.) -->
-    <div class="catalog-card">
-      <h3 data-i18n="cat2_name">Catalog echipamente sportive Brandul Patrick</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat2_desc">Modele și opțiuni disponibile în PDF.</p>
+    <!-- CATALOGS -->
+    <section id="catalogs" class="section-head">
+      <div class="section-small" data-i18n="catalogs_small">PDF és online nézet</div>
+      <h2 class="section-title" data-i18n="catalogs_title">Cataloage PDF</h2>
+    </section>
 
-      <div class="catalog-actions">
-        <a class="btn-download"
-           href="https://drive.google.com/uc?export=download&id=1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH"
-           target="_blank" rel="noopener" data-i18n="cat2_btn_download">⬇️ Descărcare (PDF)</a>
+    <div class="catalogs">
 
-        <a class="btn-download" href="#" id="cat2_view_embed" data-i18n="cat2_btn_view_embed">👁️ Vizualizare pe pagină</a>
-      </div>
+      <!-- CATALOG 1 -->
+      <div class="catalog-card">
+        <h3 data-i18n="cat1_name">Catalog cupe & trofee</h3>
+        <p class="card-text" data-i18n="cat1_desc">Descarcă în format PDF catalogul complet.</p>
 
-      <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
+        <div class="catalog-actions">
+          <a class="btn-download"
+             href="https://drive.google.com/uc?export=download&id=1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa"
+             target="_blank" rel="noopener"
+             data-i18n="cat1_btn_download">⬇️ Descărcare (PDF)</a>
 
-      <div class="embed-viewer" id="cat2_embed">
-        <div class="embed-head">
-          <div class="embed-title" data-i18n="cat2_embed_title">Catalog 2 – Vizualizare</div>
-          <div class="embed-actions">
-            <a class="embed-btn"
-               id="cat2_open_new"
-               href="https://online.fliphtml5.com/leke/dgah/index.html"
-               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Deschide nou tab</a>
-            <button class="embed-btn" id="cat2_close" type="button" data-i18n="embed_close">✖ Închide</button>
+          <a class="btn-download" href="#" id="cat1_view_embed" data-i18n="cat1_btn_view_embed">👁️ Vizualizare pe pagină</a>
+        </div>
+
+        <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
+
+        <div class="embed-viewer" id="cat1_embed">
+          <div class="embed-head">
+            <div class="embed-title" data-i18n="cat1_embed_title">Catalog 1 – Vizualizare</div>
+            <div class="embed-actions">
+              <a class="embed-btn"
+                 id="cat1_open_new"
+                 href="https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/view"
+                 target="_blank" rel="noopener"
+                 data-i18n="embed_open_new">↗️ Deschide nou tab</a>
+              <button class="embed-btn" id="cat1_close" type="button" data-i18n="embed_close">✖ Închide</button>
+            </div>
+          </div>
+          <div class="embed-frame-wrap">
+            <iframe id="cat1_iframe" class="embed-frame" src="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen" allowfullscreen title="Catalog 1 Viewer"></iframe>
           </div>
         </div>
-        <div class="embed-frame-wrap">
-          <iframe id="cat2_iframe" class="embed-frame" src="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allow="fullscreen" allowfullscreen title="Catalog 2 Viewer"></iframe>
+      </div>
+
+      <!-- CATALOG 2 -->
+      <div class="catalog-card">
+        <h3 data-i18n="cat2_name">Catalog echipamente sportive Brandul Patrick</h3>
+        <p class="card-text" data-i18n="cat2_desc">Modele și opțiuni disponibile în PDF.</p>
+
+        <div class="catalog-actions">
+          <a class="btn-download"
+             href="https://drive.google.com/uc?export=download&id=1BuySLB_XFUaQNqjZsCNzKmuMjRkLWsAH"
+             target="_blank" rel="noopener"
+             data-i18n="cat2_btn_download">⬇️ Descărcare (PDF)</a>
+
+          <a class="btn-download" href="#" id="cat2_view_embed" data-i18n="cat2_btn_view_embed">👁️ Vizualizare pe pagină</a>
         </div>
-      </div>
-    </div>
 
-    <!-- CATALOG 3 (Drive preview - ugyanúgy mint az 1.) -->
-    <div class="catalog-card">
-      <h3 data-i18n="cat3_name">Catalog produse sportive Brandul Joma</h3>
-      <p style="font-size:0.9rem;color:#ddd;margin-top:5px;" data-i18n="cat3_desc">Modele și opțiuni disponibile în PDF.</p>
+        <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
 
-      <div class="catalog-actions">
-        <a class="btn-download"
-           href="https://drive.google.com/uc?export=download&id=1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9"
-           target="_blank" rel="noopener" data-i18n="cat3_btn_download">⬇️ Descărcare (PDF)</a>
-
-        <a class="btn-download" href="#" id="cat3_view_embed" data-i18n="cat3_btn_view_embed">👁️ Vizualizare pe pagină</a>
-      </div>
-
-      <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
-
-      <div class="embed-viewer" id="cat3_embed">
-        <div class="embed-head">
-          <div class="embed-title" data-i18n="cat3_embed_title">Catalog 3 – Vizualizare</div>
-          <div class="embed-actions">
-            <a class="embed-btn"
-               id="cat3_open_new"
-               href="https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/view"
-               target="_blank" rel="noopener" data-i18n="embed_open_new">↗️ Deschide nou tab</a>
-            <button class="embed-btn" id="cat3_close" type="button" data-i18n="embed_close">✖ Închide</button>
+        <div class="embed-viewer" id="cat2_embed">
+          <div class="embed-head">
+            <div class="embed-title" data-i18n="cat2_embed_title">Catalog 2 – Vizualizare</div>
+            <div class="embed-actions">
+              <a class="embed-btn"
+                 id="cat2_open_new"
+                 href="https://online.fliphtml5.com/leke/dgah/index.html"
+                 target="_blank" rel="noopener"
+                 data-i18n="embed_open_new">↗️ Deschide nou tab</a>
+              <button class="embed-btn" id="cat2_close" type="button" data-i18n="embed_close">✖ Închide</button>
+            </div>
+          </div>
+          <div class="embed-frame-wrap">
+            <iframe id="cat2_iframe" class="embed-frame" src="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen" allowfullscreen title="Catalog 2 Viewer"></iframe>
           </div>
         </div>
-        <div class="embed-frame-wrap">
-          <iframe id="cat3_iframe" class="embed-frame" src="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allow="fullscreen" allowfullscreen title="Catalog 3 Viewer"></iframe>
+      </div>
+
+      <!-- CATALOG 3 -->
+      <div class="catalog-card">
+        <h3 data-i18n="cat3_name">Catalog produse sportive Brandul Joma</h3>
+        <p class="card-text" data-i18n="cat3_desc">Modele și opțiuni disponibile în PDF.</p>
+
+        <div class="catalog-actions">
+          <a class="btn-download"
+             href="https://drive.google.com/uc?export=download&id=1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9"
+             target="_blank" rel="noopener"
+             data-i18n="cat3_btn_download">⬇️ Descărcare (PDF)</a>
+
+          <a class="btn-download" href="#" id="cat3_view_embed" data-i18n="cat3_btn_view_embed">👁️ Vizualizare pe pagină</a>
+        </div>
+
+        <div class="catalog-note" data-i18n="cat_note">Dacă descărcarea nu pornește, alege opțiunea de vizualizare.</div>
+
+        <div class="embed-viewer" id="cat3_embed">
+          <div class="embed-head">
+            <div class="embed-title" data-i18n="cat3_embed_title">Catalog 3 – Vizualizare</div>
+            <div class="embed-actions">
+              <a class="embed-btn"
+                 id="cat3_open_new"
+                 href="https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/view"
+                 target="_blank" rel="noopener"
+                 data-i18n="embed_open_new">↗️ Deschide nou tab</a>
+              <button class="embed-btn" id="cat3_close" type="button" data-i18n="embed_close">✖ Închide</button>
+            </div>
+          </div>
+          <div class="embed-frame-wrap">
+            <iframe id="cat3_iframe" class="embed-frame" src="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen" allowfullscreen title="Catalog 3 Viewer"></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section-head">
+      <div class="section-small" data-i18n="products_small">Selecție recomandată</div>
+      <h2 class="section-title" data-i18n="products_title">Produse recomandate</h2>
+    </section>
+
+    <div class="products">
+      <div class="product-card">
+        <div class="product-title" data-i18n="p1_title">Pachet regenerare după antrenament</div>
+        <div class="product-desc" data-i18n="p1_desc">Proteină, carbohidrați și BCAA pentru refacere rapidă.</div>
+        <div class="tags">
+          <span class="tag" data-i18n="p1_tag1">Fitness</span>
+          <span class="tag" data-i18n="p1_tag2">Recuperare</span>
+        </div>
+        <div class="action-row">
+          <a class="btn-offer" id="offer1" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-title" data-i18n="p2_title">Tricouri personalizate</div>
+        <div class="product-desc" data-i18n="p2_desc">Tricouri cu nume, număr și logo pentru echipa ta.</div>
+        <div class="tags">
+          <span class="tag" data-i18n="p2_tag1">Personalizat</span>
+          <span class="tag" data-i18n="p2_tag2">Echipe</span>
+        </div>
+        <div class="action-row">
+          <a class="btn-offer" id="offer2" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-title" data-i18n="p3_title">Starter pack accesorii sport</div>
+        <div class="product-desc" data-i18n="p3_desc">Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.</div>
+        <div class="tags">
+          <span class="tag" data-i18n="p3_tag1">Cadou</span>
+          <span class="tag" data-i18n="p3_tag2">Începători</span>
+        </div>
+        <div class="action-row">
+          <a class="btn-offer" id="offer3" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
         </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- PRODUSE -->
-  <h2 class="section-title" data-i18n="products_title">Produse recomandate</h2>
-
-  <div class="products">
-    <div class="product-card">
-      <div class="product-title" data-i18n="p1_title">Pachet regenerare după antrenament</div>
-      <div class="product-desc" data-i18n="p1_desc">Proteină, carbohidrați și BCAA pentru refacere rapidă.</div>
-      <div class="tags">
-        <span class="tag" data-i18n="p1_tag1">Fitness</span>
-        <span class="tag" data-i18n="p1_tag2">Recuperare</span>
-      </div>
-      <div class="action-row">
-        <a class="btn-offer" id="offer1" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
+    <!-- CONTACT -->
+    <div class="contact-card" id="contact">
+      <h3 data-i18n="contact_title">Contact – Nagy Stelian</h3>
+      <div class="contact-row">
+        <a class="contact-btn" href="tel:+40740901573" data-i18n="contact_call">📞 Sună-ne</a>
+        <a class="contact-btn" href="mailto:steliannagy@yahoo.com" data-i18n="contact_email">✉️ Email</a>
+        <a class="contact-btn"
+           href="https://wa.me/40740901573?text=Salut,%20vreau%20informații%20despre%20produsele%20Nsport."
+           target="_blank" rel="noopener"
+           data-i18n="contact_wa">💬 WhatsApp direct</a>
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-title" data-i18n="p2_title">Tricouri personalizate</div>
-      <div class="product-desc" data-i18n="p2_desc">Tricouri cu nume, număr și logo pentru echipa ta.</div>
-      <div class="tags">
-        <span class="tag" data-i18n="p2_tag1">Personalizat</span>
-        <span class="tag" data-i18n="p2_tag2">Echipe</span>
-      </div>
-      <div class="action-row">
-        <a class="btn-offer" id="offer2" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
-      </div>
-    </div>
+    <!-- MOBIL GALÉRIA -->
+    <div class="mobile-banners">
+      <section class="section-head" style="padding-bottom:8px;">
+        <div class="section-small" data-i18n="mobile_gallery_small">Imagini promo</div>
+        <h2 class="section-title" data-i18n="mobile_gallery_title">Galerie</h2>
+      </section>
 
-    <div class="product-card">
-      <div class="product-title" data-i18n="p3_title">Starter pack accesorii sport</div>
-      <div class="product-desc" data-i18n="p3_desc">Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.</div>
-      <div class="tags">
-        <span class="tag" data-i18n="p3_tag1">Cadou</span>
-        <span class="tag" data-i18n="p3_tag2">Începători</span>
-      </div>
-      <div class="action-row">
-        <a class="btn-offer" id="offer3" href="#" data-i18n="offer_btn">✉️ Cere ofertă (Email)</a>
+      <div class="mobile-banners-grid">
+        <div class="mobile-banner-card"><img id="mImg1" src="m1_1.jpg" alt="Galerie 1"></div>
+        <div class="mobile-banner-card"><img id="mImg2" src="m2_1.jpg" alt="Galerie 2"></div>
+        <div class="mobile-banner-card"><img id="mImg3" src="m3_1.jpg" alt="Galerie 3"></div>
+        <div class="mobile-banner-card"><img id="mImg4" src="m4_1.jpg" alt="Galerie 4"></div>
       </div>
     </div>
-  </div>
 
-  <!-- CONTACT -->
-  <div class="contact-card">
-    <h3 data-i18n="contact_title">Contact – Nagy Stelian</h3>
-    <div class="contact-row">
-      <a class="contact-btn" href="tel:+40740901573" data-i18n="contact_call">📞 Sună-ne</a>
-      <a class="contact-btn" href="mailto:steliannagy@yahoo.com" data-i18n="contact_email">✉️ Email</a>
-      <a class="contact-btn"
-         href="https://wa.me/40740901573?text=Salut,%20vreau%20informații%20despre%20produsele%20Nsport."
-         target="_blank" rel="noopener" data-i18n="contact_wa">💬 WhatsApp direct</a>
+    <!-- FOOTER -->
+    <div class="site-credit">
+      <div class="credit-logo"><img src="nextn_logo.png" alt="NextN-Digital logo"></div>
+      <div data-i18n="credit_text">Mini webshop design: NextN-Digital</div>
     </div>
-  </div>
 
-  <!-- MOBIL ALSÓ GALÉRIA -->
-  <div class="mobile-banners">
-    <h2 class="section-title" data-i18n="mobile_gallery_title">Galerie</h2>
-    <div class="mobile-banners-grid">
-      <div class="mobile-banner-card"><img id="mImg1" src="m1_1.jpg" alt="Galerie 1"></div>
-      <div class="mobile-banner-card"><img id="mImg2" src="m2_1.jpg" alt="Galerie 2"></div>
-      <div class="mobile-banner-card"><img id="mImg3" src="m3_1.jpg" alt="Galerie 3"></div>
-      <div class="mobile-banner-card"><img id="mImg4" src="m4_1.jpg" alt="Galerie 4"></div>
-    </div>
-  </div>
+  </main>
 
-  <!-- FOOTER -->
-  <div class="site-credit">
-    <div class="credit-logo"><img src="nextn_logo.png" alt="NextN-Digital logo"></div>
-    <div data-i18n="credit_text">Mini webshop design: NextN-Digital</div>
-  </div>
+  <script>
+    /* =========================
+       1) NYELVI SZÖVEGEK (HU/RO/EN)
+       ========================= */
+    let currentLang = 'ro';
 
-</div>
+    const texts = {
+      ro: {
+        top_brand: "Nsport`s",
+        nav_home: "Acasă",
+        nav_event: "Eveniment",
+        nav_judo: "Judo",
+        nav_catalogs: "Cataloage",
+        nav_products: "Produse",
+        nav_contact: "Contact",
 
-<script>
-/* =========================
-   1) NYELVI SZÖVEGEK (HU/RO/EN)
-   ========================= */
-let currentLang = 'ro';
+        hero_kicker: "Calitate, personalizare și produse sportive premium",
+        hero_title: "Nagy Stelian",
+        hero_sub: "Accesorii sportive, tricouri personalizate și produse unicat.",
+        hero_btn_catalogs: "Vezi cataloagele",
+        hero_btn_contact: "Contact rapid",
 
-const texts = {
-  ro: {
-    top_brand: "Nsport`s",
-    hero_title: "Nagy Stelian",
-    hero_sub: "Accesorii sportive, tricouri personalizate și produse unicat.",
+        quick_event: "Eveniment",
+        quick_judo: "Judo",
+        quick_catalogs: "Cataloage",
+        quick_products: "Produse",
 
-    /* JUDO EVENT */
-    event_title: "Concurs Internațional de Judo",
-    event_name: "Concurs Internațional de Judo Cupa de Aur 2026",
-    event_desc: "Toate informațiile sunt pe website.",
-    event_btn: "🏆 Deschide pagina",
+        section_small: "Design modern, structură clară, experiență premium",
+        section_main_title: "Oferta Nsport",
 
-    /* ÚJ: KLUB KEDVEZMÉNY */
-    club_title: "Pentru cluburi sportive – reduceri",
-    club_name: "Echipamente sportive pentru cluburi",
-    club_desc: "Pentru cluburile sportive oferim reduceri la cantități mai mari. Scrie-ne și îți trimitem o ofertă personalizată.",
-    club_btn: "✉️ Cere ofertă cu reducere",
-    club_note: "Menționează produsele, cantitatea și numele clubului – răspundem rapid.",
+        intro_kicker: "Nsport`s",
+        intro_title: "Produse sportive cu stil",
+        intro_text: "Cataloage, echipamente sportive, produse personalizate și oferte pentru cluburi – toate într-un format modern, clar și ușor de navigat.",
+        intro_btn_catalogs: "Cataloage",
+        intro_btn_products: "Produse",
+        intro_btn_contact: "Contact",
 
-    /* ÚJ: JUDO FELSZERELÉSEK */
-    judo_title: "Echipamente Judo",
+        event_small: "Eveniment special",
+        event_title: "Concurs Internațional de Judo",
+        event_name: "Concurs Internațional de Judo Cupa de Aur 2026",
+        event_desc: "Toate informațiile sunt pe website.",
+        event_btn: "🏆 Deschide pagina",
 
-    judo_mizuno_name: "Mizuno – Catalog Judo",
-    judo_mizuno_desc: "Modele și opțiuni disponibile în PDF.",
-    judo_mizuno_btn_download: "⬇️ Descărcare (PDF)",
-    judo_mizuno_btn_view_embed: "👁️ Vizualizare pe pagină",
-    judo_mizuno_embed_title: "Mizuno – Vizualizare",
+        club_small: "Parteneriate și comenzi mari",
+        club_title: "Pentru cluburi sportive – reduceri",
+        club_name: "Echipamente sportive pentru cluburi",
+        club_desc: "Pentru cluburile sportive oferim reduceri la cantități mai mari. Scrie-ne și îți trimitem o ofertă personalizată.",
+        club_btn: "✉️ Cere ofertă cu reducere",
+        club_note: "Menționează produsele, cantitatea și numele clubului – răspundem rapid.",
 
-    judo_dax_name: "DAX – Catalog Judo",
-    judo_dax_desc: "Modele și opțiuni disponibile în PDF.",
-    judo_dax_btn_download: "⬇️ Descărcare (PDF)",
-    judo_dax_btn_view_embed: "👁️ Vizualizare pe pagină",
-    judo_dax_embed_title: "DAX – Vizualizare",
+        judo_small: "Cataloage recomandate",
+        judo_title: "Echipamente Judo",
+        judo_mizuno_name: "Mizuno – Catalog Judo",
+        judo_mizuno_desc: "Modele și opțiuni disponibile în PDF.",
+        judo_mizuno_btn_download: "⬇️ Descărcare (PDF)",
+        judo_mizuno_btn_view_embed: "👁️ Vizualizare pe pagină",
+        judo_mizuno_embed_title: "Mizuno – Vizualizare",
 
-    catalogs_title: "Cataloage PDF",
+        judo_dax_name: "DAX – Catalog Judo",
+        judo_dax_desc: "Modele și opțiuni disponibile în PDF.",
+        judo_dax_btn_download: "⬇️ Descărcare (PDF)",
+        judo_dax_btn_view_embed: "👁️ Vizualizare pe pagină",
+        judo_dax_embed_title: "DAX – Vizualizare",
 
-    cat1_name: "Catalog cupe & trofee",
-    cat1_desc: "Descarcă în format PDF catalogul complet.",
-    cat1_btn_download: "⬇️ Descărcare (PDF)",
-    cat1_btn_view_embed: "👁️ Vizualizare pe pagină",
-    cat1_embed_title: "Catalog 1 – Vizualizare",
+        catalogs_small: "PDF și online viewer",
+        catalogs_title: "Cataloage PDF",
 
-    cat2_name: "Catalog echipamente sportive – Brandul Patrick",
-    cat2_desc: "Modele și opțiuni disponibile în PDF.",
-    cat2_btn_download: "⬇️ Descărcare (PDF)",
-    cat2_btn_view_embed: "👁️ Vizualizare pe pagină",
-    cat2_embed_title: "Catalog 2 – Vizualizare",
+        cat1_name: "Catalog cupe & trofee",
+        cat1_desc: "Descarcă în format PDF catalogul complet.",
+        cat1_btn_download: "⬇️ Descărcare (PDF)",
+        cat1_btn_view_embed: "👁️ Vizualizare pe pagină",
+        cat1_embed_title: "Catalog 1 – Vizualizare",
 
-    cat3_name: "Catalog produse sportive – Brandul Joma",
-    cat3_desc: "Modele și opțiuni disponibile în PDF.",
-    cat3_btn_download: "⬇️ Descărcare (PDF)",
-    cat3_btn_view_embed: "👁️ Vizualizare pe pagină",
-    cat3_embed_title: "Catalog 3 – Vizualizare",
+        cat2_name: "Catalog echipamente sportive – Brandul Patrick",
+        cat2_desc: "Modele și opțiuni disponibile în PDF.",
+        cat2_btn_download: "⬇️ Descărcare (PDF)",
+        cat2_btn_view_embed: "👁️ Vizualizare pe pagină",
+        cat2_embed_title: "Catalog 2 – Vizualizare",
 
-    cat_note: "Dacă descărcarea nu pornește, alege opțiunea de vizualizare.",
+        cat3_name: "Catalog produse sportive – Brandul Joma",
+        cat3_desc: "Modele și opțiuni disponibile în PDF.",
+        cat3_btn_download: "⬇️ Descărcare (PDF)",
+        cat3_btn_view_embed: "👁️ Vizualizare pe pagină",
+        cat3_embed_title: "Catalog 3 – Vizualizare",
 
-    embed_open_new: "↗️ Deschide nou tab",
-    embed_close: "✖ Închide",
+        cat_note: "Dacă descărcarea nu pornește, alege opțiunea de vizualizare.",
+        embed_open_new: "↗️ Deschide nou tab",
+        embed_close: "✖ Închide",
 
-    products_title: "Produse recomandate",
-    p1_title: "Pachet regenerare după antrenament",
-    p1_desc: "Proteină, carbohidrați și BCAA pentru refacere rapidă.",
-    p1_tag1: "Fitness",
-    p1_tag2: "Recuperare",
+        products_small: "Selecție recomandată",
+        products_title: "Produse recomandate",
+        p1_title: "Pachet regenerare după antrenament",
+        p1_desc: "Proteină, carbohidrați și BCAA pentru refacere rapidă.",
+        p1_tag1: "Fitness",
+        p1_tag2: "Recuperare",
 
-    p2_title: "Tricouri personalizate",
-    p2_desc: "Tricouri cu nume, număr și logo pentru echipa ta.",
-    p2_tag1: "Personalizat",
-    p2_tag2: "Echipe",
+        p2_title: "Tricouri personalizate",
+        p2_desc: "Tricouri cu nume, număr și logo pentru echipa ta.",
+        p2_tag1: "Personalizat",
+        p2_tag2: "Echipe",
 
-    p3_title: "Starter pack accesorii sport",
-    p3_desc: "Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.",
-    p3_tag1: "Cadou",
-    p3_tag2: "Începători",
+        p3_title: "Starter pack accesorii sport",
+        p3_desc: "Shaker, bidon, bandaje și prosop – pachet ideal pentru începători.",
+        p3_tag1: "Cadou",
+        p3_tag2: "Începători",
 
-    offer_btn: "✉️ Cere ofertă (Email)",
+        offer_btn: "✉️ Cere ofertă (Email)",
 
-    contact_title: "Contact – Nagy Stelian",
-    contact_call: "📞 Sună-ne",
-    contact_email: "✉️ Email",
-    contact_wa: "💬 WhatsApp direct",
+        contact_title: "Contact – Nagy Stelian",
+        contact_call: "📞 Sună-ne",
+        contact_email: "✉️ Email",
+        contact_wa: "💬 WhatsApp direct",
 
-    mobile_gallery_title: "Galerie",
-    credit_text: "Mini webshop design: NextN-Digital"
-  },
+        mobile_gallery_small: "Imagini promo",
+        mobile_gallery_title: "Galerie",
 
-  hu: {
-    top_brand: "Nsport`s",
-    hero_title: "Nagy Stelian",
-    hero_sub: "Sport kiegészítők, egyedi pólók és különleges termékek.",
+        credit_text: "Mini webshop design: NextN-Digital"
+      },
 
-    /* JUDO EVENT */
-    event_title: "Nemzetközi Judo Arany Kupa 2026",
-    event_name: "Nemzetközi Judo Arany Kupa 2026",
-    event_desc: "Minden információ a weboldalon.",
-    event_btn: "🏆 Megnyitás",
+      hu: {
+        top_brand: "Nsport`s",
+        nav_home: "Kezdőlap",
+        nav_event: "Esemény",
+        nav_judo: "Judo",
+        nav_catalogs: "Katalógusok",
+        nav_products: "Termékek",
+        nav_contact: "Kapcsolat",
 
-    /* ÚJ: KLUB KEDVEZMÉNY */
-    club_title: "Sport kluboknak – kedvezmények",
-    club_name: "Bármilyen sportfelszerelés kluboknak",
-    club_desc: "Sport kluboknak nagyobb mennyiségnél kedvezmények járnak. Írj nekünk, és küldünk személyre szabott ajánlatot.",
-    club_btn: "✉️ Kedvezményes ajánlat kérése",
-    club_note: "Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.",
+        hero_kicker: "Minőség, egyediség és prémium sporttermékek",
+        hero_title: "Nagy Stelian",
+        hero_sub: "Sport kiegészítők, egyedi pólók és különleges termékek.",
+        hero_btn_catalogs: "Katalógusok megtekintése",
+        hero_btn_contact: "Gyors kapcsolat",
 
-    /* ÚJ: JUDO FELSZERELÉSEK */
-    judo_title: "Judo felszerelések",
+        quick_event: "Esemény",
+        quick_judo: "Judo",
+        quick_catalogs: "Katalógusok",
+        quick_products: "Termékek",
 
-    judo_mizuno_name: "Mizuno – Judo katalógus",
-    judo_mizuno_desc: "Elérhető modellek és opciók PDF-ben.",
-    judo_mizuno_btn_download: "⬇️ Letöltés (PDF)",
-    judo_mizuno_btn_view_embed: "👁️ Megtekintés az oldalon",
-    judo_mizuno_embed_title: "Mizuno – Megtekintés",
+        section_small: "Modern design, letisztult felépítés, prémium élmény",
+        section_main_title: "Nsport kínálat",
 
-    judo_dax_name: "DAX – Judo katalógus",
-    judo_dax_desc: "Elérhető modellek és opciók PDF-ben.",
-    judo_dax_btn_download: "⬇️ Letöltés (PDF)",
-    judo_dax_btn_view_embed: "👁️ Megtekintés az oldalon",
-    judo_dax_embed_title: "DAX – Megtekintés",
+        intro_kicker: "Nsport`s",
+        intro_title: "Sporttermékek stílusosan",
+        intro_text: "Katalógusok, sportfelszerelések, egyedi termékek és klubajánlatok – modern, átlátható és könnyen kezelhető megjelenésben.",
+        intro_btn_catalogs: "Katalógusok",
+        intro_btn_products: "Termékek",
+        intro_btn_contact: "Kapcsolat",
 
-    catalogs_title: "PDF katalógusok",
+        event_small: "Kiemelt esemény",
+        event_title: "Nemzetközi Judo Arany Kupa 2026",
+        event_name: "Nemzetközi Judo Arany Kupa 2026",
+        event_desc: "Minden információ a weboldalon.",
+        event_btn: "🏆 Megnyitás",
 
-    cat1_name: "Kupa & trófea katalógus",
-    cat1_desc: "Töltsd le PDF-ben a teljes katalógust.",
-    cat1_btn_download: "⬇️ Letöltés (PDF)",
-    cat1_btn_view_embed: "👁️ Megtekintés az oldalon",
-    cat1_embed_title: "1. katalógus – Megtekintés",
+        club_small: "Partnerség és nagyobb rendelések",
+        club_title: "Sport kluboknak – kedvezmények",
+        club_name: "Bármilyen sportfelszerelés kluboknak",
+        club_desc: "Sport kluboknak nagyobb mennyiségnél kedvezmények járnak. Írj nekünk, és küldünk személyre szabott ajánlatot.",
+        club_btn: "✉️ Kedvezményes ajánlat kérése",
+        club_note: "Add meg a termékeket, darabszámot és a klub nevét – gyorsan válaszolunk.",
 
-    cat2_name: "Patrick márkás sportfelszerelés katalógus",
-    cat2_desc: "Elérhető modellek és opciók PDF-ben.",
-    cat2_btn_download: "⬇️ Letöltés (PDF)",
-    cat2_btn_view_embed: "👁️ Megtekintés az oldalon",
-    cat2_embed_title: "2. katalógus – Megtekintés",
+        judo_small: "Kiemelt katalógusok",
+        judo_title: "Judo felszerelések",
+        judo_mizuno_name: "Mizuno – Judo katalógus",
+        judo_mizuno_desc: "Elérhető modellek és opciók PDF-ben.",
+        judo_mizuno_btn_download: "⬇️ Letöltés (PDF)",
+        judo_mizuno_btn_view_embed: "👁️ Megtekintés az oldalon",
+        judo_mizuno_embed_title: "Mizuno – Megtekintés",
 
-    cat3_name: "Joma márkás sporttermék katalógus",
-    cat3_desc: "Elérhető modellek és opciók PDF-ben.",
-    cat3_btn_download: "⬇️ Letöltés (PDF)",
-    cat3_btn_view_embed: "👁️ Megtekintés az oldalon",
-    cat3_embed_title: "3. katalógus – Megtekintés",
+        judo_dax_name: "DAX – Judo katalógus",
+        judo_dax_desc: "Elérhető modellek és opciók PDF-ben.",
+        judo_dax_btn_download: "⬇️ Letöltés (PDF)",
+        judo_dax_btn_view_embed: "👁️ Megtekintés az oldalon",
+        judo_dax_embed_title: "DAX – Megtekintés",
 
-    cat_note: "Ha a letöltés nem indul el, válaszd a megtekintést.",
+        catalogs_small: "PDF és online nézet",
+        catalogs_title: "PDF katalógusok",
 
-    embed_open_new: "↗️ Megnyitás új fülön",
-    embed_close: "✖ Bezárás",
+        cat1_name: "Kupa & trófea katalógus",
+        cat1_desc: "Töltsd le PDF-ben a teljes katalógust.",
+        cat1_btn_download: "⬇️ Letöltés (PDF)",
+        cat1_btn_view_embed: "👁️ Megtekintés az oldalon",
+        cat1_embed_title: "1. katalógus – Megtekintés",
 
-    products_title: "Ajánlott termékek",
-    p1_title: "Edzés utáni regeneráló csomag",
-    p1_desc: "Fehérje, szénhidrát és BCAA a gyors regenerációhoz.",
-    p1_tag1: "Fitness",
-    p1_tag2: "Regeneráció",
+        cat2_name: "Patrick márkás sportfelszerelés katalógus",
+        cat2_desc: "Elérhető modellek és opciók PDF-ben.",
+        cat2_btn_download: "⬇️ Letöltés (PDF)",
+        cat2_btn_view_embed: "👁️ Megtekintés az oldalon",
+        cat2_embed_title: "2. katalógus – Megtekintés",
 
-    p2_title: "Egyedi pólók",
-    p2_desc: "Pólók névvel, számmal és logóval a csapatodnak.",
-    p2_tag1: "Egyedi",
-    p2_tag2: "Csapatok",
+        cat3_name: "Joma márkás sporttermék katalógus",
+        cat3_desc: "Elérhető modellek és opciók PDF-ben.",
+        cat3_btn_download: "⬇️ Letöltés (PDF)",
+        cat3_btn_view_embed: "👁️ Megtekintés az oldalon",
+        cat3_embed_title: "3. katalógus – Megtekintés",
 
-    p3_title: "Sport kiegészítő starter pack",
-    p3_desc: "Shaker, kulacs, bandázs és törölköző – ideális kezdőknek.",
-    p3_tag1: "Ajándék",
-    p3_tag2: "Kezdők",
+        cat_note: "Ha a letöltés nem indul el, válaszd a megtekintést.",
+        embed_open_new: "↗️ Megnyitás új fülön",
+        embed_close: "✖ Bezárás",
 
-    offer_btn: "✉️ Árajánlatkérés (Email)",
+        products_small: "Ajánlott válogatás",
+        products_title: "Ajánlott termékek",
+        p1_title: "Edzés utáni regeneráló csomag",
+        p1_desc: "Fehérje, szénhidrát és BCAA a gyors regenerációhoz.",
+        p1_tag1: "Fitness",
+        p1_tag2: "Regeneráció",
 
-    contact_title: "Kapcsolat – Nagy Stelian",
-    contact_call: "📞 Hívás",
-    contact_email: "✉️ Email",
-    contact_wa: "💬 WhatsApp",
+        p2_title: "Egyedi pólók",
+        p2_desc: "Pólók névvel, számmal és logóval a csapatodnak.",
+        p2_tag1: "Egyedi",
+        p2_tag2: "Csapatok",
 
-    mobile_gallery_title: "Galéria",
-    credit_text: "Mini webshop design: NextN-Digital"
-  },
+        p3_title: "Sport kiegészítő starter pack",
+        p3_desc: "Shaker, kulacs, bandázs és törölköző – ideális kezdőknek.",
+        p3_tag1: "Ajándék",
+        p3_tag2: "Kezdők",
 
-  en: {
-    top_brand: "Nsport`s",
-    hero_title: "Nagy Stelian",
-    hero_sub: "Sports accessories, custom T-shirts and unique products.",
+        offer_btn: "✉️ Árajánlatkérés (Email)",
 
-    /* JUDO EVENT */
-    event_title: "International Judo Golden Cup 2026",
-    event_name: "International Judo Golden Cup 2026",
-    event_desc: "All information is available on the website.",
-    event_btn: "🏆 Open page",
+        contact_title: "Kapcsolat – Nagy Stelian",
+        contact_call: "📞 Hívás",
+        contact_email: "✉️ Email",
+        contact_wa: "💬 WhatsApp",
 
-    /* ÚJ: KLUB KEDVEZMÉNY */
-    club_title: "For sports clubs – discounts",
-    club_name: "Sports equipment for clubs",
-    club_desc: "Sports clubs get discounts for larger quantities. Message us and we’ll send a tailored offer.",
-    club_btn: "✉️ Request discounted offer",
-    club_note: "Include products, quantity and your club name – we reply fast.",
+        mobile_gallery_small: "Promó képek",
+        mobile_gallery_title: "Galéria",
 
-    /* ÚJ: JUDO FELSZERELÉSEK */
-    judo_title: "Judo equipment",
+        credit_text: "Mini webshop design: NextN-Digital"
+      },
 
-    judo_mizuno_name: "Mizuno – Judo catalog",
-    judo_mizuno_desc: "Models and options available in PDF.",
-    judo_mizuno_btn_download: "⬇️ Download (PDF)",
-    judo_mizuno_btn_view_embed: "👁️ View on this page",
-    judo_mizuno_embed_title: "Mizuno – Viewer",
+      en: {
+        top_brand: "Nsport`s",
+        nav_home: "Home",
+        nav_event: "Event",
+        nav_judo: "Judo",
+        nav_catalogs: "Catalogs",
+        nav_products: "Products",
+        nav_contact: "Contact",
 
-    judo_dax_name: "DAX – Judo catalog",
-    judo_dax_desc: "Models and options available in PDF.",
-    judo_dax_btn_download: "⬇️ Download (PDF)",
-    judo_dax_btn_view_embed: "👁️ View on this page",
-    judo_dax_embed_title: "DAX – Viewer",
+        hero_kicker: "Quality, customization and premium sports products",
+        hero_title: "Nagy Stelian",
+        hero_sub: "Sports accessories, custom T-shirts and unique products.",
+        hero_btn_catalogs: "View catalogs",
+        hero_btn_contact: "Quick contact",
 
-    catalogs_title: "PDF Catalogs",
+        quick_event: "Event",
+        quick_judo: "Judo",
+        quick_catalogs: "Catalogs",
+        quick_products: "Products",
 
-    cat1_name: "Cups & Trophies Catalog",
-    cat1_desc: "Download the full catalog in PDF format.",
-    cat1_btn_download: "⬇️ Download (PDF)",
-    cat1_btn_view_embed: "👁️ View on this page",
-    cat1_embed_title: "Catalog 1 – Viewer",
+        section_small: "Modern design, clear structure, premium experience",
+        section_main_title: "Nsport offer",
 
-    cat2_name: "Patrick Sports Equipment Catalog",
-    cat2_desc: "Models and options available in PDF.",
-    cat2_btn_download: "⬇️ Download (PDF)",
-    cat2_btn_view_embed: "👁️ View on this page",
-    cat2_embed_title: "Catalog 2 – Viewer",
+        intro_kicker: "Nsport`s",
+        intro_title: "Sports products with style",
+        intro_text: "Catalogs, sports equipment, custom products and club offers – all presented in a modern, clear and easy-to-use format.",
+        intro_btn_catalogs: "Catalogs",
+        intro_btn_products: "Products",
+        intro_btn_contact: "Contact",
 
-    cat3_name: "Joma Sports Products Catalog",
-    cat3_desc: "Models and options available in PDF.",
-    cat3_btn_download: "⬇️ Download (PDF)",
-    cat3_btn_view_embed: "👁️ View on this page",
-    cat3_embed_title: "Catalog 3 – Viewer",
+        event_small: "Featured event",
+        event_title: "International Judo Golden Cup 2026",
+        event_name: "International Judo Golden Cup 2026",
+        event_desc: "All information is available on the website.",
+        event_btn: "🏆 Open page",
 
-    cat_note: "If the download doesn't start, choose the view option.",
+        club_small: "Partnerships and bulk orders",
+        club_title: "For sports clubs – discounts",
+        club_name: "Sports equipment for clubs",
+        club_desc: "Sports clubs get discounts for larger quantities. Message us and we’ll send a tailored offer.",
+        club_btn: "✉️ Request discounted offer",
+        club_note: "Include products, quantity and your club name – we reply fast.",
 
-    embed_open_new: "↗️ Open in new tab",
-    embed_close: "✖ Close",
+        judo_small: "Highlighted catalogs",
+        judo_title: "Judo equipment",
+        judo_mizuno_name: "Mizuno – Judo catalog",
+        judo_mizuno_desc: "Models and options available in PDF.",
+        judo_mizuno_btn_download: "⬇️ Download (PDF)",
+        judo_mizuno_btn_view_embed: "👁️ View on this page",
+        judo_mizuno_embed_title: "Mizuno – Viewer",
 
-    products_title: "Featured products",
-    p1_title: "Post-workout recovery pack",
-    p1_desc: "Protein, carbs and BCAA for faster recovery.",
-    p1_tag1: "Fitness",
-    p1_tag2: "Recovery",
+        judo_dax_name: "DAX – Judo catalog",
+        judo_dax_desc: "Models and options available in PDF.",
+        judo_dax_btn_download: "⬇️ Download (PDF)",
+        judo_dax_btn_view_embed: "👁️ View on this page",
+        judo_dax_embed_title: "DAX – Viewer",
 
-    p2_title: "Custom T-shirts",
-    p2_desc: "T-shirts with name, number and logo for your team.",
-    p2_tag1: "Custom",
-    p2_tag2: "Teams",
+        catalogs_small: "PDF and online viewer",
+        catalogs_title: "PDF Catalogs",
 
-    p3_title: "Sports accessories starter pack",
-    p3_desc: "Shaker, bottle, wraps and towel – ideal for beginners.",
-    p3_tag1: "Gift",
-    p3_tag2: "Beginners",
+        cat1_name: "Cups & Trophies Catalog",
+        cat1_desc: "Download the full catalog in PDF format.",
+        cat1_btn_download: "⬇️ Download (PDF)",
+        cat1_btn_view_embed: "👁️ View on this page",
+        cat1_embed_title: "Catalog 1 – Viewer",
 
-    offer_btn: "✉️ Request offer (Email)",
+        cat2_name: "Patrick Sports Equipment Catalog",
+        cat2_desc: "Models and options available in PDF.",
+        cat2_btn_download: "⬇️ Download (PDF)",
+        cat2_btn_view_embed: "👁️ View on this page",
+        cat2_embed_title: "Catalog 2 – Viewer",
 
-    contact_title: "Contact – Nagy Stelian",
-    contact_call: "📞 Call us",
-    contact_email: "✉️ Email",
-    contact_wa: "💬 WhatsApp",
+        cat3_name: "Joma Sports Products Catalog",
+        cat3_desc: "Models and options available in PDF.",
+        cat3_btn_download: "⬇️ Download (PDF)",
+        cat3_btn_view_embed: "👁️ View on this page",
+        cat3_embed_title: "Catalog 3 – Viewer",
 
-    mobile_gallery_title: "Gallery",
-    credit_text: "Mini webshop design: NextN-Digital"
-  }
-};
+        cat_note: "If the download doesn't start, choose the view option.",
+        embed_open_new: "↗️ Open in new tab",
+        embed_close: "✖ Close",
 
-function setLanguage(lang){
-  const map = texts[lang];
-  if(!map) return;
+        products_small: "Recommended selection",
+        products_title: "Featured products",
+        p1_title: "Post-workout recovery pack",
+        p1_desc: "Protein, carbs and BCAA for faster recovery.",
+        p1_tag1: "Fitness",
+        p1_tag2: "Recovery",
 
-  currentLang = lang;
-  document.documentElement.lang = lang;
+        p2_title: "Custom T-shirts",
+        p2_desc: "T-shirts with name, number and logo for your team.",
+        p2_tag1: "Custom",
+        p2_tag2: "Teams",
 
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if(map[key] !== undefined){
-      el.textContent = map[key];
+        p3_title: "Sports accessories starter pack",
+        p3_desc: "Shaker, bottle, wraps and towel – ideal for beginners.",
+        p3_tag1: "Gift",
+        p3_tag2: "Beginners",
+
+        offer_btn: "✉️ Request offer (Email)",
+
+        contact_title: "Contact – Nagy Stelian",
+        contact_call: "📞 Call us",
+        contact_email: "✉️ Email",
+        contact_wa: "💬 WhatsApp",
+
+        mobile_gallery_small: "Promo images",
+        mobile_gallery_title: "Gallery",
+
+        credit_text: "Mini webshop design: NextN-Digital"
+      }
+    };
+
+    function setLanguage(lang){
+      const map = texts[lang];
+      if(!map) return;
+
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(map[key] !== undefined){
+          el.textContent = map[key];
+        }
+      });
+
+      document.getElementById("btn-hu").classList.toggle("active", lang === "hu");
+      document.getElementById("btn-ro").classList.toggle("active", lang === "ro");
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+      applyOfferLinks(lang);
     }
-  });
 
-  document.getElementById("btn-hu").classList.toggle("active", lang === "hu");
-  document.getElementById("btn-ro").classList.toggle("active", lang === "ro");
-  document.getElementById("btn-en").classList.toggle("active", lang === "en");
+    /* =========================
+       2) MAILTO ajánlatkérés (HU/RO/EN)
+       ========================= */
+    const OFFER_EMAIL = "steliannagy@yahoo.com";
 
-  applyOfferLinks(lang);
-}
+    function buildMailto(subject, body){
+      return `mailto:${OFFER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
 
-/* =========================
-   2) MAILTO ajánlatkérés (HU/RO/EN)
-   ========================= */
-const OFFER_EMAIL = "steliannagy@yahoo.com";
-
-function buildMailto(subject, body){
-  return `mailto:${OFFER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-function applyOfferLinks(lang){
-  // Klub kedvezmény gomb mailto (mindhárom nyelven)
-  const clubBtn = document.getElementById("club_offer_btn");
-  if (clubBtn){
-    if (lang === "hu"){
-      clubBtn.href = buildMailto(
-        "Kedvezményes ajánlatkérés - Sport klub (nagyobb mennyiség)",
+    function applyOfferLinks(lang){
+      const clubBtn = document.getElementById("club_offer_btn");
+      if (clubBtn){
+        if (lang === "hu"){
+          clubBtn.href = buildMailto(
+            "Kedvezményes ajánlatkérés - Sport klub (nagyobb mennyiség)",
 `Szia!
 
 Sport klub részére szeretnénk nagyobb mennyiségben sportfelszerelést rendelni.
@@ -1028,10 +1778,10 @@ Mennyiség:
 Méret(ek) (ha kell):
 Szállítási város:
 `
-      );
-    } else if (lang === "en"){
-      clubBtn.href = buildMailto(
-        "Discounted offer request - Sports club (bulk order)",
+          );
+        } else if (lang === "en"){
+          clubBtn.href = buildMailto(
+            "Discounted offer request - Sports club (bulk order)",
 `Hello!
 
 We are a sports club and we would like to place a bulk order for sports equipment.
@@ -1045,10 +1795,10 @@ Quantity:
 Size(s) (if needed):
 Delivery city:
 `
-      );
-    } else {
-      clubBtn.href = buildMailto(
-        "Cerere ofertă cu reducere - Club sportiv (cantitate mare)",
+          );
+        } else {
+          clubBtn.href = buildMailto(
+            "Cerere ofertă cu reducere - Club sportiv (cantitate mare)",
 `Salut!
 
 Suntem un club sportiv și dorim să comandăm echipamente sportive în cantitate mai mare.
@@ -1062,14 +1812,13 @@ Cantitate:
 Mărimi (dacă este cazul):
 Oraș livrare:
 `
-      );
-    }
-  }
+          );
+        }
+      }
 
-  // Eddigi offer gombok
-  if(lang === "hu"){
-    document.getElementById("offer1").href = buildMailto(
-      "Árajánlatkérés - Edzés utáni regeneráló csomag",
+      if(lang === "hu"){
+        document.getElementById("offer1").href = buildMailto(
+          "Árajánlatkérés - Edzés utáni regeneráló csomag",
 `Szia!
 
 Érdekel az Edzés utáni regeneráló csomag.
@@ -1079,10 +1828,10 @@ Név:
 Telefonszám:
 Mennyiség:
 `
-    );
+        );
 
-    document.getElementById("offer2").href = buildMailto(
-      "Árajánlatkérés - Egyedi pólók",
+        document.getElementById("offer2").href = buildMailto(
+          "Árajánlatkérés - Egyedi pólók",
 `Szia!
 
 Érdekelnek az egyedi pólók (csapat részére).
@@ -1093,10 +1842,10 @@ Telefonszám:
 Darabszám:
 Méret(ek):
 `
-    );
+        );
 
-    document.getElementById("offer3").href = buildMailto(
-      "Árajánlatkérés - Sport kiegészítő starter pack",
+        document.getElementById("offer3").href = buildMailto(
+          "Árajánlatkérés - Sport kiegészítő starter pack",
 `Szia!
 
 Érdekel a Sport kiegészítő starter pack.
@@ -1106,10 +1855,10 @@ Név:
 Telefonszám:
 Mennyiség:
 `
-    );
-  } else if (lang === "en") {
-    document.getElementById("offer1").href = buildMailto(
-      "Request for offer - Post-workout recovery pack",
+        );
+      } else if (lang === "en") {
+        document.getElementById("offer1").href = buildMailto(
+          "Request for offer - Post-workout recovery pack",
 `Hello!
 
 I'm interested in the post-workout recovery pack.
@@ -1119,10 +1868,10 @@ Name:
 Phone:
 Quantity:
 `
-    );
+        );
 
-    document.getElementById("offer2").href = buildMailto(
-      "Request for offer - Custom T-shirts",
+        document.getElementById("offer2").href = buildMailto(
+          "Request for offer - Custom T-shirts",
 `Hello!
 
 I'm interested in custom T-shirts (for a team).
@@ -1133,10 +1882,10 @@ Phone:
 Quantity:
 Size(s):
 `
-    );
+        );
 
-    document.getElementById("offer3").href = buildMailto(
-      "Request for offer - Sports accessories starter pack",
+        document.getElementById("offer3").href = buildMailto(
+          "Request for offer - Sports accessories starter pack",
 `Hello!
 
 I'm interested in the sports accessories starter pack.
@@ -1146,10 +1895,10 @@ Name:
 Phone:
 Quantity:
 `
-    );
-  } else {
-    document.getElementById("offer1").href = buildMailto(
-      "Cerere ofertă - Pachet regenerare după antrenament",
+        );
+      } else {
+        document.getElementById("offer1").href = buildMailto(
+          "Cerere ofertă - Pachet regenerare după antrenament",
 `Salut!
 
 Sunt interesat de Pachet regenerare după antrenament.
@@ -1159,10 +1908,10 @@ Nume:
 Telefon:
 Cantitate:
 `
-    );
+        );
 
-    document.getElementById("offer2").href = buildMailto(
-      "Cerere ofertă - Tricouri personalizate",
+        document.getElementById("offer2").href = buildMailto(
+          "Cerere ofertă - Tricouri personalizate",
 `Salut!
 
 Sunt interesat de tricouri personalizate (pentru echipă).
@@ -1173,10 +1922,10 @@ Telefon:
 Cantitate:
 Mărimi:
 `
-    );
+        );
 
-    document.getElementById("offer3").href = buildMailto(
-      "Cerere ofertă - Starter pack accesorii sport",
+        document.getElementById("offer3").href = buildMailto(
+          "Cerere ofertă - Starter pack accesorii sport",
 `Salut!
 
 Sunt interesat de Starter pack accesorii sport.
@@ -1186,133 +1935,127 @@ Nume:
 Telefon:
 Cantitate:
 `
-    );
-  }
-}
-
-/* =========================
-   3) Beágyazott nézők (Drive preview) + ÚJ JUDO (Mizuno/DAX)
-   ========================= */
-const CAT1_DRIVE_PREVIEW = "https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/preview";
-const CAT2_DRIVE_PREVIEW = "https://online.fliphtml5.com/leke/dgah/index.html";
-const CAT3_DRIVE_PREVIEW = "https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/preview";
-
-/* ÚJ: ide írod majd a Mizuno/DAX Drive /preview linkeket */
-const JUDO_MIZUNO_DRIVE_PREVIEW = "https://drive.google.com/file/d/1OFNFWxsXJha76izK14XxAJYnH-gOdB2c/preview";
-const JUDO_DAX_DRIVE_PREVIEW = "https://drive.google.com/file/d/1Gqaai-W81M586lnGL69OmXENUYMi517c/preview";
-
-/* FONTOS: bővített lista, hogy minden viewer bezárja a többit */
-const ALL_EMBEDS = ["cat1_embed","cat2_embed","cat3_embed","judo_mizuno_embed","judo_dax_embed"];
-
-function setupEmbed(viewBtnId, embedId, iframeId, closeBtnId, srcUrl){
-  const viewBtn = document.getElementById(viewBtnId);
-  const embed = document.getElementById(embedId);
-  const iframe = document.getElementById(iframeId);
-  const closeBtn = document.getElementById(closeBtnId);
-
-  function open(){
-    // zárjuk be a többit, hogy ne legyen több viewer egyszerre
-    ALL_EMBEDS.forEach(id => {
-      if(id !== embedId){
-        const e = document.getElementById(id);
-        const f = document.querySelector(`#${id} iframe`);
-        if(e) e.classList.remove("active");
-        if(f) f.src = "";
+        );
       }
-    });
+    }
 
-    iframe.src = srcUrl;
-    embed.classList.add("active");
-    embed.scrollIntoView({ behavior:"smooth", block:"start" });
-  }
+    /* =========================
+       3) Beágyazott nézők
+       ========================= */
+    const CAT1_DRIVE_PREVIEW = "https://drive.google.com/file/d/1xmlW7tUVp3MN15rdMbpTyjSWkdbkULYa/preview";
+    const CAT2_DRIVE_PREVIEW = "https://online.fliphtml5.com/leke/dgah/index.html";
+    const CAT3_DRIVE_PREVIEW = "https://drive.google.com/file/d/1g6PNbFFYq3KNjVV01uBciqBfMFlkeIQ9/preview";
 
-  function close(){
-    embed.classList.remove("active");
-    iframe.src = "";
-  }
+    const JUDO_MIZUNO_DRIVE_PREVIEW = "https://drive.google.com/file/d/1OFNFWxsXJha76izK14XxAJYnH-gOdB2c/preview";
+    const JUDO_DAX_DRIVE_PREVIEW = "https://drive.google.com/file/d/1Gqaai-W81M586lnGL69OmXENUYMi517c/preview";
 
-  if(viewBtn){
-    viewBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if(embed.classList.contains("active")) close();
-      else open();
-    });
-  }
-  if(closeBtn) closeBtn.addEventListener("click", close);
-}
+    const ALL_EMBEDS = ["cat1_embed","cat2_embed","cat3_embed","judo_mizuno_embed","judo_dax_embed"];
 
-setupEmbed("cat1_view_embed","cat1_embed","cat1_iframe","cat1_close", CAT1_DRIVE_PREVIEW);
-setupEmbed("cat2_view_embed","cat2_embed","cat2_iframe","cat2_close", CAT2_DRIVE_PREVIEW);
-setupEmbed("cat3_view_embed","cat3_embed","cat3_iframe","cat3_close", CAT3_DRIVE_PREVIEW);
+    function setupEmbed(viewBtnId, embedId, iframeId, closeBtnId, srcUrl){
+      const viewBtn = document.getElementById(viewBtnId);
+      const embed = document.getElementById(embedId);
+      const iframe = document.getElementById(iframeId);
+      const closeBtn = document.getElementById(closeBtnId);
 
-/* ÚJ: JUDO embedek */
-setupEmbed("judo_mizuno_view_embed","judo_mizuno_embed","judo_mizuno_iframe","judo_mizuno_close", JUDO_MIZUNO_DRIVE_PREVIEW);
-setupEmbed("judo_dax_view_embed","judo_dax_embed","judo_dax_iframe","judo_dax_close", JUDO_DAX_DRIVE_PREVIEW);
+      function open(){
+        ALL_EMBEDS.forEach(id => {
+          if(id !== embedId){
+            const e = document.getElementById(id);
+            const f = document.querySelector(`#${id} iframe`);
+            if(e) e.classList.remove("active");
+            if(f) f.src = "";
+          }
+        });
 
-/* =========================
-   4) OLDALSÓ KÉPEK (PC) VÁLTÁSA 5 MP-KÉNT
-   ========================= */
-const leftTopImages = ["left_top_1.jpg","left_top_2.jpg","left_top_3.jpg"];
-const leftBottomImages = ["left_bottom_1.jpg","left_bottom_2.jpg","left_bottom_3.jpg"];
-const rightTopImages = ["right_top_1.jpg","right_top_2.jpg","right_top_3.jpg"];
-const rightBottomImages = ["right_bottom_1.jpg","right_bottom_2.jpg","right_bottom_3.jpg"];
+        iframe.src = srcUrl;
+        embed.classList.add("active");
+        embed.scrollIntoView({ behavior:"smooth", block:"start" });
+      }
 
-let iLT = 0, iLB = 0, iRT = 0, iRB = 0;
+      function close(){
+        embed.classList.remove("active");
+        iframe.src = "";
+      }
 
-const leftImg1 = document.getElementById("leftBannerImg1");
-const leftImg2 = document.getElementById("leftBannerImg2");
-const rightImg1 = document.getElementById("rightBannerImg1");
-const rightImg2 = document.getElementById("rightBannerImg2");
+      if(viewBtn){
+        viewBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          if(embed.classList.contains("active")) close();
+          else open();
+        });
+      }
+      if(closeBtn) closeBtn.addEventListener("click", close);
+    }
 
-if (leftTopImages.length) leftImg1.src = leftTopImages[0];
-if (leftBottomImages.length) leftImg2.src = leftBottomImages[0];
-if (rightTopImages.length) rightImg1.src = rightTopImages[0];
-if (rightBottomImages.length) rightImg2.src = rightBottomImages[0];
+    setupEmbed("cat1_view_embed","cat1_embed","cat1_iframe","cat1_close", CAT1_DRIVE_PREVIEW);
+    setupEmbed("cat2_view_embed","cat2_embed","cat2_iframe","cat2_close", CAT2_DRIVE_PREVIEW);
+    setupEmbed("cat3_view_embed","cat3_embed","cat3_iframe","cat3_close", CAT3_DRIVE_PREVIEW);
+    setupEmbed("judo_mizuno_view_embed","judo_mizuno_embed","judo_mizuno_iframe","judo_mizuno_close", JUDO_MIZUNO_DRIVE_PREVIEW);
+    setupEmbed("judo_dax_view_embed","judo_dax_embed","judo_dax_iframe","judo_dax_close", JUDO_DAX_DRIVE_PREVIEW);
 
-setInterval(() => {
-  if (leftTopImages.length){ iLT = (iLT + 1) % leftTopImages.length; leftImg1.src = leftTopImages[iLT]; }
-  if (leftBottomImages.length){ iLB = (iLB + 1) % leftBottomImages.length; leftImg2.src = leftBottomImages[iLB]; }
-  if (rightTopImages.length){ iRT = (iRT + 1) % rightTopImages.length; rightImg1.src = rightTopImages[iRT]; }
-  if (rightBottomImages.length){ iRB = (iRB + 1) % rightBottomImages.length; rightImg2.src = rightBottomImages[iRB]; }
-}, 5000);
+    /* =========================
+       4) OLDALSÓ KÉPEK (PC) VÁLTÁSA
+       ========================= */
+    const leftTopImages = ["left_top_1.jpg","left_top_2.jpg","left_top_3.jpg"];
+    const leftBottomImages = ["left_bottom_1.jpg","left_bottom_2.jpg","left_bottom_3.jpg"];
+    const rightTopImages = ["right_top_1.jpg","right_top_2.jpg","right_top_3.jpg"];
+    const rightBottomImages = ["right_bottom_1.jpg","right_bottom_2.jpg","right_bottom_3.jpg"];
 
-/* =========================
-   5) MOBIL ALSÓ GALÉRIA (2x2) VÁLTÁSA 5 MP-KÉNT
-   ========================= */
-const m1Images = ["m1_1.jpg","m1_2.jpg","m1_3.jpg"];
-const m2Images = ["m2_1.jpg","m2_2.jpg","m2_3.jpg"];
-const m3Images = ["m3_1.jpg","m3_2.jpg","m3_3.jpg"];
-const m4Images = ["m4_1.jpg","m4_2.jpg","m4_3.jpg"];
+    let iLT = 0, iLB = 0, iRT = 0, iRB = 0;
 
-let im1=0, im2=0, im3=0, im4=0;
+    const leftImg1 = document.getElementById("leftBannerImg1");
+    const leftImg2 = document.getElementById("leftBannerImg2");
+    const rightImg1 = document.getElementById("rightBannerImg1");
+    const rightImg2 = document.getElementById("rightBannerImg2");
 
-const mImg1 = document.getElementById("mImg1");
-const mImg2 = document.getElementById("mImg2");
-const mImg3 = document.getElementById("mImg3");
-const mImg4 = document.getElementById("mImg4");
+    if (leftTopImages.length) leftImg1.src = leftTopImages[0];
+    if (leftBottomImages.length) leftImg2.src = leftBottomImages[0];
+    if (rightTopImages.length) rightImg1.src = rightTopImages[0];
+    if (rightBottomImages.length) rightImg2.src = rightBottomImages[0];
 
-if (m1Images.length) mImg1.src = m1Images[0];
-if (m2Images.length) mImg2.src = m2Images[0];
-if (m3Images.length) mImg3.src = m3Images[0];
-if (m4Images.length) mImg4.src = m4Images[0];
+    setInterval(() => {
+      if (leftTopImages.length){ iLT = (iLT + 1) % leftTopImages.length; leftImg1.src = leftTopImages[iLT]; }
+      if (leftBottomImages.length){ iLB = (iLB + 1) % leftBottomImages.length; leftImg2.src = leftBottomImages[iLB]; }
+      if (rightTopImages.length){ iRT = (iRT + 1) % rightTopImages.length; rightImg1.src = rightTopImages[iRT]; }
+      if (rightBottomImages.length){ iRB = (iRB + 1) % rightBottomImages.length; rightImg2.src = rightBottomImages[iRB]; }
+    }, 5000);
 
-setInterval(() => {
-  if (m1Images.length){ im1 = (im1+1) % m1Images.length; mImg1.src = m1Images[im1]; }
-  if (m2Images.length){ im2 = (im2+1) % m2Images.length; mImg2.src = m2Images[im2]; }
-  if (m3Images.length){ im3 = (im3+1) % m3Images.length; mImg3.src = m3Images[im3]; }
-  if (m4Images.length){ im4 = (im4+1) % m4Images.length; mImg4.src = m4Images[im4]; }
-}, 5000);
+    /* =========================
+       5) MOBIL ALSÓ GALÉRIA VÁLTÁSA
+       ========================= */
+    const m1Images = ["m1_1.jpg","m1_2.jpg","m1_3.jpg"];
+    const m2Images = ["m2_1.jpg","m2_2.jpg","m2_3.jpg"];
+    const m3Images = ["m3_1.jpg","m3_2.jpg","m3_3.jpg"];
+    const m4Images = ["m4_1.jpg","m4_2.jpg","m4_3.jpg"];
 
-/* =========================
-   6) NYELVVÁLTÓ gombok (HU/RO/EN)
-   ========================= */
-document.getElementById("btn-hu").addEventListener("click", () => setLanguage("hu"));
-document.getElementById("btn-ro").addEventListener("click", () => setLanguage("ro"));
-document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+    let im1=0, im2=0, im3=0, im4=0;
 
-/* DEFAULT: román */
-setLanguage("ro");
-</script>
+    const mImg1 = document.getElementById("mImg1");
+    const mImg2 = document.getElementById("mImg2");
+    const mImg3 = document.getElementById("mImg3");
+    const mImg4 = document.getElementById("mImg4");
+
+    if (m1Images.length) mImg1.src = m1Images[0];
+    if (m2Images.length) mImg2.src = m2Images[0];
+    if (m3Images.length) mImg3.src = m3Images[0];
+    if (m4Images.length) mImg4.src = m4Images[0];
+
+    setInterval(() => {
+      if (m1Images.length){ im1 = (im1+1) % m1Images.length; mImg1.src = m1Images[im1]; }
+      if (m2Images.length){ im2 = (im2+1) % m2Images.length; mImg2.src = m2Images[im2]; }
+      if (m3Images.length){ im3 = (im3+1) % m3Images.length; mImg3.src = m3Images[im3]; }
+      if (m4Images.length){ im4 = (im4+1) % m4Images.length; mImg4.src = m4Images[im4]; }
+    }, 5000);
+
+    /* =========================
+       6) NYELVVÁLTÓ
+       ========================= */
+    document.getElementById("btn-hu").addEventListener("click", () => setLanguage("hu"));
+    document.getElementById("btn-ro").addEventListener("click", () => setLanguage("ro"));
+    document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
+
+    setLanguage("ro");
+  </script>
 
 </body>
 </html>

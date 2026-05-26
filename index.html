@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EDEEFBP31"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-7EDEEFBP31');
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
   </script>
 
   <meta charset="UTF-8" />
@@ -160,6 +163,36 @@
     .site-credit{margin-top:26px;padding:20px 0 6px;display:flex;align-items:center;justify-content:center;gap:12px;text-align:center;color:rgba(255,255,255,.60);font-size:13px;border-top:1px solid rgba(255,255,255,.07)}
     .credit-logo{width:24px;height:24px;border-radius:7px;overflow:hidden;border:1px solid rgba(255,204,0,.28);background:#111;box-shadow:0 0 10px rgba(255,204,0,.12)}
     .credit-logo img{width:100%;height:100%;object-fit:cover}
+    .consent-check{margin-top:15px;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03)}
+    .consent-label{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.82);font-size:13px;line-height:1.6;cursor:pointer}
+    .consent-label input{width:18px;height:18px;margin-top:2px;accent-color:var(--gold);flex:0 0 auto}
+    .text-link{border:0;background:transparent;color:var(--gold);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font:inherit}
+    .consent-error{display:none;margin-top:8px;color:#ff8b8b;font-size:12px;line-height:1.5}
+    .consent-error.active{display:block}
+    .legal-footer{margin-top:22px;padding:20px 0 4px;border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;color:rgba(255,255,255,.64);font-size:13px}
+    .legal-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .legal-links button{border:0;background:transparent;color:rgba(255,255,255,.76);cursor:pointer;font-size:13px}
+    .legal-links button:hover{color:var(--gold)}
+    .legal-modal{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.78);backdrop-filter:blur(6px)}
+    .legal-modal.active{display:flex}
+    .legal-panel{position:relative;width:min(760px,100%);max-height:min(82vh,760px);overflow:auto;border-radius:22px;padding:28px 26px;background:#101010;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 90px rgba(0,0,0,.58)}
+    .legal-panel h2{padding-right:44px;font-family:"Cormorant Garamond",serif;font-size:34px;letter-spacing:.08em;color:#fff}
+    .legal-panel h3{margin:22px 0 8px;font-size:15px;color:#fff}
+    .legal-panel p{margin-top:10px;color:rgba(255,255,255,.74);font-size:14px;line-height:1.75}
+    .legal-close{position:absolute;right:18px;top:18px;width:38px;height:38px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;font-size:21px}
+    .cookie-banner{position:fixed;left:18px;right:18px;bottom:18px;z-index:100;display:none;justify-content:center}
+    .cookie-banner.active{display:flex}
+    .cookie-panel{width:min(880px,100%);padding:20px;border-radius:18px;background:#111;border:1px solid rgba(255,255,255,.13);box-shadow:0 24px 70px rgba(0,0,0,.56),0 0 22px rgba(255,0,0,.14)}
+    .cookie-panel h2{font-size:20px;margin-bottom:8px}
+    .cookie-panel p{color:rgba(255,255,255,.74);font-size:13px;line-height:1.65}
+    .cookie-setting{display:flex;align-items:flex-start;gap:10px;margin:14px 0;color:rgba(255,255,255,.86);font-size:13px;line-height:1.55}
+    .cookie-setting input{width:18px;height:18px;margin-top:1px;accent-color:var(--gold)}
+    .cookie-setting strong{display:block;color:#fff}
+    .cookie-actions{display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap}
+    .cookie-btn{min-height:42px;padding:9px 15px;border-radius:11px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;font-size:13px;font-weight:600}
+    .cookie-btn:hover{border-color:rgba(255,204,0,.44)}
+    .cookie-btn.primary{background:var(--gold);border-color:var(--gold);color:#111;font-weight:800}
+    body.modal-open{overflow:hidden}
 
     @media(max-width:980px){
       .top-nav{display:none}.topbar-inner{min-height:72px}.brand-name{font-size:26px}.hero{min-height:500px}.hero-title{font-size:48px}
@@ -170,6 +203,7 @@
     }
     @media(max-width:520px){
       .page{width:min(100%,calc(100% - 22px))}.hero{min-height:470px;border-radius:24px}.hero-title{font-size:34px}.section-title{font-size:26px}.mobile-banners-grid{grid-template-columns:1fr 1fr;gap:10px}.mobile-banner-card{height:145px}.catalog-card,.product-card,.contact-card,.shop-card{border-radius:18px}
+      .cookie-banner{left:10px;right:10px;bottom:10px}.cookie-panel{padding:16px}.cookie-actions .cookie-btn{flex:1 1 100%}.legal-panel{padding:23px 17px}.legal-footer{justify-content:center;text-align:center}
     }
   </style>
 </head>
@@ -285,6 +319,13 @@
     <div class="catalog-card">
       <h3 data-i18n="club_name">Echipamente sportive pentru cluburi</h3>
       <p class="card-text" data-i18n="club_desc">Pentru cluburile sportive oferim reduceri la cantități mai mari. Scrie-ne și îți trimitem o ofertă personalizată.</p>
+      <div class="consent-check">
+        <label class="consent-label">
+          <input type="checkbox" id="offer_legal_consent">
+          <span data-i18n="offer_consent">Am citit Politica de confidențialitate și accept Termenii și condițiile înainte de a solicita oferta.</span>
+        </label>
+        <div class="consent-error" id="offer_consent_error" role="alert" data-i18n="offer_consent_error">Pentru a solicita oferta, te rugăm să accepți politica și termenii.</div>
+      </div>
       <div class="catalog-actions">
         <a class="btn-download" href="#" id="club_offer_btn" data-i18n="club_btn">✉️ Cere ofertă cu reducere</a>
       </div>
@@ -464,7 +505,62 @@
       <div class="credit-logo"><img src="nextn_logo.png" alt="NextN-Digital logo"></div>
       <div data-i18n="credit_text">Mini webshop design: NextN-Digital</div>
     </div>
+
+    <footer class="legal-footer" aria-label="Legal information">
+      <div data-i18n="footer_copy">&copy; 2026 Nsport`s - Nagy Stelian. Toate drepturile rezervate.</div>
+      <div class="legal-links">
+        <button type="button" data-open-modal="privacy_modal" data-i18n="privacy_link">Politica de confidențialitate</button>
+        <button type="button" data-open-modal="terms_modal" data-i18n="terms_link">Termeni și condiții</button>
+        <button type="button" id="cookie_settings_btn" data-i18n="cookie_settings_link">Setări cookies</button>
+      </div>
+    </footer>
   </main>
+
+  <section class="legal-modal" id="privacy_modal" role="dialog" aria-modal="true" aria-labelledby="privacy_title">
+    <div class="legal-panel">
+      <button class="legal-close" type="button" data-close-modal aria-label="Close">&times;</button>
+      <h2 id="privacy_title" data-i18n="privacy_title">Politica de confidențialitate</h2>
+      <p data-i18n="privacy_updated">Ultima actualizare: 26 mai 2026</p>
+      <h3 data-i18n="privacy_operator_title">Operator și contact</h3>
+      <p data-i18n="privacy_operator">Operatorul site-ului este Nsport`s - Nagy Stelian. Pentru întrebări sau solicitări privind datele personale: steliannagy@yahoo.com sau +40 740 901 573.</p>
+      <h3 data-i18n="privacy_data_title">Date prelucrate și scop</h3>
+      <p data-i18n="privacy_data">Când ne contactezi sau soliciți o ofertă, putem prelucra numele, datele de contact, clubul și detaliile comenzii pentru a răspunde cererii, a pregăti oferta și a comunica despre comandă.</p>
+      <h3 data-i18n="privacy_analytics_title">Analytics și cookies</h3>
+      <p data-i18n="privacy_analytics">Google Analytics este încărcat numai după consimțământul tău separat pentru statistici. Poți retrage sau modifica alegerea oricând din Setări cookies din subsol. Alegerea ta este stocată local pentru a fi reținută.</p>
+      <h3 data-i18n="privacy_sharing_title">Destinatari și drepturi</h3>
+      <p data-i18n="privacy_sharing">Mesajele sunt transmise prin serviciul ales de tine, de exemplu email sau WhatsApp; paginile externe au propriile politici. Poți solicita accesul, rectificarea, ștergerea, restricționarea sau opoziția privind datele tale prin datele de contact de mai sus.</p>
+    </div>
+  </section>
+
+  <section class="legal-modal" id="terms_modal" role="dialog" aria-modal="true" aria-labelledby="terms_title">
+    <div class="legal-panel">
+      <button class="legal-close" type="button" data-close-modal aria-label="Close">&times;</button>
+      <h2 id="terms_title" data-i18n="terms_title">Termeni și condiții</h2>
+      <p data-i18n="terms_updated">Ultima actualizare: 26 mai 2026</p>
+      <h3 data-i18n="terms_use_title">Utilizarea site-ului</h3>
+      <p data-i18n="terms_use">Site-ul prezintă produse, cataloage și date de contact Nsport`s. Cataloagele și imaginile sunt informative; disponibilitatea, personalizarea și prețul final se confirmă în ofertă sau comandă.</p>
+      <h3 data-i18n="terms_order_title">Cereri și comenzi</h3>
+      <p data-i18n="terms_order">Trimiterea unei cereri de ofertă nu reprezintă automat o comandă acceptată. Contractul se formează numai după confirmarea expresă a produselor, prețului, livrării și plății de către părți.</p>
+      <h3 data-i18n="terms_external_title">Linkuri externe și contact</h3>
+      <p data-i18n="terms_external">Site-ul poate deschide cataloage sau miniwebshopuri găzduite extern. Pentru informații despre produse, comenzi sau acești termeni, contactează-ne la steliannagy@yahoo.com sau +40 740 901 573.</p>
+    </div>
+  </section>
+
+  <aside class="cookie-banner" id="cookie_banner" role="dialog" aria-live="polite" aria-labelledby="cookie_title">
+    <div class="cookie-panel">
+      <h2 id="cookie_title" data-i18n="cookie_title">Preferințe cookies</h2>
+      <p><span data-i18n="cookie_text">Folosim stocare necesară pentru a reține alegerea ta. Google Analytics este opțional și ne ajută să înțelegem utilizarea site-ului numai dacă îți dai acordul.</span> <button class="text-link" type="button" data-open-modal="privacy_modal" data-i18n="privacy_link">Politica de confidențialitate</button></p>
+      <label class="cookie-setting">
+        <input type="checkbox" id="analytics_consent">
+        <span><strong data-i18n="analytics_title">Analytics opțional</strong><span data-i18n="analytics_desc">Permit Google Analytics pentru statistici de vizitare. Această opțiune nu este bifată implicit.</span></span>
+      </label>
+      <div class="cookie-actions">
+        <button class="cookie-btn" type="button" id="reject_cookies" data-i18n="cookie_reject">Doar necesare</button>
+        <button class="cookie-btn" type="button" id="save_cookies" data-i18n="cookie_save">Salvează alegerea</button>
+        <button class="cookie-btn primary" type="button" id="accept_cookies" data-i18n="cookie_accept">Accept Analytics</button>
+      </div>
+    </div>
+  </aside>
 
   <script>
     let currentLang = 'ro';
@@ -490,7 +586,12 @@
         shop_shirts_kicker:"Nsport`s collection", shop_shirts_title:"Tricouri Nsport`s", shop_shirts_desc:"Deschide miniwebshopul pentru tricouri: modele, culori, mărimi, coș și trimitere comandă.", shop_shirts_btn:"👕 Deschide pagina tricouri",
         shop_trainings_kicker:"Patrick training", shop_trainings_title:"Treninguri Patrick", shop_trainings_desc:"Deschide miniwebshopul pentru treninguri Patrick: modele, culori, mărimi, coș și trimitere comandă.", shop_trainings_btn:"🔥 Deschide pagina treninguri",
         shop_tag_order:"Comandă", shop_tag_tshirts:"Tricouri", shop_tag_training:"Training",
-        contact_title:"Contact – Nagy Stelian", contact_call:"📞 Sună-ne", contact_email:"✉️ Email", contact_wa:"💬 WhatsApp direct", mobile_gallery_small:"Imagini promo", mobile_gallery_title:"Galerie", credit_text:"Mini webshop design: NextN-Digital"
+        contact_title:"Contact – Nagy Stelian", contact_call:"📞 Sună-ne", contact_email:"✉️ Email", contact_wa:"💬 WhatsApp direct", mobile_gallery_small:"Imagini promo", mobile_gallery_title:"Galerie", credit_text:"Mini webshop design: NextN-Digital",
+        offer_consent:"Am citit Politica de confidențialitate și accept Termenii și condițiile înainte de a solicita oferta.", offer_consent_error:"Pentru a solicita oferta, te rugăm să confirmi citirea politicii și să accepți termenii.",
+        footer_copy:"© 2026 Nsport`s - Nagy Stelian. Toate drepturile rezervate.", privacy_link:"Politica de confidențialitate", terms_link:"Termeni și condiții", cookie_settings_link:"Setări cookies",
+        privacy_title:"Politica de confidențialitate", privacy_updated:"Ultima actualizare: 26 mai 2026", privacy_operator_title:"Operator și contact", privacy_operator:"Operatorul site-ului este Nsport`s - Nagy Stelian. Pentru întrebări sau solicitări privind datele personale: steliannagy@yahoo.com sau +40 740 901 573.", privacy_data_title:"Date prelucrate și scop", privacy_data:"Când ne contactezi sau soliciți o ofertă, putem prelucra numele, datele de contact, clubul și detaliile comenzii pentru a răspunde cererii, a pregăti oferta și a comunica despre comandă.", privacy_analytics_title:"Analytics și cookies", privacy_analytics:"Google Analytics este încărcat numai după consimțământul tău separat pentru statistici. Poți retrage sau modifica alegerea oricând din Setări cookies din subsol. Alegerea ta este stocată local pentru a fi reținută.", privacy_sharing_title:"Destinatari și drepturi", privacy_sharing:"Mesajele sunt transmise prin serviciul ales de tine, de exemplu email sau WhatsApp; paginile externe au propriile politici. Poți solicita accesul, rectificarea, ștergerea, restricționarea sau opoziția privind datele tale prin datele de contact de mai sus.",
+        terms_title:"Termeni și condiții", terms_updated:"Ultima actualizare: 26 mai 2026", terms_use_title:"Utilizarea site-ului", terms_use:"Site-ul prezintă produse, cataloage și date de contact Nsport`s. Cataloagele și imaginile sunt informative; disponibilitatea, personalizarea și prețul final se confirmă în ofertă sau comandă.", terms_order_title:"Cereri și comenzi", terms_order:"Trimiterea unei cereri de ofertă nu reprezintă automat o comandă acceptată. Contractul se formează numai după confirmarea expresă a produselor, prețului, livrării și plății de către părți.", terms_external_title:"Linkuri externe și contact", terms_external:"Site-ul poate deschide cataloage sau miniwebshopuri găzduite extern. Pentru informații despre produse, comenzi sau acești termeni, contactează-ne la steliannagy@yahoo.com sau +40 740 901 573.",
+        cookie_title:"Preferințe cookies", cookie_text:"Folosim stocare necesară pentru a reține alegerea ta. Google Analytics este opțional și ne ajută să înțelegem utilizarea site-ului numai dacă îți dai acordul.", analytics_title:"Analytics opțional", analytics_desc:"Permit Google Analytics pentru statistici de vizitare. Această opțiune nu este bifată implicit.", cookie_reject:"Doar necesare", cookie_save:"Salvează alegerea", cookie_accept:"Accept Analytics"
       },
       hu: {
         top_brand:"Nsport`s", nav_home:"Kezdőlap", nav_event:"Esemény", nav_judo:"Judo", nav_catalogs:"Katalógusok", nav_products:"Webshop", nav_contact:"Kapcsolat",
@@ -512,7 +613,12 @@
         shop_shirts_kicker:"Nsport`s collection", shop_shirts_title:"Nsport`s pólók", shop_shirts_desc:"Nyisd meg a pólós miniwebshopot: modellek, színek, méretek, kosár és rendelésküldés.", shop_shirts_btn:"👕 Pólós oldal megnyitása",
         shop_trainings_kicker:"Patrick training", shop_trainings_title:"Patrick treningek", shop_trainings_desc:"Nyisd meg a traininges miniwebshopot: Patrick treningek, színek, méretek, kosár és rendelésküldés.", shop_trainings_btn:"🔥 Training oldal megnyitása",
         shop_tag_order:"Rendelés", shop_tag_tshirts:"Pólók", shop_tag_training:"Training",
-        contact_title:"Kapcsolat – Nagy Stelian", contact_call:"📞 Hívás", contact_email:"✉️ Email", contact_wa:"💬 WhatsApp", mobile_gallery_small:"Promó képek", mobile_gallery_title:"Galéria", credit_text:"Mini webshop design: NextN-Digital"
+        contact_title:"Kapcsolat – Nagy Stelian", contact_call:"📞 Hívás", contact_email:"✉️ Email", contact_wa:"💬 WhatsApp", mobile_gallery_small:"Promó képek", mobile_gallery_title:"Galéria", credit_text:"Mini webshop design: NextN-Digital",
+        offer_consent:"Elolvastam az Adatvédelmi tájékoztatót, és elfogadom az Általános szerződési feltételeket az ajánlatkérés előtt.", offer_consent_error:"Az ajánlatkéréshez kérjük, igazold az adatvédelmi tájékoztató elolvasását és fogadd el a feltételeket.",
+        footer_copy:"© 2026 Nsport`s - Nagy Stelian. Minden jog fenntartva.", privacy_link:"Adatvédelmi tájékoztató", terms_link:"Általános szerződési feltételek", cookie_settings_link:"Cookie-beállítások",
+        privacy_title:"Adatvédelmi tájékoztató", privacy_updated:"Utolsó frissítés: 2026. május 26.", privacy_operator_title:"Adatkezelő és kapcsolat", privacy_operator:"A weboldal üzemeltetője az Nsport`s - Nagy Stelian. Személyes adatokkal kapcsolatos kérés esetén írj a steliannagy@yahoo.com címre vagy hívd a +40 740 901 573 számot.", privacy_data_title:"Kezelt adatok és cél", privacy_data:"Kapcsolatfelvételkor vagy ajánlatkéréskor a nevet, elérhetőséget, klubnevet és rendelési részleteket a megkeresés megválaszolásához, az ajánlat elkészítéséhez és a rendelés egyeztetéséhez kezelhetjük.", privacy_analytics_title:"Analytics és cookie-k", privacy_analytics:"A Google Analytics kizárólag a statisztikai célú, külön hozzájárulásod után töltődik be. Választásodat bármikor megváltoztathatod a lábléc Cookie-beállítások menüpontjában. A választást helyben tároljuk, hogy megjegyezzük.", privacy_sharing_title:"Címzettek és jogaid", privacy_sharing:"Üzeneted az általad választott szolgáltatáson, például emailen vagy WhatsAppon keresztül továbbítódik; a külső oldalakra saját szabályzataik vonatkoznak. Kérheted adataid hozzáférését, helyesbítését, törlését, korlátozását vagy tiltakozhatsz kezelésük ellen a fenti elérhetőségeken.", 
+        terms_title:"Általános szerződési feltételek", terms_updated:"Utolsó frissítés: 2026. május 26.", terms_use_title:"A weboldal használata", terms_use:"A weboldal Nsport`s termékeket, katalógusokat és kapcsolati adatokat mutat be. A katalógusok és képek tájékoztató jellegűek; az elérhetőséget, személyre szabást és végleges árat ajánlatban vagy rendelésben erősítjük meg.", terms_order_title:"Ajánlatkérések és rendelések", terms_order:"Az ajánlatkérés elküldése önmagában nem jelent elfogadott rendelést. Szerződés csak akkor jön létre, amikor a felek kifejezetten megerősítik a termékeket, árat, szállítást és fizetést.", terms_external_title:"Külső linkek és kapcsolat", terms_external:"A weboldal külső helyen tárolt katalógusokat vagy miniwebshopokat nyithat meg. Termékekkel, rendeléssel vagy ezekkel a feltételekkel kapcsolatban írj a steliannagy@yahoo.com címre vagy hívd a +40 740 901 573 számot.",
+        cookie_title:"Cookie-beállítások", cookie_text:"A választásod megjegyzéséhez szükséges helyi tárolást használunk. A Google Analytics opcionális, és csak beleegyezésed után segít megérteni az oldal használatát.", analytics_title:"Opcionális Analytics", analytics_desc:"Engedélyezem a Google Analytics látogatási statisztikáit. Ez az opció alapból nincs bejelölve.", cookie_reject:"Csak szükséges", cookie_save:"Választás mentése", cookie_accept:"Analytics elfogadása"
       },
       en: {
         top_brand:"Nsport`s", nav_home:"Home", nav_event:"Event", nav_judo:"Judo", nav_catalogs:"Catalogs", nav_products:"Webshop", nav_contact:"Contact",
@@ -534,12 +640,67 @@
         shop_shirts_kicker:"Nsport`s collection", shop_shirts_title:"Nsport`s T-shirts", shop_shirts_desc:"Open the T-shirt mini webshop: models, colors, sizes, cart and order sending.", shop_shirts_btn:"👕 Open T-shirt page",
         shop_trainings_kicker:"Patrick training", shop_trainings_title:"Patrick tracksuits", shop_trainings_desc:"Open the Patrick training mini webshop: models, colors, sizes, cart and order sending.", shop_trainings_btn:"🔥 Open training page",
         shop_tag_order:"Order", shop_tag_tshirts:"T-shirts", shop_tag_training:"Training",
-        contact_title:"Contact – Nagy Stelian", contact_call:"📞 Call us", contact_email:"✉️ Email", contact_wa:"💬 WhatsApp", mobile_gallery_small:"Promo images", mobile_gallery_title:"Gallery", credit_text:"Mini webshop design: NextN-Digital"
+        contact_title:"Contact – Nagy Stelian", contact_call:"📞 Call us", contact_email:"✉️ Email", contact_wa:"💬 WhatsApp", mobile_gallery_small:"Promo images", mobile_gallery_title:"Gallery", credit_text:"Mini webshop design: NextN-Digital",
+        offer_consent:"I have read the Privacy Policy and accept the Terms & Conditions before requesting an offer.", offer_consent_error:"Please confirm that you have read the privacy policy and accept the terms before requesting an offer.",
+        footer_copy:"© 2026 Nsport`s - Nagy Stelian. All rights reserved.", privacy_link:"Privacy Policy", terms_link:"Terms & Conditions", cookie_settings_link:"Cookie settings",
+        privacy_title:"Privacy Policy", privacy_updated:"Last updated: 26 May 2026", privacy_operator_title:"Controller and contact", privacy_operator:"This website is operated by Nsport`s - Nagy Stelian. For personal data questions or requests, contact steliannagy@yahoo.com or +40 740 901 573.", privacy_data_title:"Data processed and purpose", privacy_data:"When you contact us or request an offer, we may process your name, contact details, club and order details to answer your request, prepare an offer and communicate about an order.", privacy_analytics_title:"Analytics and cookies", privacy_analytics:"Google Analytics loads only after your separate consent for statistics. You can withdraw or change your choice at any time through Cookie settings in the footer. Your preference is stored locally so it can be remembered.", privacy_sharing_title:"Recipients and rights", privacy_sharing:"Messages are transmitted through the service you choose, such as email or WhatsApp; external pages have their own policies. You may request access, correction, deletion, restriction or object to processing of your data using the contact information above.",
+        terms_title:"Terms & Conditions", terms_updated:"Last updated: 26 May 2026", terms_use_title:"Use of this website", terms_use:"This website displays Nsport`s products, catalogs and contact details. Catalogs and images are informative; availability, customization and final pricing are confirmed in an offer or order.", terms_order_title:"Requests and orders", terms_order:"Sending an offer request does not automatically constitute an accepted order. A contract is formed only after the parties expressly confirm products, price, delivery and payment.", terms_external_title:"External links and contact", terms_external:"This website may open externally hosted catalogs or mini webshops. For product, order or terms questions, contact steliannagy@yahoo.com or +40 740 901 573.",
+        cookie_title:"Cookie preferences", cookie_text:"We use necessary local storage to remember your choice. Google Analytics is optional and helps us understand website usage only if you consent.", analytics_title:"Optional analytics", analytics_desc:"Allow Google Analytics for visit statistics. This option is not selected by default.", cookie_reject:"Necessary only", cookie_save:"Save choice", cookie_accept:"Accept Analytics"
       }
     };
 
     const OFFER_EMAIL = "steliannagy@yahoo.com";
+    const ANALYTICS_ID = "G-7EDEEFBP31";
+    const CONSENT_KEY = "nsport_cookie_consent_v1";
+    let analyticsLoaded = false;
     function buildMailto(subject, body){return `mailto:${OFFER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;}
+
+    function loadAnalytics(){
+      if(analyticsLoaded) return;
+      analyticsLoaded = true;
+      window[`ga-disable-${ANALYTICS_ID}`] = false;
+      gtag('consent', 'update', {analytics_storage:'granted'});
+      const tag = document.createElement("script");
+      tag.async = true;
+      tag.src = `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}`;
+      tag.onload = () => gtag('config', ANALYTICS_ID, {anonymize_ip:true});
+      document.head.appendChild(tag);
+    }
+
+    function clearAnalyticsCookies(){
+      document.cookie.split(";").forEach(cookie => {
+        const name = cookie.split("=")[0].trim();
+        if(name === "_ga" || name.startsWith("_ga_")){
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${location.hostname}`;
+        }
+      });
+    }
+
+    function disableAnalytics(){
+      window[`ga-disable-${ANALYTICS_ID}`] = true;
+      gtag('consent', 'update', {analytics_storage:'denied'});
+      clearAnalyticsCookies();
+    }
+
+    function getConsent(){
+      try { return JSON.parse(localStorage.getItem(CONSENT_KEY)); }
+      catch(error) { return null; }
+    }
+
+    function saveConsent(allowAnalytics){
+      try {
+        localStorage.setItem(CONSENT_KEY, JSON.stringify({analytics:allowAnalytics, updatedAt:new Date().toISOString()}));
+      } catch(error) {}
+      allowAnalytics ? loadAnalytics() : disableAnalytics();
+      document.getElementById("cookie_banner").classList.remove("active");
+    }
+
+    function showCookieSettings(){
+      const preference = getConsent();
+      document.getElementById("analytics_consent").checked = Boolean(preference && preference.analytics);
+      document.getElementById("cookie_banner").classList.add("active");
+    }
 
     function applyOfferLinks(lang){
       const clubBtn = document.getElementById("club_offer_btn");
@@ -637,6 +798,59 @@ Oraș livrare:
     setupEmbed("judo_mizuno_view_embed","judo_mizuno_embed","judo_mizuno_iframe","judo_mizuno_close","https://drive.google.com/file/d/1OFNFWxsXJha76izK14XxAJYnH-gOdB2c/preview");
     setupEmbed("judo_dax_view_embed","judo_dax_embed","judo_dax_iframe","judo_dax_close","https://drive.google.com/file/d/1Gqaai-W81M586lnGL69OmXENUYMi517c/preview");
 
+    document.querySelectorAll("[data-open-modal]").forEach(button => {
+      button.addEventListener("click", () => {
+        document.getElementById(button.dataset.openModal).classList.add("active");
+        document.body.classList.add("modal-open");
+      });
+    });
+    document.querySelectorAll("[data-close-modal]").forEach(button => {
+      button.addEventListener("click", () => {
+        button.closest(".legal-modal").classList.remove("active");
+        document.body.classList.remove("modal-open");
+      });
+    });
+    document.querySelectorAll(".legal-modal").forEach(modal => {
+      modal.addEventListener("click", event => {
+        if(event.target === modal){
+          modal.classList.remove("active");
+          document.body.classList.remove("modal-open");
+        }
+      });
+    });
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape"){
+        document.querySelectorAll(".legal-modal.active").forEach(modal => modal.classList.remove("active"));
+        document.body.classList.remove("modal-open");
+      }
+    });
+
+    const offerConsent = document.getElementById("offer_legal_consent");
+    const offerError = document.getElementById("offer_consent_error");
+    document.getElementById("club_offer_btn").addEventListener("click", event => {
+      if(!offerConsent.checked){
+        event.preventDefault();
+        offerError.classList.add("active");
+        offerConsent.focus();
+      }
+    });
+    offerConsent.addEventListener("change", () => {
+      if(offerConsent.checked) offerError.classList.remove("active");
+    });
+
+    document.getElementById("cookie_settings_btn").addEventListener("click", showCookieSettings);
+    document.getElementById("accept_cookies").addEventListener("click", () => {
+      document.getElementById("analytics_consent").checked = true;
+      saveConsent(true);
+    });
+    document.getElementById("reject_cookies").addEventListener("click", () => {
+      document.getElementById("analytics_consent").checked = false;
+      saveConsent(false);
+    });
+    document.getElementById("save_cookies").addEventListener("click", () => {
+      saveConsent(document.getElementById("analytics_consent").checked);
+    });
+
     function rotateImages(imgId, images, interval){
       const img = document.getElementById(imgId);
       if(!img || !images.length) return;
@@ -661,6 +875,12 @@ Oraș livrare:
     document.getElementById("btn-ro").addEventListener("click", () => setLanguage("ro"));
     document.getElementById("btn-en").addEventListener("click", () => setLanguage("en"));
     setLanguage("ro");
+    const initialConsent = getConsent();
+    if(initialConsent){
+      initialConsent.analytics ? loadAnalytics() : disableAnalytics();
+    } else {
+      showCookieSettings();
+    }
   </script>
 </body>
 </html>
